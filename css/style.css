@@ -1,59 +1,30 @@
-@charset "UTF-8";
 @font-face {
-  font-family: 'Helvetica';
-  src: local("Helvetica-Italic"), local("Helvetica-Italic"), url("/local/templates/quickstep-floors/fonts/Helvetica-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Helvetica';
-  src: local("Helvetica-Regular"), local("Helvetica-Regular"), url("/local/templates/quickstep-floors/fonts/Helvetica-Regular.ttf") format("truetype");
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.eot');
+  src: local('Inter Regular'), local('Inter-Regular'), url('/fonts/Inter-Regular.eot?#iefix') format('embedded-opentype'), url('/fonts/Inter-Regular.woff2') format('woff2'), url('/fonts/Inter-Regular.woff') format('woff'), url('/fonts/Inter-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: 'Helvetica';
-  src: local("Helvetica-MediumItalic"), local("Helvetica-MediumItalic"), url("/local/templates/quickstep-floors/fonts/Helvetica-MediumItalic.ttf") format("truetype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Helvetica';
-  src: local("Helvetica-Medium"), local("Helvetica-Medium"), url("/local/templates/quickstep-floors/fonts/Helvetica-Medium.ttf") format("truetype");
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Medium.eot');
+  src: local('Inter Medium'), local('Inter-Medium'), url('/fonts/Inter-Medium.eot?#iefix') format('embedded-opentype'), url('/fonts/Inter-Medium.woff2') format('woff2'), url('/fonts/Inter-Medium.woff') format('woff'), url('/fonts/Inter-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: 'Helvetica';
-  src: local("Helvetica-LightItalic"), local("Helvetica-LightItalic"), url("/local/templates/quickstep-floors/fonts/Helvetica-LightItalic.ttf") format("truetype");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Helvetica';
-  src: local("Helvetica-Light"), local("Helvetica-Light"), url("/local/templates/quickstep-floors/fonts/Helvetica-Light.ttf") format("truetype");
-  font-weight: 300;
+  font-family: 'Inter';
+  src: url('/fonts/Inter-SemiBold.eot');
+  src: local('Inter Semi Bold'), local('Inter-SemiBold'), url('/fonts/Inter-SemiBold.eot?#iefix') format('embedded-opentype'), url('/fonts/Inter-SemiBold.woff2') format('woff2'), url('/fonts/Inter-SemiBold.woff') format('woff'), url('/fonts/Inter-SemiBold.ttf') format('truetype');
+  font-weight: 600;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: 'Helvetica';
-  src: local("Helvetica-BoldItalic"), local("Helvetica-BoldItalic"), url("/local/templates/quickstep-floors/fonts/Helvetica-BoldItalic.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Helvetica';
-  src: local("Helvetica-Bold"), local("Helvetica-Bold"), url("/local/templates/quickstep-floors/fonts/Helvetica-Bold.ttf") format("truetype");
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Bold.eot');
+  src: local('Inter Bold'), local('Inter-Bold'), url('/fonts/Inter-Bold.eot?#iefix') format('embedded-opentype'), url('/fonts/Inter-Bold.woff2') format('woff2'), url('/fonts/Inter-Bold.woff') format('woff'), url('/fonts/Inter-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
 }
 /* stylelint-disable */
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -542,7 +513,7 @@ img {
   background-color: rgba(0, 0, 0, 0.5);
   color: #ffffff;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
 }
@@ -1009,7 +980,7 @@ li > a:focus {
   transition: opacity 0.5s;
   padding: 32px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
 }
@@ -1032,7 +1003,7 @@ li > a:focus {
 }
 .bc__item {
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
   color: #a0a0a0;
@@ -1119,7 +1090,7 @@ li > a:focus {
 .content-page__desc {
   margin-top: 18px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
 }
@@ -1204,7 +1175,7 @@ form textarea::-webkit-input-placeholder,
 form select,
 form select option[value=""][disabled] {
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
   color: rgba(11, 31, 53, 0.64);
 }
@@ -1214,7 +1185,7 @@ form textarea::-ms-input-placeholder,
 form select,
 form select option[value=""][disabled] {
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
   color: rgba(11, 31, 53, 0.64);
 }
@@ -1224,7 +1195,7 @@ form textarea::placeholder,
 form select,
 form select option[value=""][disabled] {
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
   color: rgba(11, 31, 53, 0.64);
 }
@@ -1232,7 +1203,7 @@ form input,
 form textarea,
 form select option {
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
   color: #1d1d1f;
 }
@@ -1499,6 +1470,7 @@ input[type="radio"]:checked + label::before {
 }
 .slider-counter {
   position: relative;
+  overflow: hidden;
 }
 .slider-counter__control {
   background: #ffffff;
@@ -1793,7 +1765,7 @@ input[type="radio"]:checked + label::before {
 }
 .text-block__desc p {
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 32px;
@@ -1866,7 +1838,7 @@ input[type="radio"]:checked + label::before {
 }
 .block-bg__desc p {
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
   margin-top: 0;
@@ -1949,7 +1921,7 @@ input[type="radio"]:checked + label::before {
   margin: 0;
   padding: 16px 0;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
 }
@@ -1989,7 +1961,7 @@ input[type="radio"]:checked + label::before {
 }
 .post__main {
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
 }
@@ -2107,7 +2079,7 @@ input[type="radio"]:checked + label::before {
   background-color: #f2f2f8;
   color: #1d1d1f;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   border-radius: 8px;
@@ -2313,7 +2285,7 @@ input[type="radio"]:checked + label::before {
   background-color: #1d1d1f;
   color: #a0a0a0;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -2841,7 +2813,7 @@ input[type="radio"]:checked + label::before {
 }
 .project__desc p {
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -2894,7 +2866,7 @@ input[type="radio"]:checked + label::before {
       -ms-flex-direction: column;
           flex-direction: column;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 1.5;
 }
 .contact-block__title {
@@ -2917,4 +2889,34 @@ a.contact-block__title:focus {
 }
 .vacancy__btn {
   margin-top: 56px;
+}
+.reward__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 24px 0;
+}
+.reward-wrapper + .reward-wrapper {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.reward-wrapper:hover .reward__desc {
+  color: #a0a0a0;
+}
+.reward__img-wrapper {
+  margin-right: 40px;
+}
+.reward__img-wrapper img {
+  min-width: 55px;
+}
+.reward__desc {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1d1d1f;
 }
