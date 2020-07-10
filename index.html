@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Официальный сайт компании М.П.А. медицинские партнеры">
   <title>MPA</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
@@ -17,10 +18,6 @@
 </head>
 
 <body>
-  <div style="display: none">
-    <include src="source/img/sprite.svg"></include>
-  </div>
-
   <header class="header">
     <div class="header__map">
       <div class="header__container container">
@@ -53,7 +50,7 @@
     <div class="header__nav">
       <div class="header__container container">
         <nav class="navbar">
-          <a class="navbar__brand" href="index.html">
+          <a class="navbar__brand" href="index.html" aria-label="Перейти на главную страницу">
             <img src="img/logo.png" alt="">
           </a>
           <button class="navbar__toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
@@ -64,12 +61,10 @@
           <nav class="collapse navbar__collapse" id="navbar-menu">
             <ul class="navbar__nav">
               <li class="nav__item dropdown">
-                <a class="nav__link" href="/"
-                  aria-haspopup="true">
+                <a class="nav__link" href="/" aria-haspopup="true">
                   О компании
                 </a>
-                <button class="dropdown__toggle"  aria-label="Открыть меню"  role="button"
-                  aria-haspopup="true">
+                <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
                 </button>
                 <ul class="dropdown__menu">
                   <li class="dropdown__item">
@@ -97,7 +92,7 @@
                 <a class="nav__link" href="/">Наши проекты</a>
               </li>
             </ul>
-            <form class="navbar__form" method="POST" action="">
+            <form class="navbar__form" method="POST" action="/">
               <input class="" name="search" type="search" aria-label="Поиск по сайту" placeholder="Поиск по сайту">
             </form>
           </nav>
@@ -123,7 +118,7 @@
               </div>
             </div>
 
-            <img src="img/slider-1.jpg" alt="">
+            <img data-lazy="img/slider-1.jpg" alt="">
           </div>
           <div class="info__item">
             <div class="info__container container">
@@ -134,7 +129,7 @@
               </div>
             </div>
 
-            <img src="img/news-1.jpg" alt="">
+            <img data-lazy="img/news-1.jpg" alt="">
           </div>
           <div class="info__item">
             <div class="info__container container">
@@ -145,7 +140,7 @@
               </div>
             </div>
 
-            <img src="img/slider-1.jpg" alt="">
+            <img data-lazy="img/slider-1.jpg" alt="">
           </div>
           <div class="info__item">
             <div class="info__container container">
@@ -156,7 +151,7 @@
               </div>
             </div>
 
-            <img src="img/news-1.jpg" alt="">
+            <img data-lazy="img/news-1.jpg" alt="">
           </div>
           <div class="info__item">
             <div class="info__container container">
@@ -167,13 +162,13 @@
               </div>
             </div>
 
-            <img src="img/slider-1.jpg" alt="">
+            <img data-lazy="img/slider-1.jpg" alt="">
           </div>
         </div>
 
         <div class="slider-counter__control-container container">
           <div class="slider-counter__control">
-            <div class="slider-counter__counter"></div>
+            <div class="slider-counter__counter" aria-hidden="true"></div>
             <div class="slider-counter__btns"></div>
           </div>
         </div>
@@ -247,9 +242,8 @@
                     Серия web-семинаров "Актуальные вопросы урогинекологии"
                   </a>
                 </h3>
-                <time class="preview__date date">19.05.2020</time>
+                <span class="preview__date date">19.05.2020</span>
               </div>
-              </a>
             </article>
           </li>
           <!-- Новость -->
@@ -271,7 +265,7 @@
                     Респираторная поддержка пациентов при COVID-19
                   </a>
                 </h3>
-                <time class="preview__date date">15.04.2020</time>
+                <span class="preview__date date">15.04.2020</span>
               </div>
             </article>
           </li>
@@ -293,7 +287,7 @@
                     Телескопические штанги RTS и RTI от Ropimex.
                   </a>
                 </h3>
-                <time class="preview__date date">27.03.2020</time>
+                <span class="preview__date date">27.03.2020</span>
               </div>
             </article>
           </li>
@@ -343,19 +337,19 @@
         <ul class="services__list row">
           <!-- Услуга -->
           <li class="services__item col-8">
-            <a href="/" class="block-bg">
+            <a href="/" class="block-bg" aria-label="Перейти на страницу услуги">
               <div class="block-bg__img-wrapper">
                 <img src="img/service-1.jpg" alt="">
               </div>
 
-              <div class="block-bg__desc" aria-label="Перейти на страницу услуги">
+              <div class="block-bg__desc">
                 <h3>Проектирование ЛПУ «под ключ»</h3>
                 <p>Проектирование лечебно-профилактических учреждений, специализированных производственных зданий, а
                   также разработка дизайн проектов любой степени сложности. Поставка климатизированных модулей «чистые
                   помещения» для операционных и отделений интенсивной терапии.</p>
 
                 <div class="block-bg__btn">
-                  <button class="btn-slider" type="button" tabindex="-1"></button>
+                  <span class="btn-slider" type="button" aria-hidden="true"></span>
                   <span>Подробнее</span>
                 </div>
               </div>
@@ -365,12 +359,12 @@
 
           <!-- Услуга -->
           <li class="services__item col-4">
-            <a href="/" class="block-bg">
+            <a href="/" class="block-bg" aria-label="Перейти на страницу услуги">
               <div class="block-bg__img-wrapper">
                 <img src="img/service-2.jpg" alt="">
               </div>
 
-              <div href="/" class="block-bg__desc" aria-label="Перейти на страницу услуги">
+              <div class="block-bg__desc">
                 <h3>
                   Кабинеты «под ключ»
                 </h3>
@@ -378,7 +372,7 @@
                   пациентам.</p>
 
                 <div class="block-bg__btn">
-                  <button class="btn-slider" type="button" tabindex="-1"></button>
+                  <span class="btn-slider" type="button" aria-hidden="true"></span>
                   <span>Подробнее</span>
                 </div>
               </div>
@@ -388,12 +382,12 @@
 
           <!-- Услуга -->
           <li class="services__item col-4">
-            <a href="/" class="block-bg">
+            <a href="/" class="block-bg" aria-label="Перейти на страницу услуги">
               <div class="block-bg__img-wrapper">
                 <img src="img/service-3.jpg" alt="">
               </div>
 
-              <div href="/" class="block-bg__desc" aria-label="Перейти на страницу услуги">
+              <div class="block-bg__desc">
                 <h3>
                   Медицинский лизинг
                 </h3>
@@ -401,7 +395,7 @@
                   пациентам самые современные и совершенные методики лечения.</p>
 
                 <div class="block-bg__btn">
-                  <button class="btn-slider" type="button" tabindex="-1"></button>
+                  <span class="btn-slider" type="button" aria-hidden="true"></span>
                   <span>Подробнее</span>
                 </div>
               </div>
@@ -411,12 +405,12 @@
 
           <!-- Услуга -->
           <li class="services__item col-8">
-            <a href="/" class="block-bg">
+            <a href="/" class="block-bg" aria-label="Перейти на страницу услуги">
               <div class="block-bg__img-wrapper">
                 <img src="img/service-4.jpg" alt="">
               </div>
 
-              <div href="/" class="block-bg__desc" aria-label="Перейти на страницу услуги">
+              <div class="block-bg__desc">
                 <h3>
                   Сервис и ремонт медицинской техники
                 </h3>
@@ -424,7 +418,7 @@
                   ремонт и поставку запасных частей для медицинского оборудования.</p>
 
                 <div class="block-bg__btn">
-                  <button class="btn-slider" type="button" tabindex="-1"></button>
+                  <span class="btn-slider" type="button" aria-hidden="true"></span>
                   <span>Подробнее</span>
                 </div>
               </div>
@@ -434,12 +428,12 @@
 
           <!-- Услуга -->
           <li class="services__item col-8">
-            <a href="/" class="block-bg">
+            <a href="/" class="block-bg" aria-label="Перейти на страницу услуги">
               <div class="block-bg__img-wrapper">
                 <img src="img/service-5.jpg" alt="">
               </div>
 
-              <div href="/" class="block-bg__desc" aria-label="Перейти на страницу услуги">
+              <div class="block-bg__desc">
                 <h3>
                   Комплексное оснащение ЛПУ «под ключ»
                 </h3>
@@ -448,7 +442,7 @@
                   помещения» для операционных и отделений интенсивной терапии.</p>
 
                 <div class="block-bg__btn">
-                  <button class="btn-slider" type="button" tabindex="-1"></button>
+                  <span class="btn-slider" type="button" aria-hidden="true"></span>
                   <span>Подробнее</span>
                 </div>
               </div>
@@ -458,12 +452,12 @@
 
           <!-- Услуга -->
           <li class="services__item col-4">
-            <a href="/" class="block-bg">
+            <a href="/" class="block-bg" aria-label="Перейти на страницу услуги">
               <div class="block-bg__img-wrapper">
                 <img src="img/service-6.jpg" alt="">
               </div>
 
-              <div href="/" class="block-bg__desc" aria-label="Перейти на страницу услуги">
+              <div class="block-bg__desc">
                 <h3>
                   Инновационные технологии
                 </h3>
@@ -471,7 +465,7 @@
                   пациентам самые современные.</p>
 
                 <div class="block-bg__btn">
-                  <button class="btn-slider" type="button" tabindex="-1"></button>
+                  <span class="btn-slider" type="button" aria-hidden="true"></span>
                   <span>Подробнее</span>
                 </div>
               </div>
@@ -538,7 +532,8 @@
             </div>
           </div>
 
-          <div class="slider-counter__control slider-counter__counter"></div>
+          <div class="slider-counter__control slider-counter__counter" aria-hidden="true">
+          </div>
           <div class="slider-counter__control slider-counter__btns"></div>
         </div>
       </div>
@@ -579,14 +574,13 @@
     <!-- Обратная связь -->
     <section class="feedback">
       <div class="feedback__container container container--content">
-        <div class="feedback__title title">
-          <h2 class="title__header">Свяжитесь с нами для обратной связи</h2>
-        </div>
-
         <div class="row">
           <!-- Форма -->
           <div class="col-8">
-            <form class="feedback__form form" method="POST" action="">
+            <div class="feedback__title title">
+              <h2 class="title__header">Свяжитесь с нами для обратной связи</h2>
+            </div>
+            <form class="feedback__form form" method="POST" action="/">
               <div class="form__row">
                 <div class="form__item">
                   <input type="text" name="name" id="name" autocomplete="off" placeholder="Ваше имя">
@@ -605,7 +599,8 @@
                 </div>
                 <div class="form__item">
                   <div class="select">
-                    <select placeholder="Выберите интересующую вас услугу" name="service">
+                    <label class="visually-hidden" for="service">Выбор услуги</label>
+                    <select name="service" id="service">
                       <option disabled selected hidden value="">Выберите интересующую вас услугу</option>
                       <option value="1">Услуга 1</option>
                       <option value="2">Услуга 2</option>
@@ -617,8 +612,8 @@
               </div>
 
               <div class="form__item">
+                <label class="visually-hidden" for="message">Ваше сообщение</label>
                 <textarea name="message" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
-                <label for="message">Ваше сообщение</label>
               </div>
 
               <div class="form__footer">
@@ -636,29 +631,11 @@
           <!-- Форма -->
 
 
-          <!-- Контакты -->
           <div class="col-4">
-            <div class="feedback__contact contact-block">
-              <div class="contact-block__item">
-                <h3 class="visually-hidden">Адрес</h3>
-                <span class="contact-block__title">Москва, ул. 8 Марта, дом 1, строение 12</span>
-              </div>
-
-              <div class="contact-block__item">
-                <h3 class="visually-hidden">Телефон</h3>
-                <a class="contact-block__title" href="tel:+74959213088" aria-label="Позвонить">+7 (495) 921-30-88</a>
-                <span>Звоните нам пн — пт с 9 до 18 по МСК</span>
-              </div>
-
-              <div class="contact-block__item">
-                <h3 class="visually-hidden">Электронная почта</h3>
-                <a class="contact-block__title" href="mailto:info@mpamed.ru"
-                  aria-label="Написать на почту">info@mpamed.ru</a>
-                <span>Пишите по вопросам сотрудничества</span>
-              </div>
+            <div class="feedback__img">
+              <img src="img/service-1.jpg" alt="">
             </div>
           </div>
-          <!-- Контакты -->
         </div>
       </div>
     </section>
@@ -761,7 +738,7 @@
           <div class="col-6 pl-2">
             <ul class="footer__list footer__list--social social social--light">
               <li>
-                <a href="/" title="Вконтакте" target="_blank">
+                <a href="/" title="Вконтакте" target="_blank" aria-label="Перейти на сайт Вконтакте">
                   <svg width="20" height="20" viewBox="0 0 20 20">
                     <g opacity="0.5">
                       <path
@@ -771,7 +748,7 @@
                 </a>
               </li>
               <li>
-                <a href="/" title="Facebook" target="_blank">
+                <a href="/" title="Facebook" target="_blank" aria-label="Перейти на сайт Facebook">
                   <svg width="20" height="20" viewBox="0 0 20 20">
                     <g opacity="0.5">
                       <path
@@ -781,7 +758,7 @@
                 </a>
               </li>
               <li>
-                <a href="/" title="Одноклассники" target="_blank">
+                <a href="/" title="Одноклассники" target="_blank" aria-label="Перейти на сайт Одноклассники">
                   <svg width="20" height="20" viewBox="0 0 20 20">
                     <g opacity="0.5">
                       <path
@@ -791,7 +768,7 @@
                 </a>
               </li>
               <li>
-                <a href="/" title="YouTube" target="_blank">
+                <a href="/" title="YouTube" target="_blank" aria-label="Перейти на сайт YouTube">
                   <svg width="20" height="20" viewBox="0 0 20 20">
                     <g opacity="0.5">
                       <path

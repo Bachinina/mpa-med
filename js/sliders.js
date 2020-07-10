@@ -20,6 +20,7 @@ $(document).ready(function () {
     speed: 2000,
     draggable: false,
     waitForAnimate: false,
+    lazyLoad: 'ondemand',
     prevArrow: prevArrow,
     nextArrow: nextArrow,
     dots: true,
@@ -27,6 +28,7 @@ $(document).ready(function () {
     autoplaySpeed: 4500,
     customPaging: counter,
   });
+
 
 
   $('#brands-slider').slick({
