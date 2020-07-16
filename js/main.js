@@ -157,6 +157,7 @@ $(document).ready(function () {
         const closeModal = () => {
           modal.classList.remove('active');
 
+
           const form = modal.querySelector('form');
           if (form) {
             // CLEAR FORM
