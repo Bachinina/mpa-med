@@ -17,7 +17,7 @@ $(document).ready(function () {
     appendArrows: $('#info-slider').closest('.slider-counter').find('.slider-counter__btns'),
     appendDots: $('#info-slider').closest('.slider-counter').find('.slider-counter__counter'),
     fade: true,
-    speed: 800,
+    speed: 1100,
     draggable: false,
     waitForAnimate: true,
     lazyLoad: 'ondemand',
@@ -25,7 +25,7 @@ $(document).ready(function () {
     nextArrow: nextArrow,
     dots: true,
     autoplay: true,
-    autoplaySpeed: 4500,
+    autoplaySpeed: 5000,
     customPaging: counter,
   });
 
@@ -38,7 +38,7 @@ $(document).ready(function () {
     slidesToScroll: 1,
     touchTreshold: 30,
     autoplay: true,
-    autoplaySpeed: 4500,
+    autoplaySpeed: 3000,
   });
 
   $('#projects-slider').slick({

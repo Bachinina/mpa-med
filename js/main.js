@@ -97,6 +97,17 @@ $(document).ready(function () {
     $('.acc__item.active').children('.acc__title').click();
   }
 
+
+  // SCROLL ANCHOR
+  $("a[href^='#']").on("click", function(e){
+    var fixed_offset = 35;
+    $('html,body').stop().animate({
+      scrollTop: $(this.hash).offset().top - fixed_offset
+    }, 1000);
+    e.preventDefault();
+    return false;
+  });
+
   // FORM
   // FILE
   $('input[type="file"]').change(function () {
