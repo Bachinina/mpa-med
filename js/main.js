@@ -85,7 +85,7 @@ $(document).ready(function () {
       $(this).trigger('blur');
     }
 
-    $(this).toggleClass('active').next().slideToggle(500);
+    $(this).toggleClass('active');
     if ($(this).hasClass('active')) {
       $(this).next().slideDown(500);
     } else {
@@ -93,9 +93,8 @@ $(document).ready(function () {
     }
   });
 
-  if ($('.acc__item.active').hasClass('active')) {
-    $('.acc__item.active').children('.acc__title').click();
-  }
+  $('.acc__title.active').next().slideDown(0);
+
 
 
   // SCROLL ANCHOR
