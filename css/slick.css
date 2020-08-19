@@ -115,6 +115,12 @@
   height: auto;
   border: 1px solid transparent;
 }
+/*
+.slick-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
 
 .slick-arrow.slick-hidden {
   display: none;
@@ -142,10 +148,31 @@
 }
 
 .slick-dots li button:hover {
-  border-color: rgba(11,31,53,.12);
+  border-color: rgba(11, 31, 53, .12);
 }
 
 .slick-dots li.slick-active button {
   background-color: #0090d4;
-  border-color: rgba(11,31,53,.12);
+  border-color: rgba(11, 31, 53, .12);
 }
+
+.slick-arrow {
+  position: absolute;
+  font-size: 0;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  z-index: 100;
+}
+
+
+.slick-disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+

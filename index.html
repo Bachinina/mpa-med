@@ -72,6 +72,10 @@
                   <li class="dropdown__item">
                     <a class="dropdown__link" href="rewards.html">Награды</a>
                   </li>
+
+                  <li class="dropdown__item">
+                    <a class="dropdown__link" href="contacts.html">Контакты</a>
+                  </li>
                 </ul>
               </li>
               <li class="nav__item">
@@ -85,7 +89,7 @@
                 </a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="/">Наши проекты</a>
+                <a class="nav__link" href="projects.html">Наши проекты</a>
               </li>
             </ul>
             <form class="navbar__form" method="POST" action="/">
@@ -104,7 +108,7 @@
     <section class="info">
       <h2 class="visually-hidden">Акции и предложения</h2>
       <div class="info__slider slider-counter">
-        <div id="info-slider">
+        <div data-main-slider>
           <div class="info__item">
             <div class="info__container container">
               <div class="info__text">
@@ -182,7 +186,7 @@
           <a class="title__link" href="/" aria-label="Перейти на страницу производителей">Все производители</a>
         </div>
 
-        <div class="brands__slider slider-simple" id="brands-slider">
+        <div class="brands__slider slider-simple" data-auto-slider>
           <div class="brand">
             <a class="brand__link" href="/" aria-label="Узнать подробнее о бренде">
               <img src="img/brand-1.png" alt="">
@@ -315,8 +319,10 @@
     <section class="company">
       <div class="company__container container container--content">
         <div class="text-block row">
-          <div class="text-block__title title col-4">
-            <h2 class="title__header">О компании</h2>
+          <div class="col-4">
+            <div class="text-block__title title">
+              <h2 class="title__header">О компании</h2>
+            </div>
           </div>
           <div class="col-8">
             <div class="text-block__desc">
@@ -501,10 +507,10 @@
         </div>
 
         <div class="projects__slider slider-counter">
-          <div id="projects-slider">
-            <div class="project">
+          <div data-desc-slider>
+            <article class="project">
               <div class="project__desc">
-                <h3>
+                <h3 class="project__title">
                   МУЗ “Центральная городская больница им. М.В. Гольца” (г. Фрязино)
                 </h3>
 
@@ -515,10 +521,10 @@
               <div class="project__img-wrapper">
                 <img src="img/project-1.jpg" alt="МУЗ “Центральная городская больница им. М.В. Гольца” (г. Фрязино)">
               </div>
-            </div>
-            <div class="project">
+            </article>
+            <article class="project">
               <div class="project__desc">
-                <h3>
+                <h3 class="project__title">
                   МУЗ “Центральная городская больница им. М.В. Гольца”
                 </h3>
 
@@ -528,10 +534,10 @@
               <div class="project__img-wrapper">
                 <img src="img/slider-1.jpg" alt="МУЗ “Центральная городская больница им. М.В. Гольца” (г. Фрязино)">
               </div>
-            </div>
-            <div class="project">
+            </article>
+            <article class="project">
               <div class="project__desc">
-                <h3>
+                <h3 class="project__title">
                   “Центральная городская больница им. М.В. Гольца” (г. Фрязино)
                 </h3>
 
@@ -542,7 +548,7 @@
               <div class="project__img-wrapper">
                 <img src="img/service-1.jpg" alt="МУЗ “Центральная городская больница им. М.В. Гольца” (г. Фрязино)">
               </div>
-            </div>
+            </article>
           </div>
 
           <div class="slider-counter__control slider-counter__counter" aria-hidden="true">
@@ -558,9 +564,12 @@
     <section class="assort">
       <div class="assort__container container container--content">
         <div class="text-block row">
-          <div class="text-block__title title col-4">
-            <h2 class="title__header">Ассортимент</h2>
+          <div class="col-4">
+            <div class="text-block__title title">
+              <h2 class="title__header">Ассортимент</h2>
+            </div>
           </div>
+
           <div class="col-8">
             <div class="text-block__desc">
               <h3>Мы сотрудничаем с ведущими<br> компаниями-производителями медоборудования</h3>
@@ -657,7 +666,7 @@
               <a href="/">О компании</a>
             </li>
             <li>
-              <a href="/">Наши проекты</a>
+              <a href="projects.html">Наши проекты</a>
             </li>
             <li>
               <a href="/">Филиалы</a>
