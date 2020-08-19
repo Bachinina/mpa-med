@@ -2466,7 +2466,7 @@ input[type="radio"]:checked + label::before {
   content: "";
   width: 90px;
   height: 90px;
-  background: url("/img/icon-play-btn.svg") no-repeat;
+  background: url("../img/icon-play-btn.svg") no-repeat;
   background-size: cover;
 }
 .video a:hover::after {
