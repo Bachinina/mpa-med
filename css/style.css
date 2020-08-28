@@ -2118,7 +2118,6 @@ input[type="radio"]:checked + label::before {
   max-width: 477px;
 }
 .slider-double-alt {
-  max-width: 477px;
   height: 477px;
 }
 .slider-double__slide {
@@ -2134,7 +2133,6 @@ input[type="radio"]:checked + label::before {
      object-fit: cover;
 }
 .slider-double__parent .slider-double__slide {
-  max-width: 477px;
   height: 477px;
 }
 .slider-double__child {
@@ -2160,6 +2158,16 @@ input[type="radio"]:checked + label::before {
 @media (max-width: 1359px) {
   .slider-double__child {
     padding: 0 50px;
+  }
+  .slider-double,
+  .slider-double-alt {
+    max-width: 445px;
+  }
+  .slider-double-alt {
+    height: 445px;
+  }
+  .slider-double__parent .slider-double__slide {
+    height: 445px;
   }
 }
 .preview {
