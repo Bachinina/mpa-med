@@ -102,8 +102,7 @@
     </div>
   </header>
 
-  <main class="content-page bg--gray">
-
+  <main class="content-page">
     <!-- Хлебные крошки -->
     <div class="content-page__bc bc">
       <div class="bc__container container">
@@ -114,8 +113,11 @@
           <li class="bc__item">
             <a href="catalog.html">Каталог медоборудования</a>
           </li>
+          <li class="bc__item">
+            <a href="catalog-detail.html">Робот-ассистированная хирургия</a>
+          </li>
           <li class="bc__item active">
-            <a href="">Хирургические лазеры</a>
+            <a href="">Pinard — акушерский стетоскоп</a>
           </li>
         </ul>
       </div>
@@ -125,159 +127,279 @@
     <section class="content-page__section">
       <div class="container pb-m">
 
-        <div class="content-page__title-wrapper">
-          <a href="cabinet-detail.html" class="btn btn-prev">В кабинет</a>
-          <h1 class="content-page__title mb-0 ml-s">Хирургические лазеры</h1>
+        <div class="row">
+          <div class="col-5">
+
+            <!-- Этот блок вставляется, если только одна картинка! -->
+                  <!-- <div class="slider-double-alt">
+                    <img src="img/news-1.jpg" alt="Pinard — акушерский стетоскоп">
+                  </div> -->
+            <!-- Этот блок вставляется, если только одна картинка! -->
+
+
+            <!-- Слайдер -->
+            <div class="slider-double" data-double-slider data-slide-count="6">
+              <div class="slider-double__parent" data-parent-slider>
+                <div class="slider-double__slide">
+                  <img src="img/news-1.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+                <div class="slider-double__slide">
+                  <img src="img/service-2.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+                <div class="slider-double__slide">
+                  <img src="img/service-3.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+                <div class="slider-double__slide">
+                  <img src="img/service-4.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+                <div class="slider-double__slide">
+                  <img src="img/service-5.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+                <div class="slider-double__slide">
+                  <img src="img/service-6.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+
+
+
+
+              </div>
+              <div class="slider-double__child simple-arrows" data-child-slider>
+                <div class="slider-double__slide">
+                  <img src="img/news-1.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+                <div class="slider-double__slide">
+                  <img src="img/service-2.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+                <div class="slider-double__slide">
+                  <img src="img/service-3.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+                <div class="slider-double__slide">
+                  <img src="img/service-4.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+                <div class="slider-double__slide">
+                  <img src="img/service-5.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+                <div class="slider-double__slide">
+                  <img src="img/service-6.jpg" alt="Pinard — акушерский стетоскоп">
+                </div>
+
+
+
+              </div>
+            </div>
+            <!-- Слайдер -->
+          </div>
+          <div class="col-7">
+            <div class="title mb-xs">
+              <h1 class="title__header">Pinard — акушерский стетоскоп</h1>
+            </div>
+
+            <p class="text-small mb-sm">Производитель: <a href="/">Rudolf Riester</a></p>
+            <p class="text-big">Акушерский стетоскоп Pinard используется для выслушивания сердцебиения плода в утробе
+              матери. Идеальная
+              акустика достигается благодаря форме в виде колокола с широкой воронкой из прочной пластмассы или легкого
+              полированного алюминия.
+            </p>
+
+            <div class="mt-s">
+              <button class="btn btn-bg btn-small">Запросить прайс</button>
+              <button class="btn btn-small">Купить в нашем интернет-магазине</button>
+            </div>
+          </div>
         </div>
 
 
-        <div class="content-page__list-wrapper row">
-          <div class="content-page__list-filter col-3">
-            <!-- Фильтр -->
-            <ul class="filter acc">
-              <li class="filter__item acc__item">
-                <button class="filter__title acc__title active">
-                  <span>Производитель</span>
-                </button>
+      </div>
 
-                <div class="filter__item-body acc__body">
-                  <form class="filter__form" method="POST" action="/">
-                    <div class="filter__form-section pt-0">
-                      <div class="filter__form-item mb-xs">
-                        <input class="" type="search" aria-label="Поиск по сайту" placeholder="Поиск по сайту">
-                      </div>
-                      <div class="filter__form-item">
-                        <input type="checkbox" id="all" name="all" checked="">
-                        <label for="all">Все производители</label>
-                      </div>
-                    </div>
-                    <div class="filter__form-section">
-                      <div class="filter__form-item">
-                        <input type="checkbox" id="filter-1" name="filter-1" checked="">
-                        <label for="filter-1">Riester <span class="amount">(123)</span></label>
-                      </div>
-                      <div class="filter__form-item">
-                        <input type="checkbox" id="filter-2" name="filter-2" checked="">
-                        <label for="filter-2">Riester <span class="amount">(123)</span></label>
-                      </div>
-                      <div class="filter__form-item">
-                        <input type="checkbox" id="filter-3" name="filter-3" checked="">
-                        <label for="filter-3">Riester <span class="amount">(123)</span></label>
-                      </div>
-                      <div class="filter__form-item">
-                        <input type="checkbox" id="filter-4" name="filter-4" checked="">
-                        <label for="filter-4">Riester <span class="amount">(123)</span></label>
-                      </div>
-                      <div class="filter__form-item">
-                        <input type="checkbox" id="filter-5" name="filter-5" checked="">
-                        <label for="filter-5">Riester <span class="amount">(123)</span></label>
-                      </div>
+      <div class="bg--gray">
+        <div class="container container--content">
 
-                      <a href="" class="btn-all mt-xs">Показать всё</a>
-                    </div>
-                  </form>
-                </div>
-              </li>
-            </ul>
-            <!-- Фильтр -->
-          </div>
+          <div class="row">
+            <div class="col-12 col-xl-7">
+              <h2 class="h3">Обзор</h2>
+
+              <div class="text-small">
+                <span>Безопасность:</span>
+                <ul>
+                  <li>- Встроенные протоколы позволяют установить необходимую дозу для каждого пациента и избежать
+                    передозировки облучения или неверного вида облучения.</li>
+                  <li>- Система авторизация пользователя исключает возможность использования кабины необученным и не
+                    допущенным лицом.</li>
+                </ul>
+
+                <span>Управление данными:</span>
+                <ul>
+                  <li>- Ввод данных осуществляется при помощи клавиатуры, мыши и монитора, что делает управление
+                    удобным.</li>
+                  <li>- Ведется учет данных: даты, времени, дозировки и длины волны каждого сеанса, проведенного врачом.
+                  </li>
+                  <li>- Система может сортировать и выделять данные пациентов к примеру, для статистического анализа.
+                  </li>
+                  <li>- Отчеты о лечении пациентов или другие полезные отчеты могут быть легко распечатаны.</li>
+                </ul>
+
+                <span>Среда SmartTouch:</span>
+                <ul>
+                  <li>- Возможность объединения нескольких аппаратов для фототерапии(в том чилсе кабин) в
+                    единую компьютерную сеть управления</li>
+                  <li>- Профили и вся информация о пациентах доступны на всех устройствах,
+                    что делает планирование и отчетность очень удобным.</li>
+                </ul>
+
+                <span>Удобство пациента:</span>
+                <ul>
+                  <li>- Голосовое сопровождение по всему
+                    процессу лечения. Возможность выбора из нескольких языков, а также выбор мужского или женского
+                    голоса.</li>
+                  <li>- В случае необходимости пациент может сделать паузу в процессе лечения при
+                    простом нажатии кнопки или открытии дверей.</li>
+                  <li>- Кабина оснащена двумя вентиляторами для обдува пациента.
+                    Могут включатся как врачом, так и пациентом.</li>
+                </ul>
+
+                <span>Размеры: </span>
+                <ul>
+                  <li>Высота: 213 см.</li>
+                  <li>Ширина
+                    (с закрытой дверью) - 102 см.</li>
+                  <li>Глубина (с закрытой дверью) - 104 см.</li>
+                  <li>Глубина (с открытой дверью) - 135 см.</li>
+                </ul>
+
+              </div>
+
+            </div>
+            <div class="col-12 col-xl-4 ml-auto">
+              <h2 class="h3">Характеристики</h2>
+
+              <div class="table-wrapper">
+                <table class="table-marked">
+                  <tbody>
+
+                    <!-- Характеристика -->
+                    <tr>
+                      <td>Модель</td>
+                      <td class="right">JAY-10-4.0</td>
+                    </tr>
+                    <!-- Характеристика -->
+
+                    <!-- Характеристика -->
+                    <tr>
+                      <td>Модель</td>
+                      <td class="right">JAY-10-4.0</td>
+                    </tr>
+                    <!-- Характеристика -->
+
+                    <!-- Характеристика -->
+                    <tr>
+                      <td>Модель</td>
+                      <td class="right">JAY-10-4.0</td>
+                    </tr>
+                    <!-- Характеристика -->
+
+                    <!-- Характеристика -->
+                    <tr>
+                      <td>Модель</td>
+                      <td class="right">JAY-10-4.0</td>
+                    </tr>
+                    <!-- Характеристика -->
+
+                  </tbody>
+                </table>
+              </div>
 
 
-          <div class="col-9">
-            <ul class="content-page__list row">
-              <!-- Карточка -->
-              <li class="content-page__item col-4 mb-sm">
-                <article class="card-block card-block--bg">
-                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
-                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
-                    <div class="card-block__img">
-                      <img src="img/news-1.jpg" alt="">
-                    </div>
-
-                    <div class="card-block__title">
-                      <span class="mark-mini">Rudolf Riester</span>
-                      <span class="main">Pinard — акушерский стетоскоп</span>
-                    </div>
-                  </a>
-                </article>
-              </li>
-              <!-- Карточка -->
-              <!-- Карточка -->
-              <li class="content-page__item col-4 mb-sm">
-                <article class="card-block card-block--bg">
-                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
-                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
-                    <div class="card-block__img">
-                      <img src="img/news-1.jpg" alt="">
-                    </div>
-
-                    <div class="card-block__title">
-                      <span class="mark-mini">Rudolf Riester</span>
-                      <span class="main">Pinard — акушерский стетоскоп</span>
-                    </div>
-                  </a>
-                </article>
-              </li>
-              <!-- Карточка -->
-              <!-- Карточка -->
-              <li class="content-page__item col-4 mb-sm">
-                <article class="card-block card-block--bg">
-                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
-                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
-                    <div class="card-block__img">
-                      <img src="img/news-1.jpg" alt="">
-                    </div>
-
-                    <div class="card-block__title">
-                      <span class="mark-mini">Rudolf Riester</span>
-                      <span class="main">Pinard — акушерский стетоскоп</span>
-                    </div>
-                  </a>
-                </article>
-              </li>
-              <!-- Карточка -->
-              <!-- Карточка -->
-              <li class="content-page__item col-4 mb-sm">
-                <article class="card-block card-block--bg">
-                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
-                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
-                    <div class="card-block__img">
-                      <img src="img/news-1.jpg" alt="">
-                    </div>
-
-                    <div class="card-block__title">
-                      <span class="mark-mini">Rudolf Riester</span>
-                      <span class="main">Pinard — акушерский стетоскоп</span>
-                    </div>
-                  </a>
-                </article>
-              </li>
-              <!-- Карточка -->
-              <!-- Карточка -->
-              <li class="content-page__item col-4 mb-sm">
-                <article class="card-block card-block--bg">
-                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
-                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
-                    <div class="card-block__img">
-                      <img src="img/news-1.jpg" alt="">
-                    </div>
-
-                    <div class="card-block__title">
-                      <span class="mark-mini">Rudolf Riester</span>
-                      <span class="main">Pinard — акушерский стетоскоп</span>
-                    </div>
-                  </a>
-                </article>
-              </li>
-              <!-- Карточка -->
-            </ul>
+              <h2 class="h3 mt-m">Файлы</h2>
+              <a class="file bg--gray" href="/" aria-label="Скачать файл" target="_blank"><span>Рекламная
+                  брошюра.PDF</span></a>
+              <a class="file bg--gray" href="/" aria-label="Скачать файл" target="_blank"><span>Инструкция</span></a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="content-page__section">
+      <div class="container container--content">
+        <div class="title">
+          <h2 class="title__header">Сопутствующие товары </h2>
+        </div>
 
-    <section class="content-page__section bg--white">
+        <ul class="content-page__list row">
+          <!-- Товар -->
+          <li class="content-page__item col-3">
+            <article class="card-block card-block--bg">
+              <h3 class="visually-hidden">Pinard — акушерский стетоскоп</h3>
+              <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                <div class="card-block__img">
+                  <img src="img/news-1.jpg" alt="">
+                </div>
+
+                <div class="card-block__title">
+                  <span class="mark-mini">Rudolf Riester</span>
+                  <span class="main">Pinard — акушерский стетоскоп</span>
+                </div>
+              </a>
+            </article>
+          </li>
+          <!-- Товар -->
+          <!-- Товар -->
+          <li class="content-page__item col-3">
+            <article class="card-block card-block--bg">
+              <h3 class="visually-hidden">Pinard — акушерский стетоскоп</h3>
+              <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                <div class="card-block__img">
+                  <img src="img/news-1.jpg" alt="">
+                </div>
+
+                <div class="card-block__title">
+                  <span class="mark-mini">Rudolf Riester</span>
+                  <span class="main">Pinard — акушерский стетоскоп</span>
+                </div>
+              </a>
+            </article>
+          </li>
+          <!-- Товар -->
+          <!-- Товар -->
+          <li class="content-page__item col-3">
+            <article class="card-block card-block--bg">
+              <h3 class="visually-hidden">Pinard — акушерский стетоскоп</h3>
+              <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                <div class="card-block__img">
+                  <img src="img/news-1.jpg" alt="">
+                </div>
+
+                <div class="card-block__title">
+                  <span class="mark-mini">Rudolf Riester</span>
+                  <span class="main">Pinard — акушерский стетоскоп</span>
+                </div>
+              </a>
+            </article>
+          </li>
+          <!-- Товар -->
+          <!-- Товар -->
+          <li class="content-page__item col-3">
+            <article class="card-block card-block--bg">
+              <h3 class="visually-hidden">Pinard — акушерский стетоскоп</h3>
+              <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                <div class="card-block__img">
+                  <img src="img/news-1.jpg" alt="">
+                </div>
+
+                <div class="card-block__title">
+                  <span class="mark-mini">Rudolf Riester</span>
+                  <span class="main">Pinard — акушерский стетоскоп</span>
+                </div>
+              </a>
+            </article>
+          </li>
+          <!-- Товар -->
+        </ul>
+
+      </div>
+    </section>
+
+    <section class="content-page__section bg--gray">
       <div class="container container--content">
         <div class="title">
           <h2 class="title__header">Релевантные материалы</h2>
@@ -352,8 +474,10 @@
           </li>
           <!-- Новость -->
         </ul>
+
       </div>
     </section>
+
 
   </main>
 
