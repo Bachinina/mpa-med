@@ -74,11 +74,6 @@ $(document).ready(function () {
     initialSlide: 1,
   });
 
-  centredSlider.on('beforeChange', function () {
-    centredSlider.find('.custom-video').get(0).pause();
-  });
-
-
   centredSlider.find('.slick-slide').on('click', function() {
     if($(this)[0] === centredSlider.find('.slick-active').next()[0]) {
       centredSlider.slick('slickNext');

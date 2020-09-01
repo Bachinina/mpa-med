@@ -356,7 +356,7 @@
                 </ul>
               </div>
             </div>
-            <button class="btn btn-bg btn-big mt-m">Заказать оснащение кабинета</button>
+            <button class="btn btn-bg btn-big mt-m" data-modal="#modal">Заказать оснащение кабинета</button>
 
           </div>
           <div class="col-3">
@@ -364,7 +364,7 @@
               <p class="text-big">Мы подобрали для вас несколько конфигураций кабинета</p>
 
               <ul class="sidebar__list list-unmarked">
-                <li><a href="/" class="btn btn-small">Бюджетный</a></li>
+                <li><a href="/" class="btn btn-small">Бюджет</a></li>
                 <li><a href="/" class="btn btn-small">Стандарт</a></li>
                 <li><a href="/" class="btn btn-small">Премиум</a></li>
               </ul>
@@ -511,6 +511,61 @@
       </div>
     </section>
   </main>
+
+
+  <section class="modal" id="modal">
+    <h2 class="visually-hidden">Заказать оснащение кабинета</h2>
+    <div class="modal__wrapper">
+      <div class="modal__container">
+        <p class="modal__title" aria-hidden="true">Заказать оснащение кабинета</p>
+
+        <form class="modal__block modal__form form" method="POST" action="/">
+          <div class="form__row">
+            <div class="form__item">
+              <input type="text" name="name" id="name" autocomplete="off" placeholder="Ваше имя">
+              <label for="name">Ваше имя</label>
+            </div>
+            <div class="form__item">
+              <input type="text" name="phone" id="phone" autocomplete="off" placeholder="Телефон">
+              <label for="phone">Телефон</label>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__item">
+              <input type="email" name="email" placeholder="Email" id="email" autocomplete="off" required="">
+              <label for="email">Email</label>
+            </div>
+            <div class="form__item">
+              <input type="org" name="org" placeholder="Организация" id="org" autocomplete="off">
+              <label for="org">Организация</label>
+            </div>
+          </div>
+
+          <div class="form__item">
+            <input type="text" name="loc" placeholder="Город" id="loc" autocomplete="off" required="">
+            <label for="loc">Город</label>
+          </div>
+
+          <div class="form__item">
+            <textarea name="message" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
+            <label for="message">Ваше сообщение</label>
+          </div>
+
+          <div class="form__footer">
+            <input type="checkbox" id="conf" name="conf" checked="">
+            <label for="conf">Я согласен с &nbsp; <a href="/" aria-label="Перейти на страницу политики конфиденциальности" target="_blank">Политикой обработки
+                персональных
+                данных</a>
+            </label>
+
+            <button class="form__btn btn btn-bg" type="submit">Заказать</button>
+          </div>
+        </form>
+
+        <button class="modal__close" type="button"></button>
+      </div>
+    </div>
+  </section>
 
 
 

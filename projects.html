@@ -122,7 +122,7 @@
         <h1 class="content-page__title">Каждый проект является для нас значимым</h1>
 
 
-        <div class="content-page__btns tags">
+        <div class="content-page__btns small">
           <ul class="content-page__btns-list">
             <li class="content-page__btns-item">
               <a href="projects.html" class="content-page__btn btn active">Все проекты </a>
@@ -158,29 +158,8 @@
                   <li class="mark">Инжиниринг</li>
                 </ul>
 
-                <div class="project__bottom">
-                  <a class="project__btn" href="projects-detail.html">Подробнее о проекте &#8594;</a>
-                </div>
-              </div>
-
-              <div class="project__img-wrapper col-8">
-                <img src="img/project-2.jpg" alt="МУЗ “Центральная городская больница им. М.В. Гольца” (г. Фрязино)">
-              </div>
-            </article>
-          </li>
-          <!-- Проект -->
-          <!-- Проект -->
-          <li class="content-page__row-item">
-            <article class="project row">
-              <div class="project__desc col-4">
-                <h2 class="project__title">
-                  МУЗ “Центральная городская больница им. М.В. Гольца” <br>(г. Фрязино)
-                </h2>
-
-                <ul class="project__marks marks">
-                  <li class="mark">Комплексное оснащение</li>
-                  <li class="mark">Инжиниринг</li>
-                </ul>
+                <p>Сделали комплексное проектирование (технологическое, архитектурное, инженерное), провели
+                  строительные и монтажные работы.</p>
 
                 <div class="project__bottom">
                   <a class="project__btn" href="projects-detail.html">Подробнее о проекте &#8594;</a>
@@ -206,6 +185,9 @@
                   <li class="mark">Инжиниринг</li>
                 </ul>
 
+                <p>Сделали комплексное проектирование (технологическое, архитектурное, инженерное), провели
+                  строительные и монтажные работы.</p>
+
                 <div class="project__bottom">
                   <a class="project__btn" href="projects-detail.html">Подробнее о проекте &#8594;</a>
                 </div>
@@ -229,6 +211,36 @@
                   <li class="mark">Комплексное оснащение</li>
                   <li class="mark">Инжиниринг</li>
                 </ul>
+
+                <p>Сделали комплексное проектирование (технологическое, архитектурное, инженерное), провели
+                  строительные и монтажные работы.</p>
+
+                <div class="project__bottom">
+                  <a class="project__btn" href="projects-detail.html">Подробнее о проекте &#8594;</a>
+                </div>
+              </div>
+
+              <div class="project__img-wrapper col-8">
+                <img src="img/project-2.jpg" alt="МУЗ “Центральная городская больница им. М.В. Гольца” (г. Фрязино)">
+              </div>
+            </article>
+          </li>
+          <!-- Проект -->
+          <!-- Проект -->
+          <li class="content-page__row-item">
+            <article class="project row">
+              <div class="project__desc col-4">
+                <h2 class="project__title">
+                  МУЗ “Центральная городская больница им. М.В. Гольца” <br>(г. Фрязино)
+                </h2>
+
+                <ul class="project__marks marks">
+                  <li class="mark">Комплексное оснащение</li>
+                  <li class="mark">Инжиниринг</li>
+                </ul>
+
+                <p>Сделали комплексное проектирование (технологическое, архитектурное, инженерное), провели
+                  строительные и монтажные работы.</p>
 
                 <div class="project__bottom">
                   <a class="project__btn" href="projects-detail.html">Подробнее о проекте &#8594;</a>
@@ -256,12 +268,67 @@
           </div>
 
           <div class="col-4 d-flex align-items-center justify-content-end">
-            <button class="btn btn-bg btn-big">Заказать проект</button>
+            <button class="btn btn-bg btn-big" data-modal="#modal">Заказать проект</button>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+
+  <section class="modal" id="modal">
+    <h2 class="visually-hidden">Заказать проект</h2>
+    <div class="modal__wrapper">
+      <div class="modal__container">
+        <p class="modal__title" aria-hidden="true">Заказать проект</p>
+
+        <form class="modal__block modal__form form" method="POST" action="/">
+          <div class="form__row">
+            <div class="form__item">
+              <input type="text" name="name" id="name" autocomplete="off" placeholder="Ваше имя">
+              <label for="name">Ваше имя</label>
+            </div>
+            <div class="form__item">
+              <input type="text" name="phone" id="phone" autocomplete="off" placeholder="Телефон">
+              <label for="phone">Телефон</label>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__item">
+              <input type="email" name="email" placeholder="Email" id="email" autocomplete="off" required="">
+              <label for="email">Email</label>
+            </div>
+            <div class="form__item">
+              <input type="org" name="org" placeholder="Организация" id="org" autocomplete="off">
+              <label for="org">Организация</label>
+            </div>
+          </div>
+
+          <div class="form__item">
+            <input type="text" name="loc" placeholder="Город" id="loc" autocomplete="off" required="">
+            <label for="loc">Город</label>
+          </div>
+
+          <div class="form__item">
+            <textarea name="message" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
+            <label for="message">Ваше сообщение</label>
+          </div>
+
+          <div class="form__footer">
+            <input type="checkbox" id="conf" name="conf" checked="">
+            <label for="conf">Я согласен с &nbsp; <a href="/" aria-label="Перейти на страницу политики конфиденциальности" target="_blank">Политикой обработки
+                персональных
+                данных</a>
+            </label>
+
+            <button class="form__btn btn btn-bg" type="submit">Заказать</button>
+          </div>
+        </form>
+
+        <button class="modal__close" type="button"></button>
+      </div>
+    </div>
+  </section>
 
 
 

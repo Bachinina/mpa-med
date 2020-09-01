@@ -289,60 +289,59 @@
         </ul>
       </div>
     </section>
+  </main>
 
+  <section class="modal" id="vacancy-feedback">
+    <h2 class="visually-hidden">Откликнуться на вакансию</h2>
+    <div class="modal__wrapper">
+      <div class="modal__container">
+        <p class="modal__title" aria-hidden="true">Откликнуться на вакансию:</p>
+        <p class="modal__title" id="vacancy-title" data-filled="true"></p>
 
-    <section class="modal" id="vacancy-feedback">
-      <h2 class="visually-hidden">Откликнуться на вакансию</h2>
-      <div class="modal__wrapper">
-        <div class="modal__container">
-          <p class="modal__title" aria-hidden="true">Откликнуться на вакансию:</p>
-          <p class="modal__title" id="vacancy-title" data-filled="true"></p>
+        <form class="modal__block modal__form form" method="POST" action="/">
+          <input type="hidden" name="vacancy-id" id="vacancy-id">
 
-          <form class="modal__block modal__form form" method="POST" action="/">
-            <input type="hidden" name="vacancy-id" id="vacancy-id">
-
-            <div class="form__row">
-              <div class="form__item">
-                <input type="text" name="name" id="name" autocomplete="off" placeholder="Ваше имя">
-                <label for="name">Ваше имя</label>
-              </div>
-              <div class="form__item">
-                <input type="text" name="phone" id="phone" autocomplete="off" placeholder="Телефон">
-                <label for="phone">Телефон</label>
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="form__item">
-                <input type="email" name="email" placeholder="Email" id="email" autocomplete="off" required>
-                <label for="email">Email</label>
-              </div>
-              <div class="form__item">
-                <input type="file" name="file" id="file" accept=".doc,.pdf" required>
-                <label for="file" data-placeholder="Резюме (DOC, PDF)">Резюме (DOC, PDF)</label>
-              </div>
+          <div class="form__row">
+            <div class="form__item">
+              <input type="text" name="name" id="name" autocomplete="off" placeholder="Ваше имя">
+              <label for="name">Ваше имя</label>
             </div>
             <div class="form__item">
-              <textarea name="message" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
-              <label for="message">Ваше сообщение</label>
+              <input type="text" name="phone" id="phone" autocomplete="off" placeholder="Телефон">
+              <label for="phone">Телефон</label>
             </div>
-
-            <div class="form__footer">
-              <input type="checkbox" id="conf" name="conf" checked>
-              <label for="conf">Я согласен с &nbsp; <a href="/"
-                  aria-label="Перейти на страницу политики конфиденциальности" target="_blank">Политикой обработки
-                  персональных
-                  данных</a>
-              </label>
-
-              <button class="form__btn btn btn-bg" type="submit">Откликнуться</button>
+          </div>
+          <div class="form__row">
+            <div class="form__item">
+              <input type="email" name="email" placeholder="Email" id="email" autocomplete="off" required>
+              <label for="email">Email</label>
             </div>
-          </form>
+            <div class="form__item">
+              <input type="file" name="file" id="file" accept=".doc,.pdf" required>
+              <label for="file" data-placeholder="Резюме (DOC, PDF)">Резюме (DOC, PDF)</label>
+            </div>
+          </div>
+          <div class="form__item">
+            <textarea name="message" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
+            <label for="message">Ваше сообщение</label>
+          </div>
 
-          <button class="modal__close" type="button"></button>
-        </div>
+          <div class="form__footer">
+            <input type="checkbox" id="conf" name="conf" checked>
+            <label for="conf">Я согласен с &nbsp; <a href="/"
+                aria-label="Перейти на страницу политики конфиденциальности" target="_blank">Политикой обработки
+                персональных
+                данных</a>
+            </label>
+
+            <button class="form__btn btn btn-bg" type="submit">Откликнуться</button>
+          </div>
+        </form>
+
+        <button class="modal__close" type="button"></button>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
 
 
