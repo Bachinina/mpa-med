@@ -3794,7 +3794,8 @@ input[type="radio"]:checked + label::before {
 .services__item > * {
   border-radius: 12px;
 }
-.services__item .block-bg__img-wrapper {
+.services__item .block-bg__img-wrapper,
+.services__item .block-bg__desc {
   border-radius: 12px;
 }
 .services__title {
