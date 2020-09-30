@@ -81,7 +81,7 @@
           <nav class="collapse navbar__collapse" id="navbar-menu">
             <ul class="navbar__nav">
               <li class="nav__item dropdown">
-                <a class="nav__link" href="/" aria-haspopup="true">
+                <a class="nav__link" href="about.html" aria-haspopup="true">
                   О компании
                 </a>
                 <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
@@ -100,6 +100,7 @@
                   <li class="dropdown__item">
                     <a class="dropdown__link" href="contacts.html">Контакты</a>
                   </li>
+
                 </ul>
               </li>
               <li class="nav__item">
@@ -107,10 +108,23 @@
                   Каталог медооборудования
                 </a>
               </li>
-              <li class="nav__item">
+              <li class="nav__item dropdown">
                 <a class="nav__link" href="/">
                   Услуги
                 </a>
+                <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
+                </button>
+                <ul class="dropdown__menu">
+                  <li class="dropdown__item">
+                    <a class="dropdown__link" href="complex.html">Комплексное оснащение</a>
+                  </li>
+                  <li class="dropdown__item">
+                    <a class="dropdown__link" href="service.html">Сервис</a>
+                  </li>
+                  <li class="dropdown__item">
+                    <a class="dropdown__link" href="leasing.html">Лизинг</a>
+                  </li>
+                </ul>
               </li>
               <li class="nav__item">
                 <a class="nav__link" href="projects.html">Наши проекты</a>
@@ -428,7 +442,7 @@
                     <label for="email">Email</label>
                   </div>
                   <div class="form__item">
-                    <input type="org" name="org" placeholder="Организация" id="org" autocomplete="off">
+                    <input type="text" name="org" placeholder="Организация" id="org" autocomplete="off">
                     <label for="org">Организация</label>
                   </div>
                 </div>

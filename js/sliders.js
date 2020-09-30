@@ -62,6 +62,50 @@ $(document).ready(function () {
   });
 
 
+  const chronology = $('[data-chronology]');
+  const chronologyProgress = chronology.find('[data-chronology-progress]');
+  const chronologySlider = chronology.find('[data-chronology-slider]');
+  let countOfSlides;
+  const screenWidth = $(document).width();
+
+
+  if (screenWidth > 1199) {
+    countOfSlides = 4;
+  } else if (screenWidth <= 1199 && screenWidth > 991) {
+    countOfSlides = 3;
+  } else if (screenWidth <= 991 && screenWidth > 575) {
+    countOfSlides = 2;
+  } else {
+    countOfSlides = 1
+  }
+
+  chronologySlider.slick({
+    arrows: true,
+    infinite: false,
+    slidesToShow: countOfSlides,
+    speed: 600,
+    waitForAnimate: true,
+    customPaging: 50,
+    accessibility: false,
+    draggable: false,
+  });
+  const chronologySlides = chronologySlider.find('.slick-slide');
+  chronologySlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    if (nextSlide === 0) {
+      chronologyProgress.addClass('start')
+      chronologyProgress.removeClass('middle')
+      chronologyProgress.removeClass('end')
+    } else if (nextSlide === chronologySlides.length - countOfSlides) {
+      chronologyProgress.addClass('middle') // end
+      // chronologyProgress.removeClass('middle')
+      chronologyProgress.removeClass('start')
+    } else {
+      chronologyProgress.addClass('middle')
+      chronologyProgress.removeClass('start')
+      chronologyProgress.removeClass('end')
+    }
+  });
+
   const centredSlider = $('[data-center-slider]');
   centredSlider.slick({
     arrows: false,
@@ -74,39 +118,38 @@ $(document).ready(function () {
     initialSlide: 1,
   });
 
-  centredSlider.find('.slick-slide').on('click', function() {
-    if($(this)[0] === centredSlider.find('.slick-active').next()[0]) {
+  centredSlider.find('.slick-slide').on('click', function () {
+    if ($(this)[0] === centredSlider.find('.slick-active').next()[0]) {
       centredSlider.slick('slickNext');
     }
-    if($(this)[0] === centredSlider.find('.slick-active').prev()[0]) {
+    if ($(this)[0] === centredSlider.find('.slick-active').prev()[0]) {
       centredSlider.slick('slickPrev');
     }
-  })
-});
+  });
+
+  const doubleSlider = $('[data-double-slider]');
+  const slideCount = doubleSlider.attr('data-slide-count');
+  const parentSlider = doubleSlider.find('[data-parent-slider]');
+  const childSlider = doubleSlider.find('[data-child-slider]');
+
+  parentSlider.slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: slideCount > 5 ? childSlider : '',
+  });
 
 
-const doubleSlider = $('[data-double-slider]');
-const slideCount = doubleSlider.attr('data-slide-count');
-const parentSlider = doubleSlider.find('[data-parent-slider]');
-const childSlider = doubleSlider.find('[data-child-slider]');
+  parentSlider.on('click', function () {
+    parentSlider.slick('slickNext');
+  });
 
-parentSlider.slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: true,
-  asNavFor: slideCount > 5 ? childSlider : '',
-});
-
-
-parentSlider.on('click', function () {
-  parentSlider.slick('slickNext');
-});
-
-childSlider.slick({
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  arrows: true,
-  asNavFor: parentSlider,
-  focusOnSelect: true
+  childSlider.slick({
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    arrows: true,
+    asNavFor: parentSlider,
+    focusOnSelect: true
+  });
 });

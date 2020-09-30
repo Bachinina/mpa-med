@@ -57,7 +57,7 @@
           <nav class="collapse navbar__collapse" id="navbar-menu">
             <ul class="navbar__nav">
               <li class="nav__item dropdown">
-                <a class="nav__link" href="/" aria-haspopup="true">
+                <a class="nav__link" href="about.html" aria-haspopup="true">
                   О компании
                 </a>
                 <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
@@ -73,9 +73,10 @@
                     <a class="dropdown__link" href="rewards.html">Награды</a>
                   </li>
 
-<li class="dropdown__item">
+                  <li class="dropdown__item">
                     <a class="dropdown__link" href="contacts.html">Контакты</a>
                   </li>
+
                 </ul>
               </li>
               <li class="nav__item">
@@ -83,10 +84,23 @@
                   Каталог медооборудования
                 </a>
               </li>
-              <li class="nav__item">
+              <li class="nav__item dropdown">
                 <a class="nav__link" href="/">
                   Услуги
                 </a>
+                <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
+                </button>
+                <ul class="dropdown__menu">
+                  <li class="dropdown__item">
+                    <a class="dropdown__link" href="complex.html">Комплексное оснащение</a>
+                  </li>
+                  <li class="dropdown__item">
+                    <a class="dropdown__link" href="service.html">Сервис</a>
+                  </li>
+                  <li class="dropdown__item">
+                    <a class="dropdown__link" href="leasing.html">Лизинг</a>
+                  </li>
+                </ul>
               </li>
               <li class="nav__item">
                 <a class="nav__link" href="projects.html">Наши проекты</a>
@@ -162,7 +176,7 @@
                   строительные и монтажные работы.</p>
 
                 <div class="project__bottom">
-                  <a class="project__btn" href="projects-detail.html">Подробнее о проекте &#8594;</a>
+                  <a class="btn-text" href="projects-detail.html">Подробнее о проекте &#8594;</a>
                 </div>
               </div>
 
@@ -189,7 +203,7 @@
                   строительные и монтажные работы.</p>
 
                 <div class="project__bottom">
-                  <a class="project__btn" href="projects-detail.html">Подробнее о проекте &#8594;</a>
+                  <a class="btn-text" href="projects-detail.html">Подробнее о проекте &#8594;</a>
                 </div>
               </div>
 
@@ -216,7 +230,7 @@
                   строительные и монтажные работы.</p>
 
                 <div class="project__bottom">
-                  <a class="project__btn" href="projects-detail.html">Подробнее о проекте &#8594;</a>
+                  <a class="btn-text" href="projects-detail.html">Подробнее о проекте &#8594;</a>
                 </div>
               </div>
 
@@ -243,7 +257,7 @@
                   строительные и монтажные работы.</p>
 
                 <div class="project__bottom">
-                  <a class="project__btn" href="projects-detail.html">Подробнее о проекте &#8594;</a>
+                  <a class="btn-text" href="projects-detail.html">Подробнее о проекте &#8594;</a>
                 </div>
               </div>
 
@@ -264,7 +278,8 @@
       <div class="container pt-m pb-m">
         <div class="row">
           <div class="col-8">
-            <p class="mb-0">Копирайтерский текст, чтобы побудить стать клиентом. Копирайтерский текст, чтобы побудить стать клиентом. Копирайтерский текст, чтобы побудить стать клиентом.</p>
+            <p class="mb-0">Копирайтерский текст, чтобы побудить стать клиентом. Копирайтерский текст, чтобы побудить
+              стать клиентом. Копирайтерский текст, чтобы побудить стать клиентом.</p>
           </div>
 
           <div class="col-4 d-flex align-items-center justify-content-end">
@@ -299,7 +314,7 @@
               <label for="email">Email</label>
             </div>
             <div class="form__item">
-              <input type="org" name="org" placeholder="Организация" id="org" autocomplete="off">
+              <input type="text" name="org" placeholder="Организация" id="org" autocomplete="off">
               <label for="org">Организация</label>
             </div>
           </div>
@@ -316,7 +331,8 @@
 
           <div class="form__footer">
             <input type="checkbox" id="conf" name="conf" checked="">
-            <label for="conf">Я согласен с &nbsp; <a href="/" aria-label="Перейти на страницу политики конфиденциальности" target="_blank">Политикой обработки
+            <label for="conf">Я согласен с &nbsp; <a href="/"
+                aria-label="Перейти на страницу политики конфиденциальности" target="_blank">Политикой обработки
                 персональных
                 данных</a>
             </label>

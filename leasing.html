@@ -58,7 +58,7 @@
           <nav class="collapse navbar__collapse" id="navbar-menu">
             <ul class="navbar__nav">
               <li class="nav__item dropdown">
-                <a class="nav__link" href="/">
+                <a class="nav__link" href="about.html">
                   О компании
                 </a>
                 <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
@@ -84,10 +84,23 @@
                   Каталог медооборудования
                 </a>
               </li>
-              <li class="nav__item">
+              <li class="nav__item dropdown">
                 <a class="nav__link" href="/">
                   Услуги
                 </a>
+                <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
+                </button>
+                <ul class="dropdown__menu">
+                  <li class="dropdown__item">
+                    <a class="dropdown__link" href="complex.html">Комплексное оснащение</a>
+                  </li>
+                  <li class="dropdown__item">
+                    <a class="dropdown__link" href="service.html">Сервис</a>
+                  </li>
+                  <li class="dropdown__item">
+                    <a class="dropdown__link" href="leasing.html">Лизинг</a>
+                  </li>
+                </ul>
               </li>
               <li class="nav__item">
                 <a class="nav__link" href="projects.html">Наши проекты</a>
@@ -198,7 +211,7 @@
               <div class="feat text-small">
                 <img class="mb-xs" src="img/feat-2.svg" alt="Переходит в собственность">
                 <h3 class="feat__title text-big">Переходит в собственность</h3>
-                <p>осле уплаты лизинговых платежей оборудование переходит в собственность медицинского учреждения.</p>
+                <p>После уплаты лизинговых платежей оборудование переходит в собственность медицинского учреждения.</p>
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4 mb-m">
@@ -272,7 +285,7 @@
 
 
       <div class="container container--content pt-0">
-        <div class="fluid-block bg-breathe text-small">
+        <div class="fluid-block bg-breathe text-small" style="margin-top: -162px;">
           <div class="title mb-xs">
             <h2 class="title__header">Условия лизинга</h2>
           </div>
@@ -288,7 +301,9 @@
       <div class="container pb-xl">
         <div class="text-block">
           <div class="text-block__title title">
-            <h2 class="title__header">Работа с компанией «М.П.А. медицинские партнеры – <br> ЛИЗИНГ» позволит любому медицинскому учреждению<br> в России уже сегодня <span class="blue">расширить спектр предоставляемых<br> услуг и повысить качество обслуживания клиентов</span>.</h2>
+            <h2 class="title__header">Работа с компанией «М.П.А. медицинские партнеры – <br> ЛИЗИНГ» позволит любому
+              медицинскому учреждению<br> в России уже сегодня <span class="blue">расширить спектр предоставляемых<br>
+                услуг и повысить качество обслуживания клиентов</span>.</h2>
           </div>
         </div>
       </div>
@@ -320,7 +335,7 @@
               <label for="email">Email</label>
             </div>
             <div class="form__item">
-              <input type="org" name="org" placeholder="Организация" id="org" autocomplete="off">
+              <input type="text" name="org" placeholder="Организация" id="org" autocomplete="off">
               <label for="org">Организация</label>
             </div>
           </div>

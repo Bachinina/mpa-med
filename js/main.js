@@ -82,14 +82,14 @@ $(document).ready(function () {
     let activeTab = 0;
 
     tabToggles.each(function (i) {
-      if($(this).hasClass('active')) {
+      if ($(this).hasClass('active')) {
         activeTab = i;
       }
 
       $(this).on('click', function (e) {
         e.preventDefault();
 
-        const tabContent =  $(content).find(`[data-tabs-item='${$(this).attr('data-tabs-toggle')}']`);
+        const tabContent = $(content).find(`[data-tabs-item='${$(this).attr('data-tabs-toggle')}']`);
 
         // DEL ACTIVE CLASS
         tabToggles.not($(this)).removeClass('active');
@@ -240,5 +240,14 @@ $(document).ready(function () {
     inputId.attr('value', id);
     inputTitle.text(title);
   });
+
+
+  // COUNTER
+  $('.number').counterUp({
+    time: 1000
+  });
 });
+
+
+
 
