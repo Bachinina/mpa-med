@@ -242,10 +242,14 @@ $(document).ready(function () {
   });
 
 
-  // COUNTER
-  $('.number').counterUp({
-    time: 1000
-  });
+  (function ($) {
+    let numbers = $('.number');
+    if (numbers.length > 0) {
+      numbers.counterUp({
+        time: 1000
+      });
+    }
+  })(jQuery);
 });
 
 
