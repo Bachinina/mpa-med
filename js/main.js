@@ -106,9 +106,10 @@ $(document).ready(function () {
 
   // ACCORDION
   $(`.acc__title`).on('click', function () {
-    if ($(this).closest('.acc').hasClass('one')) {
-      $(`.acc__title`).not($(this)).removeClass('active');
-      $(`.acc__text`).not($(this).next()).slideUp(500);
+    const acc = $(this).closest('.acc');
+    if (acc.hasClass('one')) {
+      acc.find(`.acc__title`).not($(this)).removeClass('active');
+      acc.find(`.acc__body`).not($(this).next()).slideUp(500);
     }
 
     if ($(this).hasClass('active')) {

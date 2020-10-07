@@ -1,5 +1,6 @@
 $(document).ready(function () {
   // SLIDERS
+  const screenWidth = $(document).width();
   const prevArrow = '<button class="slider-counter__btn slider-counter__btn--prev" type="button" aria-label="Предыдущий слайд"><span></span></button>';
   const nextArrow = '<button class="slider-counter__btn slider-counter__btn--next" type="button" aria-label="Следующий слайд"><span></span></button>';
 
@@ -29,13 +30,29 @@ $(document).ready(function () {
     customPaging: counter,
   });
 
-  $('[data-simple-slider]').slick({
+
+  const simpleSlider = $('[data-simple-slider]');
+  simpleSlider.countOfSlides = 0;
+  if (screenWidth > 1199) {
+    simpleSlider.countOfSlides = 4;
+  } else if (screenWidth <= 1199 && screenWidth > 991) {
+    simpleSlider.countOfSlides = 3;
+  } else if (screenWidth <= 991 && screenWidth > 575) {
+    simpleSlider.countOfSlides = 2;
+  } else {
+    simpleSlider.countOfSlides = 1
+  }
+
+  simpleSlider.slick({
     arrows: true,
     infinite: false,
-    slidesToShow: 4,
+    slidesToShow: simpleSlider.countOfSlides,
     speed: 800,
     waitForAnimate: true,
     customPaging: 50,
+    accessibility: false,
+    draggable: false,
+    margin: 30,
   });
 
 
@@ -65,24 +82,23 @@ $(document).ready(function () {
   const chronology = $('[data-chronology]');
   const chronologyProgress = chronology.find('[data-chronology-progress]');
   const chronologySlider = chronology.find('[data-chronology-slider]');
-  let countOfSlides;
-  const screenWidth = $(document).width();
+  chronologySlider.countOfSlides = 0;
 
 
   if (screenWidth > 1199) {
-    countOfSlides = 4;
+    chronologySlider.countOfSlides = 4;
   } else if (screenWidth <= 1199 && screenWidth > 991) {
-    countOfSlides = 3;
+    chronologySlider.countOfSlides = 3;
   } else if (screenWidth <= 991 && screenWidth > 575) {
-    countOfSlides = 2;
+    chronologySlider.countOfSlides = 2;
   } else {
-    countOfSlides = 1
+    chronologySlider.countOfSlides = 1
   }
 
   chronologySlider.slick({
     arrows: true,
     infinite: false,
-    slidesToShow: countOfSlides,
+    slidesToShow:  chronologySlider.countOfSlides,
     speed: 600,
     waitForAnimate: true,
     customPaging: 50,
@@ -95,7 +111,7 @@ $(document).ready(function () {
       chronologyProgress.addClass('start')
       chronologyProgress.removeClass('middle')
       chronologyProgress.removeClass('end')
-    } else if (nextSlide === chronologySlides.length - countOfSlides) {
+    } else if (nextSlide === chronologySlides.length - $(this).countOfSlides) {
       chronologyProgress.addClass('middle') // end
       // chronologyProgress.removeClass('middle')
       chronologyProgress.removeClass('start')
@@ -105,6 +121,8 @@ $(document).ready(function () {
       chronologyProgress.removeClass('end')
     }
   });
+
+
 
   const centredSlider = $('[data-center-slider]');
   centredSlider.slick({

@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="css/bootstrap-grid.css">
   <link rel="stylesheet" href="css/slick.css">
+  <link rel="stylesheet" href="css/fancybox.css">
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
@@ -119,7 +120,7 @@
   <main class="content-page">
 
     <!-- Хлебные крошки -->
-    <div class="content-page__bc bc bc--on-img">
+    <div class="content-page__bc bc">
       <div class="bc__container container">
         <ul class="bc__list">
           <li class="bc__item">
@@ -128,8 +129,11 @@
           <li class="bc__item">
             <a href="">Услуги</a>
           </li>
+          <li class="bc__item">
+            <a href="service.html">Сервис</a>
+          </li>
           <li class="bc__item active">
-            <a href="">Лизинг</a>
+            <a href="">Техническое обслуживание</a>
           </li>
         </ul>
       </div>
@@ -139,252 +143,255 @@
 
     <section class="content-page__section">
 
-      <div class="content-page__header big bg--img">
-        <img src="img/leasing.jpg" alt="Кабинет хирурга">
+      <div class="container">
+        <div class="row">
 
-        <div class="content-page__header-container container pb-m">
-          <div class="content-page__header-wrap">
-
-            <h1 class="content-page__title">М.П.А. Медицинские партнеры – Лизинг</h1>
-
-            <div class="content-page__desc mt-0 mb-s">
-              <p>Аренда медицинского оборудования с правом <br> выкупа по остаточной стоимости</p>
+          <div class="content-page__fluid-header col-12 col-lg-8 pb-m">
+            <div class="title mb-xs">
+              <h1 class="title__header">Комплексное техническое обслуживание изделий медицинской техники</h1>
             </div>
 
+            <p class="mb-s">Периодический контроль технического состояния проводится в соответствии с графиком ПКТС,
+              согласованного
+              с Заказчиком. При необходимости проводим инструктаж медперсонала пользовательским функциям. Плановые
+              работы
+              по техническому обслуживанию проводятся в соответствии с графиком ТО, согласованного с Заказчиком.
+              Комплекс
+              работ в соответствии с <a href="/">письмом Министерства здравоохранения РФ от 27.10.2003 г. №
+                293–22/233</a>.</p>
             <button class="btn btn-bg btn-big" data-modal="#modal">Заказать услугу</button>
           </div>
+
+          <div class="col-4 p-0 d-flex align-self-end">
+            <img src="img/service-technical.jpg" alt="">
+
+          </div>
+
+          <!-- <img style="position: absolute; right: 0; bottom: 0" src="img/service-technical.jpg" alt=""> -->
+
         </div>
       </div>
-
-      <div class="container container--content pt-def">
-        <div class="text-block row">
-          <div class="col-4">
-            <div class="text-block__title title">
-              <h2 class="title__header">Об услуге</h2>
-            </div>
-          </div>
-          <div class="col-8">
-            <div class="text-block__desc">
-              <h3>«М.П.А. медицинские партнеры – ЛИЗИНГ» — узкоспециализированная компания по передаче в лизинг
-                медицинского оборудования</h3>
-
-              <p>Качественное медицинское оборудование необходимо для работы любому лечебному учреждению. Не всегда
-                клиники могут сразу выделить большой бюджет на эти цели. Использование механизма лизинга позволяет без
-                значительных вложений уже сегодня предлагать своим пациентам самые современные и совершенные методики
-                лечения.</p>
-              <p>Лизинг - вид инвестиционной деятельности, в рамках которой ООО «М.П.А. медицинские партнёры – Лизинг»
-                передает в аренду оборудование за определённую плату, на определённый срок и на определённых условиях
-                медицинскому учреждению с последующим переходом права собственности.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    </section>
 
 
-      <div class="bg--gray">
-        <div class="container container--content pt-def">
-          <div class="text-block">
-            <div class="text-block__title title">
-              <h2 class="title__header"> Передача в лизинг<br> медицинского оборудования</h2>
-            </div>
-
-            <img src="img/leasing-sch.png" alt="Схема работы лизинга">
-          </div>
-        </div>
-      </div>
-
-
-      <div class="container container--content pt-def pb-s">
+    <section class="content-page__section bg--gray">
+      <div class="container container--content pb-m">
         <div class="text-block">
           <div class="text-block__title title">
-            <h2 class="title__header">Преимущества лизинга</h2>
+            <h2 class="title__header">Перечень работ</h2>
           </div>
+
+          <div class="row">
+            <div class="col-12 col-md-6 mb-s">
+              <div class="service-point border-block">
+                <h3>Работы, рекомендованные заводом производителем изделия<br> медицинской техники</h3>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 mb-s">
+              <div class="service-point border-block">
+                <h3>Замена материалов набора
+                  технического обслуживания</h3>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 mb-s">
+              <div class="service-point border-block">
+                <h3>Внеплановый визит (текущий ремонт,
+                  диагностика неисправности)</h3>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 mb-s">
+              <div class="service-point border-block">
+                <h3>Ведение журнала технического обслуживания</h3>
+              </div>
+            </div>
+          </div>
+
 
           <div class="row mt-sm">
-            <div class="col-12 col-md-6 col-lg-4 mb-m">
+            <div class="col-12 col-md-6 col-lg-3 mb-xs">
               <div class="feat text-small">
-                <img class="mb-xs" src="img/feat-1.svg" alt="Судбсидии и льготы">
-                <h3 class="feat__title text-big">Судбсидии и льготы</h3>
-                <p>Государственная политика направлена на поощрение и расширение лизинговых операций.</p>
+                <img class="mb-xs" src="img/feat-11.svg" alt="Гарантия">
+                <p>Гарантия на выполненные<br> работы – 6 месяцев</p>
               </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-m">
+            <div class="col-12 col-md-6 col-lg-3 mb-xs">
               <div class="feat text-small">
-                <img class="mb-xs" src="img/feat-2.svg" alt="Переходит в собственность">
-                <h3 class="feat__title text-big">Переходит в собственность</h3>
-                <p>После уплаты лизинговых платежей оборудование переходит в собственность медицинского учреждения.</p>
+                <img class="mb-xs" src="img/feat-16.svg" alt="Контракт">
+                <p>Условием оказания услуги является долгосрочный контракт</p>
               </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-m">
+            <div class="col-12 col-md-6 col-lg-3 mb-xs">
               <div class="feat text-small">
-                <img class="mb-xs" src="img/feat-3.svg" alt="Не влияет на возможность дополнительных займов">
-                <h3 class="feat__title text-big">Не влияет на возможность дополнительных займов</h3>
-                <p>При необходимости, медицинское учреждение может брать дополнительные займы.</p>
+                <img class="mb-xs" src="img/feat-4.svg" alt="Список изделий">
+                <p>Расчет стоимости производится<br> на основе списка изделий медицинской техники</p>
               </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-m">
+            <div class="col-12 col-md-6 col-lg-3 mb-xs">
               <div class="feat text-small">
-                <img class="mb-xs" src="img/feat-4.svg" alt="Учет и амортизация производится на нашем балансе">
-                <h3 class="feat__title text-big">Учет и амортизация производится на нашем балансе</h3>
-                <p>Лизинговые платежи, вносимые медицинским учреждением, учитываются у него в себестоимости, то есть
-                  средства на их уплату формируются до образования облагаемой налогом прибыли.</p>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-m">
-              <div class="feat text-small">
-                <img class="mb-xs" src="img/feat-5.svg" alt="Индивидуальный подход">
-                <h3 class="feat__title text-big">Индивидуальный подход</h3>
-                <p>Лизинговое соглашение разрабатывается с индивидуальным подходом к медицинскому учреждению любого
-                  масштаба.</p>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-m">
-              <div class="feat text-small">
-                <img class="mb-xs" src="img/feat-6.svg" alt="Судбсидии и льготы">
-                <h3 class="feat__title text-big">Освобождение от НДС реализации</h3>
-                <p>Освобождение от налогообложения на добавленную стоимость реализации на территории Российской
-                  Федерации услуг по передаче медицинских изделий, указанных в <a href="/">налоговом кодексе РФ</a>.</p>
+                <img class="mb-xs" src="img/feat-12.svg" alt="Время реагирования">
+                <p>На цену также влияет желаемое<br> время реагирования на завявку</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
-      <div class="bg--gray">
-        <div class="container container--content pt-def pb-xxl">
-          <div class="text-block">
-            <div class="text-block__title title">
-              <h2 class="title__header">Как получить медицинское оборудование в лизинг</h2>
-            </div>
-
-            <div class="steps mt-m">
-              <div class="step">
-                <div class="step__title">1 этап</div>
-                <div class="step__point">
-                  <svg class=" icon-step" width="24" height="24" viewBox="0 0 24 24">
-                    <circle class="step-circle" cx="12" cy="12" r="11.5" />
-                    <circle class="step-dot" cx="12" cy="12" r="4" />
-                  </svg>
-                </div>
-                <div class="step__text">Выберите товар в <a href="catalog.html">каталоге</a></div>
-              </div>
-              <div class="step">
-                <div class="step__title">2 этап</div>
-                <div class="step__point">
-                  <svg class=" icon-step" width="24" height="24" viewBox="0 0 24 24">
-                    <circle class="step-circle" cx="12" cy="12" r="11.5" />
-                    <circle class="step-dot" cx="12" cy="12" r="4" />
-                  </svg>
-                </div>
-                <div class="step__text">Отправьте запрос</div>
-              </div>
-              <div class="step">
-                <div class="step__title">3 этап</div>
-                <div class="step__point">
-                  <svg class=" icon-step" width="24" height="24" viewBox="0 0 24 24">
-                    <circle class="step-circle" cx="12" cy="12" r="11.5" />
-                    <circle class="step-dot" cx="12" cy="12" r="4" />
-                  </svg>
-                </div>
-                <div class="step__text">Ознакомьтесь с индивидуальным предложением</div>
-              </div>
-              <div class="step">
-                <div class="step__title">4 этап</div>
-                <div class="step__point">
-                  <svg class=" icon-step" width="24" height="24" viewBox="0 0 24 24">
-                    <circle class="step-circle" cx="12" cy="12" r="11.5" />
-                    <circle class="step-dot" cx="12" cy="12" r="4" />
-                  </svg>
-                </div>
-                <div class="step__text">Подпишите договор</div>
-              </div>
-              <div class="step">
-                <div class="step__title">5 этап</div>
-                <div class="step__point">
-                  <svg class=" icon-step" width="24" height="24" viewBox="0 0 24 24">
-                    <circle class="step-circle" cx="12" cy="12" r="11.5" />
-                    <circle class="step-dot" cx="12" cy="12" r="4" />
-                  </svg>
-                </div>
-
-                <div class="step__text">Оплатите аванс и начинайте зарабатывать</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="container container--content pt-0">
-        <div class="fluid-block bg-breathe text-small" style="margin-top: -162px;">
-          <div class="title mb-xs">
-            <h2 class="title__header">Условия лизинга</h2>
-          </div>
-          <p>Узнавайте более подробную информацию об условиях договора, расчете стоимости, программах, формах,
-            схемах и правилах получения лизинга. Для расчета Лизингового предложения, необходимо выбрать
-            оборудование в каталоге и оставить заявку на лизинг.</p>
-          <a class="btn btn-white btn-big mt-xs" href="catalog.html">Перейти в каталог</a>
-        </div>
-      </div>
-
-
-
-      <div class="container pb-xl">
-        <div class="text-block">
-          <div class="text-block__title title">
-            <h2 class="title__header">Работа с компанией «М.П.А. медицинские партнеры – <br> ЛИЗИНГ» позволит любому
-              медицинскому учреждению<br> в России уже сегодня <span class="blue">расширить спектр предоставляемых<br>
-                услуг и повысить качество обслуживания клиентов</span>.</h2>
-          </div>
-        </div>
-      </div>
-
     </section>
+
+    <section class="content-page__section">
+      <div class="container container--content pb-m">
+        <div class="title mb-xs">
+          <h2 class="title__header">Нам доверяют</h2>
+        </div>
+        <p class="text-small mb-sm">За всё время работы, мы стали поставщиком услуг<br> для многих ведущих российских
+          лечебных учреждений.</p>
+
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-3 mb-xs">
+            <div class="feat text-small">
+              <img src="img/logo/logo-10.jpg" alt="Медицинский научно-образовательный центр МГУ им. М.В. Ломоносова">
+              <p>Медицинский<br> научно-образовательный центр МГУ им. М.В. Ломоносова</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-xs">
+            <div class="feat text-small">
+              <img src="img/logo/logo-11.jpg" alt="НИИ нейрохирургии им. академика Н.Н. Бурденко РАМН">
+              <p>НИИ нейрохирургии<br> им. академика Н.Н. Бурденко РАМН</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-xs">
+            <div class="feat text-small">
+              <img src="img/logo/logo-12.jpg" alt="Детская городская клиническая больница № 13 им. Н.Ф. Филатова">
+              <p>Детская городская клиническая больница № 13 им. Н.Ф. Филатова</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-xs">
+            <div class="feat text-small">
+              <img src="img/logo/logo-13.jpg" alt="ФГБУ «НМХЦ им. Н.И. Пирогова»">
+              <p>ФГБУ «НМХЦ им. Н.И. Пирогова»</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Обратная связь -->
+    <section class="feedback">
+      <div class="feedback__container container container--content pt-0">
+
+        <!-- Форма -->
+        <div class="feedback__block-wrapper">
+          <div class="feedback__title title">
+            <h2 class="title__header">Заказать техническое обслуживание</h2>
+          </div>
+          <form class="feedback__form form" method="POST" action="/">
+            <div class="form__row">
+              <div class="form__item">
+                <input type="text" name="name" id="name" autocomplete="off" placeholder="Ваше имя">
+                <label for="name">Ваше имя</label>
+              </div>
+              <div class="form__item">
+                <input type="text" name="phone" id="phone" autocomplete="off" placeholder="Телефон">
+                <label for="phone">Телефон</label>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__item">
+                <input type="email" name="email" placeholder="Email" id="email" autocomplete="off" required>
+                <label for="email">Email</label>
+              </div>
+              <div class="form__item">
+                <input type="text" name="org" placeholder="Организация" id="org" autocomplete="off">
+                <label for="org">Организация</label>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__item">
+                <input type="text" name="loc" placeholder="Город" id="loc" autocomplete="off" required="">
+                <label for="loc">Город</label>
+              </div>
+              <div class="form__item">
+                <input type="file" name="file" id="file" accept=".doc,.pdf" required>
+                <label for="file" data-placeholder="Файл (DOC, PDF)">Файл (DOC, PDF)</label>
+              </div>
+            </div>
+
+            <div class="form__item">
+              <label class="visually-hidden" for="message">Ваше сообщение</label>
+              <textarea name="message" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
+            </div>
+
+            <div class="form__footer">
+              <input type="checkbox" id="conf" name="conf" checked>
+              <label for="conf">Я согласен с &nbsp; <a href="/"
+                  aria-label="Перейти на страницу политики конфиденциальности" target="_blank">Политикой обработки
+                  персональных
+                  данных</a>
+              </label>
+
+              <button class="form__btn btn btn-bg" type="submit">Отправить</button>
+            </div>
+          </form>
+        </div>
+        <!-- Форма -->
+
+      </div>
+    </section>
+    <!-- Обратная связь -->
   </main>
 
 
   <section class="modal" id="modal">
-    <h2 class="visually-hidden">Заказать услугу</h2>
+    <h2 class="visually-hidden">Заказать техническое обслуживание</h2>
     <div class="modal__wrapper">
       <div class="modal__container">
-        <p class="modal__title" aria-hidden="true">Заказать услугу</p>
+        <p class="modal__title" aria-hidden="true">Заказать техническое обслуживание</p>
 
         <form class="modal__block modal__form form" method="POST" action="/">
           <div class="form__row">
             <div class="form__item">
-              <input type="text" name="name" id="name" autocomplete="off" placeholder="Ваше имя">
-              <label for="name">Ваше имя</label>
+              <input type="text" name="name" id="modal-name" autocomplete="off" placeholder="Ваше имя">
+              <label for="modal-name">Ваше имя</label>
             </div>
             <div class="form__item">
-              <input type="text" name="phone" id="phone" autocomplete="off" placeholder="Телефон">
-              <label for="phone">Телефон</label>
+              <input type="text" name="phone" id="modal-phone" autocomplete="off" placeholder="Телефон">
+              <label for="modal-phone">Телефон</label>
             </div>
           </div>
           <div class="form__row">
             <div class="form__item">
-              <input type="email" name="email" placeholder="Email" id="email" autocomplete="off" required="">
-              <label for="email">Email</label>
+              <input type="email" name="email" placeholder="Email" id="modal-email" autocomplete="off" required="">
+              <label for="modal-email">Email</label>
             </div>
             <div class="form__item">
-              <input type="text" name="org" placeholder="Организация" id="org" autocomplete="off">
-              <label for="org">Организация</label>
+              <input type="text" name="org" placeholder="Организация" id="modal-org" autocomplete="off">
+              <label for="modal-org">Организация</label>
+            </div>
+          </div>
+          <div class="form__row">
+
+            <div class="form__item">
+              <input type="text" name="loc" placeholder="Город" id="modal-loc" autocomplete="off" required="">
+              <label for="modal-loc">Город</label>
+            </div>
+            <div class="form__item">
+              <input type="file" name="file" id="modal-file" accept=".doc,.pdf" required>
+              <label for="modal-file" data-placeholder="Файл (DOC, PDF)">Файл (DOC, PDF)</label>
             </div>
           </div>
 
-          <div class="form__item">
-            <input type="text" name="loc" placeholder="Город" id="loc" autocomplete="off" required="">
-            <label for="loc">Город</label>
-          </div>
 
           <div class="form__item">
-            <textarea name="message" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
-            <label for="message">Ваше сообщение</label>
+            <textarea name="message" id="modal-message" rows="3" placeholder="Ваше сообщение"></textarea>
+            <label for="modal-message">Ваше сообщение</label>
           </div>
 
           <div class="form__footer">
-            <input type="checkbox" id="conf" name="conf" checked="">
-            <label for="conf">Я согласен с &nbsp; <a href="/"
+            <input type="checkbox" id="modal-conf" name="conf" checked="">
+            <label for="modal-conf">Я согласен с &nbsp; <a href="/"
                 aria-label="Перейти на страницу политики конфиденциальности" target="_blank">Политикой обработки
                 персональных
                 данных</a>
@@ -545,6 +552,7 @@
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="js/slick.js"></script>
+  <script src="js/fancybox.js"></script>
   <script src="js/sliders.js"></script>
   <script src="js/main.js"></script>
 
