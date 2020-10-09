@@ -84,7 +84,6 @@ $(document).ready(function () {
   const chronologySlider = chronology.find('[data-chronology-slider]');
   chronologySlider.countOfSlides = 0;
 
-
   if (screenWidth > 1199) {
     chronologySlider.countOfSlides = 4;
   } else if (screenWidth <= 1199 && screenWidth > 991) {
@@ -94,6 +93,13 @@ $(document).ready(function () {
   } else {
     chronologySlider.countOfSlides = 1
   }
+
+  const isEnding = chronologySlider.attr('data-chronology-end') === 'true'
+  ? true
+  : false
+  chronologySlider.isEnding = isEnding;
+
+
 
   chronologySlider.slick({
     arrows: true,
@@ -105,20 +111,23 @@ $(document).ready(function () {
     accessibility: false,
     draggable: false,
   });
-  const chronologySlides = chronologySlider.find('.slick-slide');
+
   chronologySlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+
     if (nextSlide === 0) {
       chronologyProgress.addClass('start')
       chronologyProgress.removeClass('middle')
       chronologyProgress.removeClass('end')
-    } else if (nextSlide === chronologySlides.length - $(this).countOfSlides) {
-      chronologyProgress.addClass('middle') // end
-      // chronologyProgress.removeClass('middle')
-      chronologyProgress.removeClass('start')
+    } else if (nextSlide === $(this).find('.slick-slide').length - chronologySlider.countOfSlides) {
+      if (chronologySlider.isEnding) {
+        chronologyProgress.addClass('end'); // end
+        chronologyProgress.removeClass('middle');
+        chronologyProgress.removeClass('start');
+      }
     } else {
-      chronologyProgress.addClass('middle')
-      chronologyProgress.removeClass('start')
-      chronologyProgress.removeClass('end')
+      chronologyProgress.addClass('middle');
+      chronologyProgress.removeClass('start');
+      chronologyProgress.removeClass('end');
     }
   });
 

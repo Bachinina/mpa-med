@@ -251,6 +251,76 @@ $(document).ready(function () {
       });
     }
   })(jQuery);
+
+
+  // PARALLAX
+  const pd = $('#parallax-doc');
+  if (pd.length) {
+    let block_show = null;
+    const l1 = pd.find('.layer-1');
+    const l2 = pd.find('.layer-2');
+
+    const l1StartYPos = 115;
+    const l2StartYPos = 230;
+
+    const l1FinishYPos = 170;
+    const l2FinishYPos = 180;
+
+
+    function scrollTracking() {
+      var wt = $(window).scrollTop();
+      var wh = $(window).height();
+      var et = pd.offset().top;
+      var eh = pd.outerHeight();
+
+      if (wt + wh >= et && wt + wh - eh * 2 <= et + (wh - eh)) {
+        if (block_show == null || block_show == false) {
+          $(window).bind('mousewheel', function (event) {
+            if (event.originalEvent.wheelDelta >= 0) {
+              parallaxEffUp();
+            }
+            else {
+              parallaxEffDown();
+            }
+          });
+        }
+        block_show = true;
+      } else {
+        // if (block_show == null || block_show == true) {
+
+        // }
+        block_show = false;
+      }
+    };
+
+
+    function parallaxEffUp() {
+      l1.css({
+        'transform': `translateY(${l1StartYPos}px)`,
+      });
+      l2.css({
+        'transform': `translateY(${l2StartYPos}px)`,
+      });
+    };
+
+    function parallaxEffDown() {
+      l1.css({
+        'transform': `translateY(${l1FinishYPos}px)`,
+      });
+      l2.css({
+        'transform': `translateY(${l2FinishYPos}px)`,
+      });
+    };
+
+    $(window).scroll(function () {
+      scrollTracking();
+    });
+
+    $(document).ready(function () {
+      scrollTracking();
+    });
+  }
+
 });
 
 
