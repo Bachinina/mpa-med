@@ -51,6 +51,19 @@ $(document).ready(function () {
           document.removeEventListener('click', onDocumentClick);
           document.removeEventListener('keydown', onEscKeydown);
           isDropdownMenuOpen = false;
+          toggle.blur();
+
+
+          if (dropdown.classList.contains('big')) {
+            const items = dropdown.querySelectorAll('.dropdown__item');
+            items.forEach(function (el, index) {
+              if (index === 0) {
+                el.classList.add('show');
+              } else {
+                el.classList.remove('show');
+              }
+            })
+          }
         }
 
         const onDocumentClick = (evt) => {
@@ -73,6 +86,67 @@ $(document).ready(function () {
       })
     }
   })();
+
+
+
+  $('.dropdown:not(.big) .dropdown-hover').each(function() {
+    const wrap = $(this);
+    const drop = $(this).children('.dropdown__menu-hover');
+    const link = $(this).children('.dropdown__link');
+
+    function showDrop () {
+      link.addClass('show');
+      drop.addClass('show');
+    }
+
+    function hideDrop () {
+      link.removeClass('show');
+      drop.removeClass('show');
+    }
+
+    wrap.on('mouseover', showDrop);
+    wrap.on('mouseout', hideDrop);
+    wrap.on('focusin', showDrop);
+    wrap.on('focusout', hideDrop);
+  });
+
+
+  $('.dropdown.big').each(function() {
+    const el = $(this);
+    const items = el.find('.dropdown__item');
+
+
+    items.each(function() {
+      $(this).on('mouseover', function () {
+        items.not($(this)).removeClass('show');
+        $(this).addClass('show');
+      });
+      $(this).on('focusin', function () {
+        items.not($(this)).removeClass('show');
+        $(this).addClass('show');
+      });
+    });
+
+
+    // const wrap = $(this);
+    // const drop = $(this).find('.dropdown__menu-hover');
+    // const link = $(this).find('.dropdown__link');
+
+    // function showDrop () {
+    //   link.addClass('show');
+    //   drop.addClass('show');
+    // }
+
+    // function hideDrop () {
+    //   link.removeClass('show');
+    //   drop.removeClass('show');
+    // }
+
+    // wrap.on('mouseover', showDrop);
+    // wrap.on('mouseout', hideDrop);
+    // link.focus(showDrop);
+    // link.blur(hideDrop);
+  });
 
   // TABS
   $('[data-tabs]').each(function () {
@@ -251,6 +325,12 @@ $(document).ready(function () {
       });
     }
   })(jQuery);
+
+  // SHOW MORE
+  $('[data-show-more]').on('click', function () {
+    $($(this).attr('data-show-more')).slideDown(500);
+    $(this).remove();
+  });
 
 
   // PARALLAX
