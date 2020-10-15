@@ -94,7 +94,7 @@ $(document).ready(function () {
     const drop = $(this).children('.dropdown__menu-hover');
     const link = $(this).children('.dropdown__link');
 
-    function showDrop () {
+    function showDrop (evt) {
       link.addClass('show');
       drop.addClass('show');
     }

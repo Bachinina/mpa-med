@@ -3950,6 +3950,9 @@ input[type="radio"]:checked + label::before {
   min-width: auto;
 }
 .dropdown.big .dropdown__menu-hover {
+  opacity: 1;
+  visibility: visible;
+  display: none;
   left: 320px;
   width: calc(100% - 320px);
   max-width: none;
@@ -4028,6 +4031,9 @@ input[type="radio"]:checked + label::before {
 .dropdown-hover > .dropdown__link.show {
   color: #0090d4;
 }
+.dropdown-hover > .dropdown__link.show + .dropdown__menu-hover {
+  display: block;
+}
 .dropdown-hover .dropdown__link {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4056,10 +4062,12 @@ input[type="radio"]:checked + label::before {
 }
 .dropdown__menu-hover.show {
   z-index: 111;
-  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 .dropdown__menu-hover {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
   z-index: -1;
   position: absolute;
   top: -1px;
