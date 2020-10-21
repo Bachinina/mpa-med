@@ -1434,8 +1434,15 @@ button.btn-text:focus {
 .btn-icon__desc {
   padding: 21px 24px;
 }
-.btn-wrap > * + * {
-  margin-left: 8px;
+.btn-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.btn-wrap > *:not(:last-of-type) {
+  margin-right: 8px;
 }
 .marks {
   list-style: none;
@@ -4182,6 +4189,9 @@ button.range__item.disabled {
 .product__video-title {
   font-size: 16px !important;
   margin-bottom: 0 !important;
+}
+.product__info {
+  max-width: 585px;
 }
 .review {
   display: -webkit-box;
