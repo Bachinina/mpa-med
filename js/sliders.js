@@ -95,8 +95,8 @@ $(document).ready(function () {
   }
 
   const isEnding = chronologySlider.attr('data-chronology-end') === 'true'
-  ? true
-  : false
+    ? true
+    : false
   chronologySlider.isEnding = isEnding;
 
 
@@ -104,7 +104,7 @@ $(document).ready(function () {
   chronologySlider.slick({
     arrows: true,
     infinite: false,
-    slidesToShow:  chronologySlider.countOfSlides,
+    slidesToShow: chronologySlider.countOfSlides,
     speed: 600,
     waitForAnimate: true,
     customPaging: 50,
@@ -164,7 +164,8 @@ $(document).ready(function () {
     slidesToScroll: 1,
     arrows: false,
     fade: true,
-    asNavFor: slideCount > 5 ? childSlider : '',
+    asNavFor: childSlider,
+    draggable: false,
   });
 
 
@@ -173,10 +174,11 @@ $(document).ready(function () {
   });
 
   childSlider.slick({
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,
     asNavFor: parentSlider,
-    focusOnSelect: true
+    focusOnSelect: true,
+    draggable: false,
   });
 });

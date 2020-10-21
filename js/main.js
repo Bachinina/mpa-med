@@ -67,9 +67,9 @@ $(document).ready(function () {
         }
 
         const onDocumentClick = (evt) => {
-          if (evt.target !== toggle
-            && evt.target !== dropdownMenu
-            && !dropdownMenu.contains(evt.target)
+          if (evt.target !== toggle &&
+            evt.target !== dropdownMenu &&
+            !dropdownMenu.contains(evt.target)
           ) {
             closeDropdownMenu();
           }
@@ -89,17 +89,17 @@ $(document).ready(function () {
 
 
 
-  $('.dropdown:not(.big) .dropdown-hover').each(function() {
+  $('.dropdown:not(.big) .dropdown-hover').each(function () {
     const wrap = $(this);
     const drop = $(this).children('.dropdown__menu-hover');
     const link = $(this).children('.dropdown__link');
 
-    function showDrop (evt) {
+    function showDrop(evt) {
       link.addClass('show');
       drop.addClass('show');
     }
 
-    function hideDrop () {
+    function hideDrop() {
       link.removeClass('show');
       drop.removeClass('show');
     }
@@ -111,12 +111,12 @@ $(document).ready(function () {
   });
 
 
-  $('.dropdown.big').each(function() {
+  $('.dropdown.big').each(function () {
     const el = $(this);
     const items = el.find('.dropdown__item');
 
 
-    items.each(function() {
+    items.each(function () {
       $(this).on('mouseover', function () {
         items.not($(this)).removeClass('show');
         $(this).addClass('show');
@@ -126,26 +126,6 @@ $(document).ready(function () {
         $(this).addClass('show');
       });
     });
-
-
-    // const wrap = $(this);
-    // const drop = $(this).find('.dropdown__menu-hover');
-    // const link = $(this).find('.dropdown__link');
-
-    // function showDrop () {
-    //   link.addClass('show');
-    //   drop.addClass('show');
-    // }
-
-    // function hideDrop () {
-    //   link.removeClass('show');
-    //   drop.removeClass('show');
-    // }
-
-    // wrap.on('mouseover', showDrop);
-    // wrap.on('mouseout', hideDrop);
-    // link.focus(showDrop);
-    // link.blur(hideDrop);
   });
 
   // TABS
@@ -212,6 +192,72 @@ $(document).ready(function () {
     return false;
   });
 
+
+  // RANGE
+  $('[data-range]').each(function () {
+    const value = $(this).attr('data-range-value');
+    const items = $(this).find('[data-range-item]');
+
+    items.each(function (i) {
+      if (i < value) {
+        $(this).addClass('active');
+      }
+    })
+  });
+
+  // RANGE SELECT
+  $('[data-range-select]').each(function () {
+    let selectedValue = '';
+
+    const items = $(this).find('[data-range-item]');
+    const input = $($(this).attr('data-range-input'));
+
+    function onRangeMouseover(range) {
+      items.removeClass('active');
+      items.each(function (i) {
+        if (i <= range) {
+          $(this).addClass('active');
+        }
+      });
+    };
+
+    function onRangeMouseout() {
+      items.removeClass('active');
+    };
+
+    function onRangeClick() {
+      items.removeClass('active');
+      items.each(function (i) {
+        if (i < selectedValue) {
+          $(this).addClass('active');
+        }
+      });
+
+      input.val(selectedValue);
+    };
+
+
+    items.each(function (i) {
+      $(this).on('mouseover', function () {
+        onRangeMouseover(i);
+      });
+      $(this).on('mouseout', onRangeMouseout);
+
+      $(this).on('click', function () {
+        selectedValue = $(this).attr('data-range-value');
+
+        // DEL EVENT LISTENERS
+        items.each(function () {
+          $(this).off('mouseover');
+          $(this).off('mouseout');
+        });
+        $(this).addClass('active');
+
+        onRangeClick();
+      });
+    })
+  });
+
   // FORM
   // FILE
   $('input[type="file"]').change(function () {
@@ -251,58 +297,90 @@ $(document).ready(function () {
     $($(this).attr('data-modal')).addClass('active');
   });
   // MODAL CLOSING
-  (function () {
-    const modals = document.querySelectorAll('.modal');
-    if (modals.length > 0) {
-      modals.forEach((modal) => {
-        const modalCloseBtn = modal.querySelector('.modal__close');
 
-        const closeModalByClick = (evt) => {
-          if (evt.target === modal) {
-            closeModal();
-          }
-        };
+  $('.modal').each(function () {
+    const modalCloseBtn = $(this).find('.modal__close');
 
-        const closeModalByEsc = (evt) => {
-          if (evt.keyCode === 27) {
-            closeModal();
-          }
-        };
+    const closeModalByClick = (evt) => {
+      if (evt.target.classList.contains('modal')) {
+        closeModal();
+      }
+    };
 
-        const closeModal = () => {
-          modal.classList.remove('active');
+    const closeModalByEsc = (evt) => {
+      if (evt.keyCode === 27) {
+        closeModal();
+      }
+    };
+
+    const closeModal = () => {
+      $(this).removeClass('active');
 
 
-          const form = modal.querySelector('form');
-          if (form) {
-            // CLEAR FORM
-            form.reset();
+      const form = $(this).find('form');
+      if (form) {
+        // CLEAR FORM
+        form.trigger("reset");
 
-            // CLEAR FIELDS
-            const fieldsToClear = modal.querySelectorAll('[data-filled]');
-            if (fieldsToClear.length > 0) {
-              fieldsToClear.forEach((field) => {
-                field.textContent = '';
+        const ranges = form.find('[data-range-select]');
+        if (ranges.length) {
+          ranges.each(function () {
+            const items = $(this).find('[data-range-item]');
+            items.each(function (i) {
+              $(this).removeClass('active');
+              $(this).off('mouseover');
+              $(this).off('mouseout');
+
+              function onRangeMouseover(range) {
+                items.removeClass('active');
+                items.each(function (i) {
+                  if (i <= range) {
+                    $(this).addClass('active');
+                  }
+                });
+              };
+
+              function onRangeMouseout() {
+                items.removeClass('active');
+              };
+
+              $(this).on('mouseover', function () {
+                onRangeMouseover(i);
               });
-            }
+              $(this).on('mouseout', onRangeMouseout);
+            });
+          });
 
-            // CLEAR LABEL OF FILE INPUT
-            const fileInputLabels = form.querySelectorAll('input[type="file"] + label');
-            if (fileInputLabels.length > 0) {
-              fileInputLabels.forEach((label) => {
-                const placeholder = label.getAttribute('data-placeholder');
-                label.textContent = placeholder;
-              })
-            }
-          }
-        };
+          form.find('[data-range-result]').each(function () {
+            $(this).val(0);
+          });
+        }
 
-        modal.addEventListener('click', closeModalByClick);
-        modalCloseBtn.addEventListener('click', closeModal);
-        document.addEventListener('keydown', closeModalByEsc);
-      });
-    }
-  })();
+        // CLEAR FIELDS
+        const fieldsToClear = $(this).find('[data-filled]');
+        if (fieldsToClear.length) {
+          fieldsToClear.each(function () {
+            $(this).text('');
+          });
+        }
+
+        // CLEAR LABEL OF FILE INPUT
+        const fileInputLabels = $(this).find('input[type="file"] + label');
+        if (fileInputLabels.length) {
+          fileInputLabels.each(function () {
+            const placeholder = $(this).attr('data-placeholder');
+            $(this).text(placeholder);
+          })
+        }
+      };
+    };
+
+    $(this).on('click', closeModalByClick);
+    modalCloseBtn.on('click', closeModal);
+    $(document).on('keydown', closeModalByEsc);
+  });
+
+
 
   //MODAL --VACANCY
   $('.vacancy__btn').on('click', function () {
@@ -358,8 +436,7 @@ $(document).ready(function () {
           $(window).bind('mousewheel', function (event) {
             if (event.originalEvent.wheelDelta >= 0) {
               parallaxEffUp();
-            }
-            else {
+            } else {
               parallaxEffDown();
             }
           });
@@ -402,7 +479,3 @@ $(document).ready(function () {
   }
 
 });
-
-
-
-
