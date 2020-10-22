@@ -27,7 +27,7 @@
             <a class="header__link" href="/">Корпоративный сайт</a>
           </li>
           <li class="header__item">
-            <a class="header__link" href="/">Филиалы</a>
+            <a class="header__link" href="branches.html">Филиалы</a>
           </li>
         </ul>
 
@@ -77,9 +77,7 @@
                     <li class="dropdown__item">
                       <a class="dropdown__link" href="rewards.html">Награды</a>
                     </li>
-                    <li class="dropdown__item">
-                      <a class="dropdown__link" href="branches.html">Филиалы</a>
-                    </li>
+
                   </ul>
                 </div>
               </li>
@@ -89,6 +87,13 @@
                 </button>
                 <div class="dropdown__menu">
                   <ul class="dropdown__menu-list">
+
+                    
+                    <!-- Элемент списка -->
+                    <li class="dropdown__item-simple">
+                      <a class="dropdown__link" href="brands.html">Все производители</a>
+                    </li>
+                    <!-- Элемент списка -->
 
                     <!-- Элемент списка -->
                     <li class="dropdown__item dropdown-hover show">
@@ -790,7 +795,7 @@
             <a href="catalog.html">Каталог медоборудования</a>
           </li>
           <li class="bc__item active">
-            <a href="">Робот-ассистированная хирургия</a>
+            <a href="">Акушерство и гинекология</a>
           </li>
         </ul>
       </div>
@@ -799,15 +804,16 @@
 
     <section class="content-page__section">
       <div class="container pb-m">
-        <h1 class="content-page__title">Робот-ассистированная хирургия</h1>
+        <h1 class="content-page__title mb-s">Оборудование и медицинские инструменты <br> для акушерства и гинекологии
+        </h1>
 
-        <div class="content-page__desc">
+        <!-- <div class="content-page__desc">
           <p>Называя компанию таким образом, мы стремились подчеркнуть, что готовы быть партнерами медицинским
             работникам и обеспечивать их современным, высокотехнологичным оборудованием, инструментами и материалами.
           </p>
-        </div>
+        </div> -->
 
-        <div class="content-page__btns">
+        <!-- <div class="content-page__btns">
           <ul class="content-page__btns-list">
             <li class="content-page__btns-item">
               <a href="" class="content-page__btn btn">Кресла</a>
@@ -825,11 +831,39 @@
               <a href="" class="content-page__btn btn">Кардиология</a>
             </li>
           </ul>
+        </div> -->
+
+        <div class="content-page__btns">
+          <ul class="content-page__btns-list">
+            <li class="content-page__btns-item">
+              <a href="https://medicalpartners.ru/akusherstvo-ginekologiya/stetoskopy/"
+                class="content-page__btn btn">Акушерские стетоскопы</a> </li>
+            <li class="content-page__btns-item">
+              <a href="https://medicalpartners.ru/akusherstvo-ginekologiya/aspiratory/"
+                class="content-page__btn btn">Аспираторы</a> </li>
+            <li class="content-page__btns-item">
+              <a href="https://medicalpartners.ru/datchiki-uzi/" class="content-page__btn btn">Датчики УЗИ</a> </li>
+            <li class="content-page__btns-item">
+              <a href="https://medicalpartners.ru/akusherstvo-ginekologiya/kolposkopy/"
+                class="content-page__btn btn">Кольпоскопы</a> </li>
+            <li class="content-page__btns-item">
+              <a href="https://medicalpartners.ru/akusherstvo-ginekologiya/mebel-dlya-ginekologicheskogo-kabineta/"
+                class="content-page__btn btn">Мебель для гинекологического кабинета</a> </li>
+            <li class="content-page__btns-item">
+              <a href="https://medicalpartners.ru/akusherstvo-ginekologiya/osvetiteli/"
+                class="content-page__btn btn">Осветители</a> </li>
+            <li class="content-page__btns-item">
+              <a href="https://medicalpartners.ru/akusherstvo-ginekologiya/rassasivauschiesya-protivospaechnie-bariery/"
+                class="content-page__btn btn">Рассасывающиеся противоспаечные барьеры</a> </li>
+            <li class="content-page__btns-item">
+              <a href="https://medicalpartners.ru/ultrazvukovye-sistemy/" class="content-page__btn btn">Ультразвуковые
+                системы</a> </li>
+          </ul>
         </div>
 
         <div class="content-page__list-wrapper row">
 
-          <div class="content-page__list-filter col-3">
+          <div class="content-page__list-filter сol-12 col-xl-3">
             <!-- Фильтр -->
             <ul class="filter acc">
               <li class="filter__item acc__item">
@@ -840,15 +874,15 @@
                 <div class="filter__item-body acc__body">
                   <form class="filter__form" method="POST" action="/">
                     <div class="filter__form-section">
-                      <!-- <div class="filter__form-item mb-xs">
+                      <div class="filter__form-item mb-xs">
                         <input class="" type="search" aria-label="Поиск по сайту" placeholder="Поиск по сайту">
-                      </div> -->
+                      </div>
                       <div class="filter__form-item">
                         <input type="checkbox" id="all" name="all" checked="">
                         <label for="all">Все производители</label>
                       </div>
                     </div>
-                    <div class="filter__form-section">
+                    <!-- <div class="filter__form-section">
                       <div class="filter__form-item">
                         <input type="checkbox" id="filter-1" name="filter-1" checked="">
                         <label for="filter-1">Riester <span class="amount">(123)</span></label>
@@ -871,6 +905,69 @@
                       </div>
 
                       <a href="/" class="btn btn-bg btn-small w-100 mt-s">Показать</a>
+                    </div> -->
+
+                    <div id="filter__form-section" class="filter__form-section">
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-1" name="ATMOS MedizinTechnik" value="99" checked>
+                        <label for="filter-1">ATMOS MedizinTechnik</label>
+                      </div>
+
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-2" name="BK medical" value="265" checked>
+                        <label for="filter-2">BK medical</label>
+                      </div>
+
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-3" name="Carl Zeiss" value="102" checked>
+                        <label for="filter-3">Carl Zeiss</label>
+                      </div>
+
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-4" name="DYSIS Medical " value="2044" checked>
+                        <label for="filter-4">DYSIS Medical </label>
+                      </div>
+
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-5" name="Ethicon Gynecare" value="143" checked>
+                        <label for="filter-5">Ethicon Gynecare</label>
+                      </div>
+
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-6" name="Laborie" value="117" checked>
+                        <label for="filter-6">Laborie</label>
+                      </div>
+
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-7" name="Merivaara" value="119" checked>
+                        <label for="filter-7">Merivaara</label>
+                      </div>
+
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-8" name="Promedon" value="125" checked>
+                        <label for="filter-8">Promedon</label>
+                      </div>
+
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-9" name="Rudolf Riester" value="90" checked>
+                        <label for="filter-9">Rudolf Riester</label>
+                      </div>
+
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-10" name="Sutter" value="1364" checked>
+                        <label for="filter-10">Sutter</label>
+                      </div>
+
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-11" name="TECNO-GAZ" value="725" checked>
+                        <label for="filter-11">TECNO-GAZ</label>
+                      </div>
+
+                      <div class="filter__form-item">
+                        <input type="checkbox" id="filter-12" name="Мединдустрия Сервис" value="132" checked>
+                        <label for="filter-12">Мединдустрия Сервис</label>
+                      </div>
+                      <a href="/" class="btn btn-bg btn-small w-100 mt-s">Показать</a>
                     </div>
                   </form>
                 </div>
@@ -880,17 +977,111 @@
           </div>
 
 
-          <div class="col-9">
+          <div class="col-12 col-xl-9">
+            <!-- <ul class="content-page__list row">
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                    <div class="card-block__img">
+                      <img src="img/news-1.jpg" alt="">
+                    </div>
+
+                    <div class="card-block__title">
+                      <span cclass="mark-mini">Rudolf Riester</span>
+                      <span class="main">Pinard — акушерский стетоскоп</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                    <div class="card-block__img">
+                      <img src="img/news-1.jpg" alt="">
+                    </div>
+
+                    <div class="card-block__title">
+                      <span cclass="mark-mini">Rudolf Riester</span>
+                      <span class="main">Pinard — акушерский стетоскоп</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                    <div class="card-block__img">
+                      <img src="img/news-1.jpg" alt="">
+                    </div>
+
+                    <div class="card-block__title">
+                      <span cclass="mark-mini">Rudolf Riester</span>
+                      <span class="main">Pinard — акушерский стетоскоп</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                    <div class="card-block__img">
+                      <img src="img/news-1.jpg" alt="">
+                    </div>
+
+                    <div class="card-block__title">
+                      <span cclass="mark-mini">Rudolf Riester</span>
+                      <span class="main">Pinard — акушерский стетоскоп</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                    <div class="card-block__img">
+                      <img src="img/news-1.jpg" alt="">
+                    </div>
+
+                    <div class="card-block__title">
+                      <span cclass="mark-mini">Rudolf Riester</span>
+                      <span class="main">Pinard — акушерский стетоскоп</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
+
+            </ul> -->
+
             <ul class="content-page__list row">
-              <!-- Карточка -->
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Магнитно-резонансный томограф SIGNA Architect</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
+                    <div class="card-block__img">
+                      <img class="lazyload" loading="lazy" alt="Магнитно-резонансный томограф SIGNA Architect"
+                        width="257" height="200" src="img/pres-1.jpg">
+                    </div>
+                    <div class="card-block__title">
+                      <span class="mark-mini">General Electric</span>
+                      <span class="main">Магнитно-резонансный томограф SIGNA Architect</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
               <li class="content-page__item col-4 mb-sm">
                 <article class="card-block card-block--bg">
                   <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
-                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
                     <div class="card-block__img">
-                      <img src="img/news-1.jpg" alt="">
+                      <img class="lazyload" loading="lazy" alt="Pinard — акушерский стетоскоп Rudolf Riester"
+                        width="275" height="200"
+                        src="https://medicalpartners.ru/files/nodus_items/0000/0285/_cache/fit275x200-image-285-1603270423.jpg">
                     </div>
-
                     <div class="card-block__title">
                       <span class="mark-mini">Rudolf Riester</span>
                       <span class="main">Pinard — акушерский стетоскоп</span>
@@ -898,76 +1089,169 @@
                   </a>
                 </article>
               </li>
-              <!-- Карточка -->
-              <!-- Карточка -->
               <li class="content-page__item col-4 mb-sm">
                 <article class="card-block card-block--bg">
-                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
-                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                  <h2 class="visually-hidden">Акушерская кресло-кровать Optima (2 электропривода)</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
                     <div class="card-block__img">
-                      <img src="img/news-1.jpg" alt="">
+                      <img class="lazyload" loading="lazy"
+                        alt="Акушерская кресло-кровать Optima (2 электропривода) Merivaara" width="275" height="200"
+                        src="https://medicalpartners.ru/files/nodus_items/0000/0297/_cache/fit275x200-image-297-1603271360.jpg">
                     </div>
-
                     <div class="card-block__title">
-                      <span class="mark-mini">Rudolf Riester</span>
-                      <span class="main">Pinard — акушерский стетоскоп</span>
+                      <span class="mark-mini">Merivaara</span>
+                      <span class="main">Акушерская кресло-кровать Optima (2 электропривода)</span>
                     </div>
                   </a>
                 </article>
               </li>
-              <!-- Карточка -->
-              <!-- Карточка -->
               <li class="content-page__item col-4 mb-sm">
                 <article class="card-block card-block--bg">
-                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
-                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                  <h2 class="visually-hidden">Акушерская кресло-кровать Optima (4 электропривода)</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
                     <div class="card-block__img">
-                      <img src="img/news-1.jpg" alt="">
+                      <img class="lazyload" loading="lazy"
+                        alt="Акушерская кресло-кровать Optima (4 электропривода) Merivaara" width="275" height="200"
+                        src="https://medicalpartners.ru/files/nodus_items/0003/1790/_cache/fit275x200-image-1790-1603270819.jpg">
                     </div>
-
                     <div class="card-block__title">
-                      <span class="mark-mini">Rudolf Riester</span>
-                      <span class="main">Pinard — акушерский стетоскоп</span>
+                      <span class="mark-mini">Merivaara</span>
+                      <span class="main">Акушерская кресло-кровать Optima (4 электропривода)</span>
                     </div>
                   </a>
                 </article>
               </li>
-              <!-- Карточка -->
-              <!-- Карточка -->
               <li class="content-page__item col-4 mb-sm">
                 <article class="card-block card-block--bg">
-                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
-                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                  <h2 class="visually-hidden">Акушерская кресло-кровать Optima</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
                     <div class="card-block__img">
-                      <img src="img/news-1.jpg" alt="">
+                      <img class="lazyload" loading="lazy"
+                        alt="Акушерская кресло-кровать Optima (гидравлическая модель) Merivaara" width="274"
+                        height="200"
+                        src="https://medicalpartners.ru/files/nodus_items/0003/1791/_cache/fit275x200-image-1791-1603271456.jpg">
                     </div>
-
                     <div class="card-block__title">
-                      <span class="mark-mini">Rudolf Riester</span>
-                      <span class="main">Pinard — акушерский стетоскоп</span>
+                      <span class="mark-mini">Merivaara</span>
+                      <span class="main">Акушерская кресло-кровать Optima</span>
                     </div>
                   </a>
                 </article>
               </li>
-              <!-- Карточка -->
-              <!-- Карточка -->
               <li class="content-page__item col-4 mb-sm">
                 <article class="card-block card-block--bg">
-                  <h2 class="visually-hidden">Pinard — акушерский стетоскоп</h2>
-                  <a href="product.html" class="card-block__link" aria-label="Перейти в карточку товара">
+                  <h2 class="visually-hidden">Вакуумный аспиратор</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
                     <div class="card-block__img">
-                      <img src="img/news-1.jpg" alt="">
+                      <img class="lazyload" loading="lazy" alt="Вакуумный аспиратор ATMOS MedizinTechnik" width="275"
+                        height="200"
+                        src="https://medicalpartners.ru/files/nodus_items/0000/0302/_cache/fit275x200-image-302-1603271857.jpg">
                     </div>
-
                     <div class="card-block__title">
-                      <span class="mark-mini">Rudolf Riester</span>
-                      <span class="main">Pinard — акушерский стетоскоп</span>
+                      <span class="mark-mini">ATMOS MedizinTechnik</span>
+                      <span class="main">Вакуумный аспиратор</span>
                     </div>
                   </a>
                 </article>
               </li>
-              <!-- Карточка -->
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Гибкий стоматологический осветитель Ri-magic LED</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
+                    <div class="card-block__img">
+                      <img class="lazyload" loading="lazy"
+                        alt="Гибкий стоматологический осветитель Ri-magic LED Rudolf Riester" width="275" height="200"
+                        src="https://medicalpartners.ru/files/nodus_items/0000/0398/_cache/fit275x200-image-398-1603272088.jpg">
+                    </div>
+                    <div class="card-block__title">
+                      <span class="mark-mini">Rudolf Riester</span>
+                      <span class="main">Гибкий стоматологический осветитель Ri-magic LED</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Гинекологическое кресло КГМ-3П</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
+                    <div class="card-block__img">
+                      <img class="lazyload" loading="lazy" alt="Гинекологическое кресло КГМ-3П Мединдустрия Сервис"
+                        width="275" height="200"
+                        src="https://medicalpartners.ru/files/nodus_items/0000/0304/_cache/fit275x200-image-304-1603272388.jpg">
+                    </div>
+                    <div class="card-block__title">
+                      <span class="mark-mini">Мединдустрия Сервис</span>
+                      <span class="main">Гинекологическое кресло КГМ-3П</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Гинекологическое кресло с электроприводом</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
+                    <div class="card-block__img">
+                      <img class="lazyload" loading="lazy"
+                        alt="Гинекологическое кресло с электроприводом ATMOS MedizinTechnik" width="275" height="200"
+                        src="https://medicalpartners.ru/files/nodus_items/0000/0299/_cache/fit275x200-image-299-1603275104.jpg">
+                    </div>
+                    <div class="card-block__title">
+                      <span class="mark-mini">ATMOS MedizinTechnik</span>
+                      <span class="main">Гинекологическое кресло с электроприводом</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Датчик 2052 (трансректальный, трансвагинальный)</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
+                    <div class="card-block__img">
+                      <img class="lazyload" loading="lazy"
+                        alt="Датчик 2052 (трансректальный, трансвагинальный) BK medical" width="275" height="200"
+                        src="https://medicalpartners.ru/files/nodus_items/0004/2013/_cache/fit275x200-image-2013-1603278943.jpg">
+                    </div>
+                    <div class="card-block__title">
+                      <span class="mark-mini">BK medical</span>
+                      <span class="main">Датчик 2052 (трансректальный, трансвагинальный)</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Датчик 8666 (интраоперационный)</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
+                    <div class="card-block__img">
+                      <img class="lazyload" loading="lazy" alt="Датчик 8666 (интраоперационный) BK medical" width="275"
+                        height="200"
+                        src="https://medicalpartners.ru/files/nodus_items/0004/2003/_cache/fit275x200-image-2003-1603278885.jpg">
+                    </div>
+                    <div class="card-block__title">
+                      <span class="mark-mini">BK medical</span>
+                      <span class="main">Датчик 8666 (интраоперационный)</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
+              <li class="content-page__item col-4 mb-sm">
+                <article class="card-block card-block--bg">
+                  <h2 class="visually-hidden">Датчик 8811 (малые органы, СМ, С)</h2>
+                  <a href="product.html" class="card-block__link" aria-label="Перейти на страницу товара">
+                    <div class="card-block__img">
+                      <img class="lazyload" loading="lazy" alt="Датчик 8811 (малые органы, СМ, С) BK medical"
+                        width="275" height="200"
+                        src="https://medicalpartners.ru/files/nodus_items/0004/2001/_cache/fit275x200-image-2001-1603278625.jpg">
+                    </div>
+                    <div class="card-block__title">
+                      <span class="mark-mini">BK medical</span>
+                      <span class="main">Датчик 8811 (малые органы, СМ, С)</span>
+                    </div>
+                  </a>
+                </article>
+              </li>
             </ul>
+
           </div>
         </div>
       </div>
@@ -1032,68 +1316,66 @@
 
         <ul class="content-page__list row">
           <!-- Новость -->
-          <li class="content-page__item col-4">
+          <li class="content-page__item col-12 col-md-6 col-xl-4">
             <article class="preview">
-              <a class="preview__link" href="/" aria-label="Перейти на страницу новости">
-                <img src="img/service-1.jpg" alt="">
+              <a class="preview__link" href="news-detail.html" aria-label="Перейти на страницу новости">
+                <img src="img/news-1.jpg" alt="">
 
                 <span class="preview__label">
-                  События
+                  Лечение
                 </span>
               </a>
 
               <div class="preview__desc">
                 <h3 class="preview__title">
-                  <a href="/">
-                    Серия web-семинаров "Актуальные вопросы урогинекологии"
+                  <a href="news-detail.html">
+                    Метод криоабляции при лечении опухолей
                   </a>
                 </h3>
-                <span class="preview__date date">19.05.2020</span>
+                <span class="preview__date date">25.08.2020</span>
               </div>
             </article>
           </li>
           <!-- Новость -->
-
           <!-- Новость -->
-          <li class="content-page__item col-4">
+          <li class="content-page__item col-12 col-md-6 col-xl-4">
             <article class="preview">
-              <a href="/" class="preview__link" aria-label="Перейти на страницу новости">
+              <a href="news-detail.html" class="preview__link" aria-label="Перейти на страницу новости">
                 <img src="img/news-2.jpg" alt="">
 
                 <span class="preview__label">
-                  COVID-19
+                  Вебинар
                 </span>
               </a>
 
               <div class="preview__desc">
                 <h3 class="preview__title">
-                  <a href="/">
-                    Респираторная поддержка пациентов при COVID-19
+                  <a href="news-detail.html">
+                    Интраоперационное ультразвуковое исследование в нейрохирургии
                   </a>
                 </h3>
-                <span class="preview__date date">15.04.2020</span>
+                <span class="preview__date date">14.07.2020</span>
               </div>
             </article>
           </li>
           <!-- Новость -->
-
           <!-- Новость -->
-          <li class="content-page__item col-4">
+          <li class="content-page__item col-12 col-md-6 col-xl-4">
             <article class="preview">
-              <a href="/" class="preview__link" aria-label="Перейти на страницу новости">
-                <img src="img/news-1.jpg" alt="">
+              <a href="news-detail.html" class="preview__link" aria-label="Перейти на страницу новости">
+                <img src="img/news-3.jpg" alt="">
                 <span class="preview__label">
-                  Поступления
+                  Вебинар
                 </span>
               </a>
 
               <div class="preview__desc">
                 <h3 class="preview__title">
-                  <a href="/">
-                    Телескопические штанги RTS и RTI от Ropimex.
+                  <a href="news-detail.html">
+                    Ларингэктомия и трахеостомия в период пандемии COVID-19
                   </a>
                 </h3>
-                <span class="preview__date date">27.03.2020</span>
+                <span class="preview__date date">29.06.2020</span>
               </div>
             </article>
           </li>

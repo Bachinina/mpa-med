@@ -11,6 +11,94 @@
 
   <link rel="stylesheet" href="css/bootstrap-grid.css">
   <link rel="stylesheet" href="css/style.min.css">
+
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
+  <style>
+    .map__hint {
+      padding: 20px;
+      min-height: 55px;
+      min-width: 195px;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .map__balloon {
+      position: relative;
+      overflow: hidden;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 767px) {
+      .map__balloon {
+        max-width: 300px;
+      }
+
+      .map__balloon img {
+        margin-top: 20px;
+      }
+    }
+
+    .map__balloon span {
+      font-size: 16px;
+    }
+
+  </style>
+  <script>
+    ymaps.ready(init);
+
+    var placemarks = [{
+        latitude: 55.800878,
+        longitude: 37.554664,
+        hintContent: '<div class="map__hint">«М.П.А. медицинские партнеры»</div>',
+        balloonContent: [
+          '<div class="row map__balloon">' +
+          '  <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12"><span>127083,г. Москва, ул. 8-го Марта, д.1, стр.12. БЦ "Трио", 4 этаж</span>' +
+          '   <span>(495) 921-30-88 — многоканальный</span></div>' +
+          '  <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12"><img src="img/icon-map-marker.svg"/></div>\n' +
+          '</div>'
+        ]
+      },
+      {
+        latitude: 59.893408,
+        longitude: 30.327125,
+        hintContent: '<div class="map__hint">"М.П.А. медицинские партнёры" Санкт-Петербургский филиал</div>',
+        balloonContent: [
+          '<div class="row map__balloon">' +
+          '  <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12"><span>196084, г. Санкт-Петербург, Лиговский пр., д. 266, лит. В, оф. 4.3</span>' +
+          '   <span>+7 (812) 324-81-41</span></div>' +
+          '  <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12"><img src="img/icon-map-marker.svg"/></div>\n' +
+          '</div>'
+        ]
+      },
+    ];
+
+    function init() {
+      var map = new ymaps.Map('map-block', {
+        center: [61.529942, 67.136937],
+        zoom: 4,
+        controls: ['zoomControl'],
+        behaviors: ['drag']
+      });
+
+      placemarks.forEach(function (obj) {
+        var placemark = new ymaps.Placemark([obj.latitude, obj.longitude], {
+          hintContent: obj.hintContent,
+          balloonContent: obj.balloonContent.join('')
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/icon-map-marker.svg',
+          iconImageSize: [46, 57],
+          iconImageOffset: [-23, -57]
+        });
+
+        map.geoObjects.add(placemark);
+      });
+    }
+
+  </script>
 </head>
 
 <body>
@@ -50,7 +138,7 @@
             <a class="header__link" href="/">Корпоративный сайт</a>
           </li>
           <li class="header__item">
-            <a class="header__link" href="/">Филиалы</a>
+            <a class="header__link" href="branches.html">Филиалы</a>
           </li>
         </ul>
 
@@ -100,9 +188,7 @@
                     <li class="dropdown__item">
                       <a class="dropdown__link" href="rewards.html">Награды</a>
                     </li>
-                    <li class="dropdown__item">
-                      <a class="dropdown__link" href="branches.html">Филиалы</a>
-                    </li>
+
                   </ul>
                 </div>
               </li>
@@ -112,6 +198,13 @@
                 </button>
                 <div class="dropdown__menu">
                   <ul class="dropdown__menu-list">
+
+                    
+                    <!-- Элемент списка -->
+                    <li class="dropdown__item-simple">
+                      <a class="dropdown__link" href="brands.html">Все производители</a>
+                    </li>
+                    <!-- Элемент списка -->
 
                     <!-- Элемент списка -->
                     <li class="dropdown__item dropdown-hover show">
@@ -821,11 +914,11 @@
         <h1 class="content-page__title">От Москвы до Владивостока</h1>
         <div class="content-page__desc">
           <p>География деятельности включает в себя города на территории Российской Федерации.<br>
-            Представительства «М.П.А. медицинские партнеры» расположены городах: <a href="#msk">Москва (центральный
+            Представительства «М.П.А. медицинские партнеры» расположены городах: <a>Москва (центральный
               офис)</a>, <a href="#spb">Санкт-Петербург</a>, <a href="#ast">Астрахань</a>, <a href="#brn">Брянск</a>, <a
               href="#vrn">Воронеж</a>, <a href="#vldv">Владивосток</a>, <a href="#krsn">Краснодар</a>, <a
               href="#stvr">Ставрополь</a>, <a href="#smr">Самара</a>, <a href="#ekb">Екатеринбург</a>, <a
-              href="#nvs">Новосибирск</a>, <a href="#hbr">Хабаровск</a>.
+              href="#nvs">Новосибирск</a>, <a href="#irk">Иркутск</a>.
           </p>
         </div>
 
@@ -836,7 +929,7 @@
           <!-- Контакт -->
           <li class="content-page__item contact" id="ast">
             <div class="text-block row">
-              <div class="col-4">
+              <div class="col-12 col-xl-4">
                 <div class="text-block__title title">
                   <h2 class="title__header">Астрахань</h2>
                 </div>
@@ -851,7 +944,7 @@
                     </div>
                     <div class="img-list__text">
                       <div class="mark-mini">Телефон</div>
-                      <a href="tel:+78512229010">+7 851 222 90 10</a>
+                      <a href="tel:+78512229010">+7 (8512) 22-90-10, доб. 3</a>
                     </div>
                   </li>
                   <!-- Телефон -->
@@ -865,7 +958,7 @@
                     </div>
                     <div class="img-list__text">
                       <div class="mark-mini">Email</div>
-                      <a href="mailto:info@mpamed.ru">info@mpamed.ru</a>
+                      <a href="mailto:af@mpamed.ru">af@mpamed.ru</a>
                     </div>
                   </li>
                   <!-- Емейл -->
@@ -879,7 +972,8 @@
                     </div>
                     <div class="img-list__text">
                       <div class="mark-mini">Адрес офиса</div>
-                      <span>414057 г. Астрахань, ул. Николая Островского, д. 124, офис 304</span>
+                      <span>414057 г. Астрахань, ул. Николая Островского, д. 124, офис №
+                        304</span>
                     </div>
                   </li>
                   <!-- Адрес -->
@@ -887,36 +981,37 @@
               </div>
 
 
-              <div class="col-8">
+              <div class="col-12 col-xl-8">
                 <div class="text-block__desc text-small">
-                  <img class="mb-s" src="img/contacts-2.jpg" alt="Астрахань">
+                  <img class="mb-s" src="img/astrahan.jpg" alt="Астрахань">
 
-                  <p>Астраханский филиал является одним из самых южных из всех филиалов компании «М.П.А.медицинские
-                    партнеры» и успешно работает на территории Астраханской и Волгоградской областях с 2008 г.</p>
-                  <p>Филиал специализируется на поставках медицинской техники и изделий медицинского назначения в
-                    лечебно-профилактические учреждения федерального и регионального уровней, частные клиники и
-                    диагностические центры, аптеки, а также физическим лицам. В числе партнеров компании Intuitive
-                    Surgical, BK Medical, Promedon, Rudolf Riester, Laborie, Kimberly-Clark, Karl Storz,
-                    Johnson&amp;Johnson, Covidien, GE, Coloplast, B.Braun, Aesculap, Draeger, KLS Martin, Physiomed,
-                    Merivaara, Theraband и другие.</p>
-                  <p>Статус официального дистрибьютора позволяет нам предлагать продукцию по ценам фирм-производителей,
-                    в том числе и в розничной аптечной сети. Все оборудование, поставляемое «М.П.А. медицинские
-                    партнеры» от ведущих мировых производителей, сертифицировано.Эффективно используя опыт
-                    квалифицированных сотрудников и выгодных договорных условий с производителями оборудования,
-                    достигнутые за 17-летнюю работу холдинга «М.П.А.медицинские партнеры», мы имеем возможность
-                    индивидуально учитывать пожелания каждого Заказчика в зависимости от его потребностей и финансовых
-                    планов.</p>
+                  <p> Астраханский филиал работает на территории города Астрахань и Астраханская
+                    области, города Волгограда с 2008 года.</p>
+                  <p>Филиал выполнил ряд значимых для регионов проектов. Например, в 2012 году на базе
+                    ГУЗ «Клиническая больница скорой медицинской помощи № 7» (Волгоград) была
+                    произведена реконструкция операционных блоков и отделения реанимации с
+                    внедрением OR1 (Karl Storz), которая стала первой интегрированной операционной в
+                    ЮФО. Среди крупных заказчиков филиала также ГБУЗ АО ГКБ № 3 им. Кирова, ЧУЗ «КБ
+                    «РЖД-Медицина» г. Астрахань», Волгоградский медицинский клинический центр ФМБА,
+                    Клиническая Больница № 12 и пр.</p>
+                  <p>Филиал регулярно проводит мастер-классы с привлечением иногородних специалистов.
+                    Так на обучающем семинаре по установке чрезпищеводных гастростомических трубок,
+                    организованных компанией, выступил специалист из НМИЦ онкологии им. Блохина.
+                    Также «М.П.А.медицинские партнеры» активно участвует в социальных программах. В
+                    2019 году подразделение получило благодарность от ГБУЗ АО ОДКБ им. Силищевой
+                    Н.Н. за участие в благотворительной помощи больнице.</p>
                 </div>
               </div>
             </div>
           </li>
           <!-- Контакт -->
+
           <!-- Контакт -->
-          <li class="content-page__item contact" id="msk">
+          <li class="content-page__item contact" id="brn">
             <div class="text-block row">
-              <div class="col-4">
+              <div class="col-12 col-xl-4">
                 <div class="text-block__title title">
-                  <h2 class="title__header">Москва</h2>
+                  <h2 class="title__header">Брянск</h2>
                 </div>
 
                 <ul class="img-list">
@@ -929,7 +1024,7 @@
                     </div>
                     <div class="img-list__text">
                       <div class="mark-mini">Телефон</div>
-                      <a href="tel:+78512229010">+7 851 222 90 10</a>
+                      <a href="tel:+74832587343">+7 (4832) 58-73-43</a>
                     </div>
                   </li>
                   <!-- Телефон -->
@@ -943,7 +1038,7 @@
                     </div>
                     <div class="img-list__text">
                       <div class="mark-mini">Email</div>
-                      <a href="mailto:info@mpamed.ru">info@mpamed.ru</a>
+                      <a href="mailto:bryansk@mpamed.ru">bryansk@mpamed.ru</a>
                     </div>
                   </li>
                   <!-- Емейл -->
@@ -957,7 +1052,7 @@
                     </div>
                     <div class="img-list__text">
                       <div class="mark-mini">Адрес офиса</div>
-                      <span>414057 г. Астрахань, ул. Николая Островского, д. 124, офис 304</span>
+                      <span>241013, г. Брянск, Литейная ул., д. 36А, оф. 710</span>
                     </div>
                   </li>
                   <!-- Адрес -->
@@ -965,34 +1060,634 @@
               </div>
 
 
-              <div class="col-8">
+              <div class="col-12 col-xl-8">
                 <div class="text-block__desc text-small">
-                  <img class="mb-s" src="img/contacts-2.jpg" alt="Астрахань">
+                  <img class="mb-s" src="img/bryansk.jpg" alt="Брянск">
 
-                  <p>Астраханский филиал является одним из самых южных из всех филиалов компании «М.П.А.медицинские
-                    партнеры» и успешно работает на территории Астраханской и Волгоградской областях с 2008 г.</p>
-                  <p>Филиал специализируется на поставках медицинской техники и изделий медицинского назначения в
-                    лечебно-профилактические учреждения федерального и регионального уровней, частные клиники и
-                    диагностические центры, аптеки, а также физическим лицам. В числе партнеров компании Intuitive
-                    Surgical, BK Medical, Promedon, Rudolf Riester, Laborie, Kimberly-Clark, Karl Storz,
-                    Johnson&amp;Johnson, Covidien, GE, Coloplast, B.Braun, Aesculap, Draeger, KLS Martin, Physiomed,
-                    Merivaara, Theraband и другие.</p>
-                  <p>Статус официального дистрибьютора позволяет нам предлагать продукцию по ценам фирм-производителей,
-                    в том числе и в розничной аптечной сети. Все оборудование, поставляемое «М.П.А. медицинские
-                    партнеры» от ведущих мировых производителей, сертифицировано.Эффективно используя опыт
-                    квалифицированных сотрудников и выгодных договорных условий с производителями оборудования,
-                    достигнутые за 17-летнюю работу холдинга «М.П.А.медицинские партнеры», мы имеем возможность
-                    индивидуально учитывать пожелания каждого Заказчика в зависимости от его потребностей и финансовых
-                    планов.</p>
+                  <p>В 2012 году открылся Брянский филиал «МПА медицинские партнеры», который
+                    охватывает Центральный регион России - Брянскую, Орловскую, Смоленскую,
+                    Калужскую и Тульскую область. За это время компания получила хороший опыт работы
+                    как с частными клиентами, так и с крупными лечебно-профилактическими
+                    учреждениями ГАУЗ «Брянский областной онкологический диспансер», ГАУЗ Смоленская
+                    клиническая городская больница», БУЗ Орловской области "Детская областная
+                    клиническая больница им. З.И. Круглой" и пр. </p>
+                  <p>Филиал зарекомендовал себя как надежный поставщик, выполняя крупные муниципальные
+                    проекты: оснащение Перинатального центра города Брянск, поставки продукции
+                    Promedon в Смоленскую городскую больницу и продукции Atos в Калужский
+                    онкодиспансер.</p>
+                  <p>В числе прочих партнеров компании бренды: BK Medical, Rudolf Riester, Laborie,
+                    Kimberly-Clark, Karl Storz, Johnson&Johnson, GE, Coloplast, B.Braun, Aesculap,
+                    Draeger, KLS Martin, Physiomed, Merivaara, Theraband и другие. Заказать любое
+                    оборудование от этих и других партнеров по приятным ценам, оно будет доставлено
+                    и установлено точно в срок. Бонусом станет 3-х летнее сервисное обслуживание и
+                    консультации специалистов.</p>
                 </div>
               </div>
             </div>
           </li>
           <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item contact" id="vrn">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Воронеж</h2>
+                </div>
+
+                <ul class="img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+74732611943">+7 (473) 261-19-43</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:voronezh@mpamed.ru">voronezh@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>394030, г. Воронеж, ул. Кольцовская, д. 60В, оф. 202</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc text-small">
+                  <img class="mb-s" src="img/voronezh.jpg" alt="Воронеж">
+                  <p>Воронежский филиал компании «М.П.А. - медицинские партнеры» был основан в 2011
+                    году. Сегодня он охватывает Воронежскую область, Курскую область, Липецкую
+                    область, Белгородскую область, Тамбовскую область. К крупным заказчикам филиала
+                    можно отнести медучреждения: Воронежская областная клиническая больница № 1,
+                    Воронежский областной клинический онкологический диспансер, Курская областная
+                    клиническая больница, Липецкая областная клиническая больница и пр. </p>
+                  <p>Компания занимается как небольшими заказами - поставкой оборудования и изделий
+                    медицинского назначения в частные клиники и розничные аптеки, так и крупными
+                    проектами. К последним можно отнести поставку по госзаказам Департамента
+                    здравоохранения и социальной защиты населения Белгородской области продукции
+                    Riester. Филиал поставляет продукцию и других крупных российских и зарубежных
+                    брендов: BK Medical, Promedon, Laborie, Kimberly-Clark, Karl Storz,
+                    Johnson&Johnson, GE, Coloplast, B.Braun, Aesculap, Draeger, KLS Martin,
+                    Physiomed, Merivaara, Theraband и пр. Со многими производителями «М.П.А. -
+                    медицинские партнеры» имеет эксклюзивные контракты, что позволяет предложить
+                    заказчикам индивидуальные условия поставки продукции. Все товары сопровождаются
+                    необходимыми сертификатами и документацией. </p>
+                  <p>Помимо этого, филиал выполняет комплексное оснащение кабинетов под ключ в
+                    соответствии с самыми современными мировыми стандартами. В эту услугу входит
+                    выполнение ремонта, получение всех необходимых разрешений на эксплуатацию,
+                    снабжение кабинета оборудованием и расходными материалами и гарантийное
+                    обслуживание всей медицинской техники.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item contact" id="vldv">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Владивосток</h2>
+                </div>
+
+                <ul class="img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+74232795682">+7 (423) 279-56-82</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:dv@mpamed.ru">dv@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>690012, г. Владивосток, ул. Запорожская д. 77, офис 941</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc text-small">
+                  <img class="mb-s" src="img/vladivostok.jpg" alt="Владивосток">
+                  <p>Владивостокский филиал «М.П.А. медицинские партнеры» успешно работает на
+                    медицинском рынке России с 2018 года. Данный филиал реализует медицинское
+                    оборудование в Приморском крае (Владивосток, Уссурийск, Находка, Партизанск,
+                    Артем), Камчатском крае (Петропавловск-Камчатский, Елизово).</p>
+                  <p>Компания поставляет оборудование и расходные материалы во все основные
+                    медучреждения Приморского и камчатского края: КГБУЗ «Владивостокская клиническая
+                    больница №1», ГБУЗ "Приморский краевой онкологический диспансер», НУЗ «Узловая
+                    больница на станции Владивосток ОАО «РЖД», Дальневосточный федеральный
+                    университет (ДВФУ) и пр. К крупным реализованным проектам филиала можно отнести
+                    поставку в МЦ ДВФУ - роботической системы da Vinci, поставку фотокабины DAAVLIN
+                    в КККВД г. Владивосток и другие.</p>
+                  <p>Филиал работает по профилям: комплексное оснащение операционных, оборудование для
+                    эндохирургии, неонотологии и перинатологии, диагностики, продажа медицинского
+                    оборудования и пр. Также ООО «М.П.А. медицинские партнеры» осуществляет
+                    комплексное оснащение медучреждений, поставку оборудования для медицинских
+                    кабинетов и их оснащение под ключ. В числе партнеров компании такие известные
+                    мировые производители как BK Medical, Promedon, Rudolf Riester, Laborie,
+                    Kimberly-Clark, Karl Storz, Johnson&Johnson, GE, Coloplast, B.Braun, Aesculap,
+                    Draeger, KLS Martin, Physiomed, Merivaara, Theraband и другие. Вся поставляемая
+                    продукция имеет необходимые сертификаты и документацию.</p>
+                  <p>Компания «М.П.А. медицинские партнеры» производит поставку медицинской техники и
+                    товаров медицинского назначения напрямую от производителя. Это позволяет
+                    предложить заказчикам индивидуальные условия поставки продукции и гибкую ценовую
+                    политику.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item contact" id="ekb">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Екатеринбург</h2>
+                </div>
+
+                <ul class="img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+73432871021">+7 (343) 287-10-21</a><br>
+                      <a href="tel:+73432871022">+7 (343) 287-10-22</a><br>
+                      <a href="tel:+73432871023">+7 (343) 287-10-23</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:ural@mpamed.ru">ural@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>620149, г. Екатеринбург, ул. С. Дерябиной, д. 24, оф. 505</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc text-small">
+                  <img class="mb-s" src="img/ekaterinburg.jpg" alt="Екатеринбург">
+                  <p>Уральский филиал ООО «М.П.А. медицинские партнеры» начал свою работу в апреле
+                    2008 года. Уже более 10 лет филиал успешно работает на территориях Пермского
+                    края, Свердловской, Челябинской, Курганской, Тюменской областях, в том числе
+                    Ханты-Мансийского и Ямало-Ненецкого АО.</p>
+                  <p>Основная стратегическая цель работы филиала - продажа медицинского оборудования,
+                    мебели, хирургических инструментов, расходных материалов ведущих мировых
+                    производителей, а также оснащение кабинетов под ключ в соответствии с самыми
+                    современными мировыми стандартами. Компания работает как с частными лицами и
+                    сетями аптек, так и с крупными медучреждениями: МАУЗ «Городская клиническая
+                    больница №40», ГБУЗ ПК «Пермская краевая клиническая больница», ГБУЗ
+                    «Салехардская окружная клиническая больница» и пр. </p>
+                  <p>Партнерами компании являются крупнейшие мировые бренды: BK Medical, Promedon,
+                    Rudolf Riester, Laborie, Kimberly-Clark, Karl Storz, Johnson&Johnson, GE,
+                    Coloplast, B.Braun, Aesculap, Draeger, Covidien, Physiomed, Merivaara, Theraband
+                    и другие. Все товары, приобретаемые в «М.П.А. медицинские партнеры»,
+                    сопровождаются необходимыми документами и сертификатами. </p>
+                  <p>Специалисты филиала регулярно совершенствуют свои знания на тренингах от ведущих
+                    фирмами-производителей медицинского оборудования и расходных материалов. Поэтому
+                    «М.П.А. медицинские партнеры» может гарантировать профессиональную консультацию,
+                    компетентные знания и высокий уровень гарантийного и постгарантийного сервиса.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item contact" id="irk">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Иркутск</h2>
+                </div>
+
+                <ul class="img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+79149003751">+7 (914) 900-37-51</a><br>
+                      <a href="tel:+73952438807">+7 (3952) 43-88-07</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:irkutsk@mpamed.ru">irkutsk@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>664075, г. Иркутск, ул. Байкальская, 180А, Деловой центр «БАZА», оф.
+                        213</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc text-small">
+                  <img class="mb-s" src="img/irkutsk.jpg" alt="Иркутск">
+
+                  <p>Восточно-сибирский филиал компании «М.П.А. - медицинские партнеры» реализует
+                    медицинское оборудование и товары медицинского назначения на территории Иркутска
+                    и Иркутской области, Забайкальского края, республик Бурятия, Тыва и Саха
+                    (Якутия).</p>
+                  <p>Несмотря на то, что филиал был основан только в 2020 году, на его счету уже
+                    несколько крупных проектов, например, поставка коагулятора Медтроник в клинику
+                    Святителя Луки (несмотря на отсутствие деталей в комплектации коагулятор был
+                    поставлен в срок, недостающие детали по договоренности с представителями
+                    Медтроник временно заменены демо-версиями) или поставка эндоскопического
+                    оборудования Пентакс в Харлампиевскую клинику (клиника много работала с другим
+                    поставщиком, но в итоге клиент решил сделать закупку именно в «М.П.А. -
+                    медицинские партнеры»).</p>
+                  <p>Также среди ключевых заказчиков филиала можно выделить ГБУЗ «Иркутская Областная
+                    Клиническая Больница», ГАУЗ«Республиканская Клиническая больница
+                    им.Н.А.Семашко», Центр молекулярной диагностики, НИИТО и пр.</p>
+                  <p>Крупные и небольшие медучреждения, частные лица и сети аптек отдают предпочтение
+                    «М.П.А. - медицинские партнеры». Компания поставляет продукцию проверенных
+                    российских и зарубежных производителей по оптимальным ценам и с необходимой
+                    сопровождающей документацией и сертификатами. Среди брендов, работающих с
+                    компанией, можно выбелить BK Medical, Promedon, Rudolf Riester, Laborie,
+                    Kimberly-Clark, Karl Storz, Johnson&Johnson, GE, Coloplast, B.Braun, Aesculap,
+                    Draeger, KLS Martin, Physiomed, Merivaara, Theraband и пр. С частью брендов
+                    филиал имеет эксклюзивные права на поставку.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item contact" id="krsn">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Краснодар</h2>
+                </div>
+                <ul class="img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+78612980210">+7 (861) 298-02-10 </a><br>
+                      <a href="tel:+78612980211">+7 (861) 298-02-11 </a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:kuban@mpamed.ru">kuban@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>350020, г. Краснодар, ул. Северная, д. 490</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc text-small">
+                  <img class="mb-s" src="img/krasnodar.jpg" alt="Краснодар">
+                  <p>ООО "М.П.А. медицинские партнеры" Кубанский филиал работает на рынке с 2009 года
+                    и охватывает город Краснодар, Краснодарский край (города Новороссийск, Адлер,
+                    Сочи, Туапсе, Геленджик, Анапа, Ейск, Армавир) и Республику Адыгея.</p>
+                  <p>Филиал специализируется на поставках медицинской техники и изделий медицинского
+                    назначения в федеральные и региональные лечебно-профилактические учреждения,
+                    частные клиники, диагностические центры и розничные аптечные сети. Крупные
+                    заказчики Кубанского подразделения: БСМП г. Краснодар, Детская краевая
+                    клиническая больница, онкологический диспансер Департамента здравоохранения
+                    Краснодарского края, Краевая клиническая больница №1 им. Очаповского и пр.
+                    Филиал участвует в региональной программе «Борьба с онкологическими
+                    заболеваниями» на 2019-2024 гг., занимается оснащением ЛПУ медицинским
+                    оборудованием.</p>
+                  <p>Компания поставляет медицинское оборудование, мебель, хирургические инструменты,
+                    расходные материалы известных зарубежных брендов: BK Medical, Promedon, Rudolf
+                    Riester, Laborie, Kimberly-Clark, Karl Storz, Johnson&Johnson, GE, Coloplast,
+                    B.Braun, Aesculap, Draeger, KLS Martin, Physiomed, Merivaara, Theraband и пр.
+                    Все товары имеют необходимые сертификаты и документы.</p>
+                  <p>Благодаря гибкой ценовой политике и эффективной работе высококвалифицированных
+                    специалистов филиал обеспечивает своим заказчикам индивидуальный подход и полное
+                    удовлетворение потребностей.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item contact" id="nvs">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Новосибирск</h2>
+                </div>
+
+                <ul class="img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+73832092390">+7 (383) 209-23-90</a><br>
+                      <a href="tel:+73832092391">+7 (383) 209-23-91</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:sibir@mpamed.ru">sibir@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>630132, г. Новосибирск, ул. 1905 года, д. 59</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc text-small">
+                  <img class="mb-s" src="img/novosibirsk.jpg" alt="Новосибирск">
+
+                  <p>Сибирский филиал компании «М. П. А. медицинские партнеры» был основан
+                    в 2003 году. Он работает на территории 12 субъектов Российской Федерации, в том
+                    числе: 4 республики (Алтай, Бурятия, Тыва, Хакасия); 3 края (Алтайский,
+                    Забайкальский, Красноярский); 5 областей (Иркутская, Кемеровская, Новосибирская,
+                    Омская, Томская).</p>
+                  <p>Клиентами филиала являются ФГБУ "ННИИПК им.акад. Е.Н.Мешалкина" Минздрава России,
+                    Томская областная клиническая больница, Министерство здравоохранения
+                    Новосибирской области и другие. Компания регулярно выполняет крупные проекты,
+                    такие как поставка симуляционного оборудования для Новосибирского
+                    Государственного Медицинского Университета или поставка оборудования и расходных
+                    материалов в Новосибирскую государственную областную клиническую больницу.
+                    Отметим, что филиал работает не только с муниципальными клиниками и сетями
+                    аптек, но и с небольшими компаниями и частными лицами.</p>
+                  <p>Компания предлагает полный цикл услуг - от первичных консультаций до внедрения
+                    медицинских технологий, в том числе сопровождение, обслуживание и обучение
+                    персонала. Многолетнее сотрудничество с ведущими производителями и поставщиками
+                    медицинского оборудования позволяют компании предлагать привлекательные условия,
+                    цены от производителей и гарантийное обслуживание до 3-х лет включительно.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item contact" id="smr">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Самара</h2>
+                </div>
+
+                <ul class="img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+78463312135">+7 (846) 331-21-35</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:samara@mpamed.ru">samara@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>443001, г. Самара, ул. Ульяновская/Ярмарочная, д. 52/55</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc text-small">
+                  <img class="mb-s" src="img/samara.jpg" alt="Самара">
+                  <p>Филиал «М.П.А. медицинские партнеры» Самары был основан весной 2010 года. Он
+                    охватывает Нижегородскую, Оренбургскую, Саратовскую, Самарскую, Пензенскую,
+                    Кировскую и Ульяновскую области, а также шесть республик - Башкортостан,
+                    Татарстан, Чувашию, Мордовию, Марий Эл, Удмуртскую республику.</p>
+                  <p>За 10 лет существования компания выполнила ряд значимых региональных проектов. В
+                    рамках реализации федеральной онкопрограммы оборудованием BK Medical были
+                    оснащены ведущие лечебные учреждения ПФО - Клиника БГМУ, Нижегородский областной
+                    клинический онкологический диспансер, Республиканский клинический онкологический
+                    диспансер (Уфа), Самарский областной клинический онкологический диспансер. В
+                    рамках реализации программы «Развитие материально-технической базы детских
+                    поликлиник и детских поликлинических отделений медицинских организаций» компания
+                    оснастила лечебные учреждения Ульяновской области, Республики Татарстан,
+                    Республики Марий Эл были непрямыми офтальмоскопами Rudolf Riester (Германия). В
+                    2019-2020 годах филиал занимался оснащением Клинической больницы имени С. Р.
+                    Миротворцева СГМУ и Клиники БГМУ диагностическим медицинским оборудованием для
+                    урологии производства Laborie Medical Technologies (Канада).</p>
+                  <p>Среди партнеров компании насчитывается более 40 брендов для различных отраслей
+                    медицины. Индивидуальный подход и комплексное обслуживание включают в себя
+                    монтаж, гарантийный и постгарантийный сервис медицинской техники в Самаре и
+                    Поволжье. В числе брендов, сотрудничающих с компанией: BK Medical, Promedon,
+                    Rudolf Riester, Laborie, Kimberly-Clark, Karl Storz, Johnson&Johnson, GE,
+                    Coloplast, B.Braun, Aesculap, Draeger, KLS Martin, Physiomed, Merivaara,
+                    Theraband и другие.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
           <!-- Контакт -->
           <li class="content-page__item contact" id="spb">
             <div class="text-block row">
-              <div class="col-4">
+              <div class="col-12 col-xl-4">
                 <div class="text-block__title title">
                   <h2 class="title__header">Санкт-Петербург</h2>
                 </div>
@@ -1007,7 +1702,7 @@
                     </div>
                     <div class="img-list__text">
                       <div class="mark-mini">Телефон</div>
-                      <a href="tel:+78512229010">+7 851 222 90 10</a>
+                      <a href="tel:+78123248141">+7 (812) 324-81-41</a>
                     </div>
                   </li>
                   <!-- Телефон -->
@@ -1021,7 +1716,7 @@
                     </div>
                     <div class="img-list__text">
                       <div class="mark-mini">Email</div>
-                      <a href="mailto:info@mpamed.ru">info@mpamed.ru</a>
+                      <a href="mailto:spb@mpamed.ru">spb@mpamed.ru</a>
                     </div>
                   </li>
                   <!-- Емейл -->
@@ -1035,7 +1730,8 @@
                     </div>
                     <div class="img-list__text">
                       <div class="mark-mini">Адрес офиса</div>
-                      <span>414057 г. Астрахань, ул. Николая Островского, д. 124, офис 304</span>
+                      <span>196084, г. Санкт-Петербург, Лиговский пр., д. 266, лит. В, оф.
+                        4.3</span>
                     </div>
                   </li>
                   <!-- Адрес -->
@@ -1043,25 +1739,119 @@
               </div>
 
 
-              <div class="col-8">
+              <div class="col-12 col-xl-8">
                 <div class="text-block__desc text-small">
-                  <img class="mb-s" src="img/contacts-2.jpg" alt="Астрахань">
+                  <img class="mb-s" src="img/sankt-peterburg.jpg" alt="Санкт-Петербург">
+                  <p>Санкт-Петербургский филиал ООО «М.П.А. медицинские партнёры» работает на рынке с
+                    августа 2012 года. За это время компания реализовала ряд крупных проектов таких
+                    как поставка роботизированного хирургического комплекса da Vinci в ГБ №40 или
+                    оснащение кабинета дистанционной литотрипсии в Вологодской областной клинической
+                    больнице. Также среди крупных заказчиков филиала можно отметить клинику Медси,
+                    НМИЦ им. В.А. Алмазова, СПб ГБУЗ "Городская больница № 26" и пр. Помимо этого,
+                    филиал сотрудничает с небольшими компаниями и частными лицами, создает
+                    комфортные условия каждому из своих клиентов, гарантирует качество,
+                    индивидуальный подход и профессионализм.</p>
+                  <p>В числе партнеров компании более 50 крупнейших мировых брендов: BK Medical,
+                    Promedon, Rudolf Riester, Laborie, Kimberly-Clark, Karl Storz, Johnson&Johnson,
+                    GE, Coloplast, B.Braun, Aesculap, Draeger, KLS Martin, Physiomed, Merivaara,
+                    Theraband и другие. Компания имеет действующие сертификаты и регистрационные
+                    удостоверения на всю продукцию, а также предоставляет гарантийное и
+                    постгарантийное обслуживание медицинской техники.</p>
+                  <p>Специалисты компании постоянно проходят обучение на тренингах ведущих мировых
+                    производителей медицинского оборудования, совершенствуют знания в
+                    профессиональной области и всегда готовы дать грамотную консультацию, а также
+                    активно участвуют в ежегодных международных и региональных конгрессах и
+                    выставках.</p>
+                  <p>Филиал регулярно оказывает помощь в организации и участии крупных медицинских
+                    конференций и конгрессов, а также оказывает благотворительную поддержку
+                    медучреждениям, например, Детской областной клинической больнице.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
 
-                  <p>Астраханский филиал является одним из самых южных из всех филиалов компании «М.П.А.медицинские
-                    партнеры» и успешно работает на территории Астраханской и Волгоградской областях с 2008 г.</p>
-                  <p>Филиал специализируется на поставках медицинской техники и изделий медицинского назначения в
-                    лечебно-профилактические учреждения федерального и регионального уровней, частные клиники и
-                    диагностические центры, аптеки, а также физическим лицам. В числе партнеров компании Intuitive
-                    Surgical, BK Medical, Promedon, Rudolf Riester, Laborie, Kimberly-Clark, Karl Storz,
-                    Johnson&amp;Johnson, Covidien, GE, Coloplast, B.Braun, Aesculap, Draeger, KLS Martin, Physiomed,
-                    Merivaara, Theraband и другие.</p>
-                  <p>Статус официального дистрибьютора позволяет нам предлагать продукцию по ценам фирм-производителей,
-                    в том числе и в розничной аптечной сети. Все оборудование, поставляемое «М.П.А. медицинские
-                    партнеры» от ведущих мировых производителей, сертифицировано.Эффективно используя опыт
-                    квалифицированных сотрудников и выгодных договорных условий с производителями оборудования,
-                    достигнутые за 17-летнюю работу холдинга «М.П.А.медицинские партнеры», мы имеем <a
-                      href="/">возможность</a> индивидуально учитывать пожелания каждого Заказчика в зависимости от его
-                    потребностей и финансовых планов.</p>
+          <!-- Контакт -->
+          <li class="content-page__item contact" id="stvr">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Ставрополь</h2>
+                </div>
+
+                <ul class="img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+78652333088">+7 (8652) 33-30-88</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:stavropol@mpamed.ru">stavropol@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>355011, г. Ставрополь, ул. Пирогова, д. 102, 1 этаж.</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc text-small">
+                  <img class="mb-s" src="img/stavropol.jpg" alt="Ставрополь">
+
+                  <p>Ставропольский филиал компании «М.П.А. - медицинские партнеры» успешно работает
+                    на территории Ставропольского края с 2009 года. В данном регионе филиал
+                    занимается оснащением крупных муниципальных клиник, сетей аптек, а также
+                    оздоровительных и реабилитационных центров. Среди постоянных заказчиков компании
+                    Ставропольский государственный медицинский университет, Ставропольский Краевой
+                    Клинический онкологический диспансер, больница скорой медицинской помощи г.
+                    Ставрополь, Центральная городская больница №1 Пятигорск и другие.</p>
+                  <p>Филиал является неоднократным победителем тендеров на поставку медицинского
+                    оборудования в крупные медицинские госучреждения. Например, в 2019 году компания
+                    выполнила поставку, монтаж и ввод в эксплуатацию 11 рентгеновских аппаратов по
+                    всему краю, а также поставку, монтаж и ввод в эксплуатацию первого в
+                    Ставропольском крае аппарата МРТ в модульном здании.</p>
+                  <p>В ассортимент товаров входит медицинское диагностическое оборудование,
+                    хирургические инструменты, медицинская мебель, товары медицинского назначения
+                    брендов: BK Medical, Promedon, Rudolf Riester, Laborie, Kimberly-Clark, Karl
+                    Storz, Johnson&Johnson, GE, Coloplast, B.Braun, Aesculap, Draeger, KLS Martin,
+                    Physiomed, Merivaara, Theraband и пр. Вся поставляемая продукция сопровождается
+                    необходимыми сертификатами и документацией. </p>
+                  <p>За относительно короткий срок работы филиал завоевал доверие в регионе как
+                    надежный партнер, который, согласно устоявшейся идеологии компании, подбирает
+                    индивидуальный подход к заказчику, использует прямые связи с поставщиками и, как
+                    результат, предоставляет весь необходимый спектр оборудования для медицинских
+                    учреждений комплексно и по оптимальным ценам. </p>
                 </div>
               </div>
             </div>
