@@ -887,7 +887,7 @@
 
 
             <div class="btn-wrap mt-s">
-              <button class="btn btn-bg text-small btn-big">Запросить прайс</button>
+              <button class="btn btn-bg text-small btn-big" data-modal="#modal-thnk">Запросить цену</button>
               <button class="btn text-small btn-big">Купить в лизинг</button>
               <button class="btn text-small btn-big">Заказать сервис</button>
             </div>
@@ -1471,7 +1471,7 @@
           </div>
         </form>
 
-        <button class="modal__close" type="button"></button>
+        <button class="modal__close" data-modal-close type="button"></button>
       </div>
     </div>
   </section>
@@ -1556,7 +1556,26 @@
           </div>
         </form>
 
-        <button class="modal__close" type="button"></button>
+        <button class="modal__close" data-modal-close type="button"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="modal modal--info" id="modal-thnk">
+    <div class="modal__wrapper">
+      <div class="modal__container">
+        <div class="d-flex flex-column align-items-center text-center">
+
+          <img class="mb-s" src="img/mail-sent.svg" alt="">
+          <p class="modal__title h3 pr-0" aria-hidden="true">Спасибо за обращение</p>
+          <p class="modal__title-mini mb-s">Мы свяжемся с Вами после обработки заявки</p>
+
+          <button class="btn btn-bg btn-medium" data-modal-close>Вернуться к просмотру</button>
+        </div>
+
+
+
+        <button class="modal__close" data-modal-close type="button"></button>
       </div>
     </div>
   </section>

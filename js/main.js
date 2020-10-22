@@ -299,7 +299,7 @@ $(document).ready(function () {
   // MODAL CLOSING
 
   $('.modal').each(function () {
-    const modalCloseBtn = $(this).find('.modal__close');
+    const modalCloseBtn = $(this).find('[data-modal-close]');
 
     const closeModalByClick = (evt) => {
       if (evt.target.classList.contains('modal')) {
