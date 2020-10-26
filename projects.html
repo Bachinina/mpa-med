@@ -797,8 +797,8 @@
     </div>
     <!-- Хлебные крошки -->
 
-    <section class="content-page__section">
-      <div class="container pb-s">
+    <section class="content-page__section ">
+      <div class="container pb-l">
         <h1 class="content-page__title">Каждый проект является для нас значимым</h1>
 
         <p> Каждый реализуемый нами проект является для нас значимым. Мы не разделяем проекты на большие и маленькие,
@@ -892,7 +892,7 @@
       </div>
     </section>
 
-    <section class="bg--gray">
+    <!-- <section class="bg--gray">
       <h2 class="visually-hidden">Заказ проекта</h2>
       <div class="container pt-m pb-m">
         <div class="row">
@@ -905,6 +905,71 @@
             <button class="btn btn-bg btn-big" data-modal="#modal">Заказать проект</button>
           </div>
         </div>
+      </div>
+    </section> -->
+
+
+    <section class="feedback bg--gray">
+      <div class="feedback__container container container--content">
+
+        <!-- Форма -->
+        <div class="feedback__block-wrapper bg--white">
+          <div class="feedback__title title">
+            <h2 class="title__header">Заказать проект</h2>
+          </div>
+          <form class="feedback__form form" method="POST" action="/">
+            <div class="form__row">
+              <div class="form__item">
+                <input type="text" name="name" id="name" autocomplete="off" placeholder="Ваше имя">
+                <label for="name">Ваше имя</label>
+              </div>
+              <div class="form__item">
+                <input type="text" name="phone" id="phone" autocomplete="off" placeholder="Телефон">
+                <label for="phone">Телефон</label>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__item">
+                <input type="email" name="email" placeholder="Email" id="email" autocomplete="off" required="">
+                <label for="email">Email</label>
+              </div>
+              <div class="form__item">
+                <input type="text" name="org" placeholder="Организация" id="org" autocomplete="off">
+                <label for="org">Организация</label>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__item">
+                <input type="text" name="loc" placeholder="Город" id="loc" autocomplete="off" required="">
+                <label for="loc">Город</label>
+              </div>
+              <div class="form__item">
+                <input type="file" name="file" id="file" accept=".doc,.docx,.pdf" required="">
+                <label for="file" data-placeholder="Файл (DOC, PDF)">Файл (DOC, PDF)</label>
+              </div>
+            </div>
+
+            <div class="form__item">
+              <label class="visually-hidden" for="message">Ваше сообщение</label>
+              <textarea name="message" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
+            </div>
+
+            <div class="form__footer">
+              <input type="checkbox" id="conf" name="conf" checked="">
+              <label for="conf">Я согласен с &nbsp; <a href="/"
+                  aria-label="Перейти на страницу политики конфиденциальности" target="_blank">Политикой обработки
+                  персональных
+                  данных</a>
+              </label>
+
+              <button class="form__btn btn btn-bg" type="submit">Отправить</button>
+            </div>
+          </form>
+        </div>
+        <!-- Форма -->
+
       </div>
     </section>
   </main>
