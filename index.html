@@ -40,7 +40,9 @@
         </ul>
 
         <div class="header__phone">
-          <a href="tel:+74959213088" aria-label="Позвонить">+7 (495) 921-30-88</a>
+          <a href="tel:+74959213088" aria-label="Позвонить">
+            <img src="img/icon-phone.svg" alt="">
+            <span> +7 (495) 921-30-88</span></a>
         </div>
       </div>
     </div>
@@ -50,12 +52,16 @@
           <a class="navbar__brand" href="index.html" aria-label="Перейти на главную страницу">
             <img src="img/logo.svg" alt="">
           </a>
-          <button class="navbar__toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
-            aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar__toggler-icon"></span>
+          <button class="navbar__toggler" type="button" data-toggle="collapse" aria-controls="navbar-menu"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="btn-burger" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
           </button>
 
-          <nav class="collapse navbar__collapse" id="navbar-menu">
+          <nav class="navbar__collapse" id="navbar-menu">
             <ul class="navbar__nav">
               <li class="nav__item dropdown">
                 <a class="nav__link" href="about.html">О компании</a>
