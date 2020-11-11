@@ -524,45 +524,8 @@ $(document).ready(function () {
     $(document).ready(function () {
       scrollTracking();
     });
-  }
-
-
-
-  // MOBILE NAV
-  const navMobile = $('[data-nav-mobile]');
-  const list = navMobile.find('> [data-nav-links]');
-  const categories = list.find('[data-nav-link]');
-
-  let activelistHeight = 0;
-
-
-  // SET HEIGHT
-  let isHeightSet = false;
-  const setHeight = function () {
-    // MAX HEIGHT FOR LINKS
-    const pxToTop = list.offset().top - $(window).scrollTop();
-    const pxToBottom = $('.navbar__bottom').outerHeight();
-    const windowHeight = $(window).height();
-    const maxHeight = windowHeight - pxToTop - pxToBottom - 15;
-    activelistHeight = maxHeight;
-
-    $('.navbar__nav').css({
-      'max-height': maxHeight
-    });
-    list.height(maxHeight);
-    isHeightSet = true;
   };
 
-  const resetHeight = function () {
-    isHeightSet = false;
-  };
-
-
-  const calcHeightOnResize = function () {
-    resetHeight();
-    setHeight();
-    $('[data-nav-links]').height(activelistHeight);
-  };
 
 
 
@@ -570,6 +533,8 @@ $(document).ready(function () {
   const header = $('.header');
   const headerMapHeight = header.find('.header__map').height();
   const headerNav = header.find('.header__nav');
+  let isHeaderFixed = false;
+
   const onWindowChange = function () {
     if ($(window).width() <= 1199) {
       if ($(this).scrollTop() >= headerMapHeight) {
@@ -577,9 +542,11 @@ $(document).ready(function () {
           'padding-top': headerNav.height()
         });
         headerNav.addClass('fixed');
+        isHeaderFixed = true;
 
       } else {
         headerNav.removeClass('fixed');
+        isHeaderFixed = false;
         $('main').css({
           'padding-top': 0
         });
@@ -631,25 +598,67 @@ $(document).ready(function () {
   });
 
 
+
+  // MOBILE NAV
+  const navMobile = $('[data-nav-mobile]');
+  const list = navMobile.find('> [data-nav-links]');
+  const categories = list.find('[data-nav-link]');
+
+  let activelistHeight = 0;
+
+
+  // SET HEIGHT
+  let isHeightSet = false;
+  const setHeight = function () {
+    // MAX HEIGHT FOR LINKS
+    const pxToTop = list.offset().top - $(window).scrollTop();
+    const pxToBottom = $('.navbar__bottom').outerHeight();
+    const windowHeight = $(window).height();
+    const maxHeight = windowHeight - pxToTop - pxToBottom - 15;
+    activelistHeight = maxHeight;
+
+    $('.navbar__nav').css({
+      'max-height': maxHeight
+    });
+    list.height(maxHeight);
+    isHeightSet = true;
+  };
+
+  const resetHeight = function () {
+    isHeightSet = false;
+  };
+
+
+  const calcHeightOnResize = function () {
+    resetHeight();
+    setHeight();
+    $('[data-nav-links]').height(activelistHeight);
+  };
+
+
+
   // OPEN & CLOSE
   const toggleBtn = $('[data-toggle-nav]');
   toggleBtn.on('click', function () {
     $('[data-nav-links].active').scrollTop(0);
     $('.header__nav').toggleClass('active');
+    if (!isHeaderFixed) {
+      $('.header__nav').addClass('fixed');
+    }
     if (!isHeightSet) {
       setHeight();
     }
 
     if (!$('.header__nav').hasClass('active')) {
+      if (!isHeaderFixed) {
+        $('.header__nav').removeClass('fixed');
+      }
       resetMobileLinks();
       $('body').css({
         'overflow': 'auto'
       });
-      $(window).off('resize', calcHeightOnResize)
+      $(window).off('resize', calcHeightOnResize);
     } else {
-      if ($(window).scrollTop() < headerMapHeight) {
-        $(window).scrollTop(0);
-      }
       $('body').css({
         'overflow': 'hidden'
       });
