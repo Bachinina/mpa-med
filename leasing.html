@@ -19,17 +19,23 @@
   <header class="header">
     <div class="header__map">
       <div class="header__container container">
-        <ul class="header__list">
-          <li class="header__item">
-            <a class="header__link" href="/">Интернет-магазин</a>
-          </li>
-          <li class="header__item active">
-            <a class="header__link" href="/">Корпоративный сайт</a>
-          </li>
-          <li class="header__item">
-            <a class="header__link" href="branches.html">Филиалы</a>
-          </li>
-        </ul>
+
+        <div class="header__list" data-list-drop>
+          <div class="header__item" data-list-item>
+            <a class="header__link" href="/" aria-label="Перейти на сайт нашего интернет-магазина">Интернет-магазин</a>
+          </div>
+
+          <!-- Выбранный пункт регулируется классом 'active' -->
+          <div class="header__item active" data-list-item>
+            <a class="header__link" href="/" aria-label="Перейти на наш корпоративный сайт">Корпоративный сайт</a>
+          </div>
+          <!-- Выбранный пункт регулируется классом 'active' -->
+
+
+          <div class="header__item" data-list-item>
+            <a class="header__link" href="branches.html" aria-label="Узнать больше о филиалах">Филиалы</a>
+          </div>
+        </div>
 
         <ul class="header__lang">
           <li class="header__item active">
@@ -41,743 +47,1357 @@
         </ul>
 
         <div class="header__phone">
-          <a href="tel:+74959213088" aria-label="Позвонить">+7 (495) 921-30-88</a>
+          <a href="tel:+74959213088" aria-label="Позвонить">
+            <img src="img/icon-phone.svg" alt="">
+            <span> +7 (495) 921-30-88</span></a>
         </div>
       </div>
     </div>
     <div class="header__nav">
       <div class="header__container container">
-        <nav class="navbar">
-          <a class="navbar__brand" href="index.html" aria-label="Перейти на главную страницу">
-            <img src="img/logo.svg" alt="">
-          </a>
-          <button class="navbar__toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
-            aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar__toggler-icon"></span>
-          </button>
+        <div class="navbar">
+          <div class="navbar__top">
+            <div class="navbar__brand">
+              <a href="index.html" aria-label="Перейти на главную страницу">
+                <img src="img/logo.svg" alt="">
+              </a>
 
-          <nav class="collapse navbar__collapse" id="navbar-menu">
-            <ul class="navbar__nav">
-              <li class="nav__item dropdown">
-                <a class="nav__link" href="about.html">О компании</a>
-                <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
-                </button>
-                <div class="dropdown__menu">
-                  <ul class="dropdown__menu-list">
+              <span>Более 20 лет опыта
+                на медицинском рынке</span>
+            </div>
+            <button class="navbar__toggler" aria-controls="mobile-menu" aria-label="Открыть/закрыть меню"
+              data-toggle-nav>
+              <span class="btn-burger" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+          </div>
 
-                    <li class="dropdown__item">
-                      <a class="dropdown__link" href="vacancy.html">Вакансии</a>
-                    </li>
-                    <li class="dropdown__item">
-                      <a class="dropdown__link" href="news.html">Новости</a>
-                    </li>
-                    <li class="dropdown__item">
-                      <a class="dropdown__link" href="brands.html">Производители</a>
-                    </li>
-                    <li class="dropdown__item">
-                      <a class="dropdown__link" href="rewards.html">Награды</a>
+          <nav class="navbar__collapse">
+            <div class="navbar__nav-wrap">
+              <ul class="navbar__nav" id="navbar-menu">
+                <li class="nav__item dropdown">
+                  <a class="nav__link" href="about.html">О компании</a>
+                  <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
+                  </button>
+                  <div class="dropdown__menu">
+                    <ul class="dropdown__menu-list">
+
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="vacancy.html">Вакансии</a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="news.html">Новости</a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="brands.html">Производители</a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="rewards.html">Награды</a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav__item dropdown big">
+                  <a class="nav__link" href="catalog.html">Каталог медооборудования</a>
+                  <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
+                  </button>
+                  <div class="dropdown__menu">
+                    <ul class="dropdown__menu-list">
+
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item-simple">
+                        <a class="dropdown__link" href="brands.html">Все производители</a>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover show">
+                        <a class="dropdown__link" href="catalog-detail.html">Пульмонология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                                тазовых мышц <span class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Робот-ассистированная хирургия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Акушерство и гинекология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                                тазовых мышц <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Аспираторы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Датчики УЗИ <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Кальпоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Мебель для гинекологического кабинета
+                                <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Осветители <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Приборы для вакуумэкстракции и
+                                кюратежа
+                                <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Рассасывающиеся противоспаечные
+                                барьеры
+                                <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Рассасывающиеся противоспаечные гели
+                                <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Синтетические петли для лечения
+                                стрессового недержания мочи у женщин <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Ультразвуковые системы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Анестезиология и реанимация</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Бальнеоерапия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Дерматология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Диагностика</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Кардиология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Колопроктология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Лабораторное оборудование</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Малоивазивная хирургия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Медицинская мебель</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Медицинская одежда</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Нейрохирургия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Неонатология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Онкология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Оснащение операционных</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Отоларингология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Офтальмология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Проктология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Расходные материалы</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Стерилизация и дезинфекция</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Стоматология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Стерилизация и дезинфекция</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Травмотология и ортопедия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Тренажеры-симуляторы</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Ультразвуковая диагностика</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Урология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Физиотерапия и реабилитация</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Хирургия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Эндовенус</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav__item dropdown">
+                  <a class="nav__link" href="services.html">
+                    Услуги
+                  </a>
+                  <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
+                  </button>
+                  <div class="dropdown__menu">
+                    <ul class="dropdown__menu-list">
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="complex.html">Комплексное оснащение</a>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="service.html">Сервис <span class="dropdown__toggle"></span></a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="service-technical.html">Техническое обслуживание</a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="service-rigid-endoscope.html">Ремонт жёстких
+                                эндоскопов</a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="service-flexible-endoscope.html">Ремонт гибких
+                                эндоскопов</a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="service-ultrasound.html">Ремонт ультразвуковых
+                                датчиков</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="engineering.html">Инжиниринг <span
+                            class="dropdown__toggle"></span></a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="engineering-modules.html">Разработка “чистых
+                                помещений”</a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="engineering-reconstruction.html">Реконструкция и
+                                капремонт</a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="engineering-design.html">Радиация и ионизация</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="leasing.html">Лизинг</a>
+                      </li>
+                      <!-- Элемент списка -->
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="projects.html">Наши проекты</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Мобильная версия меню: до 1199px -->
+            <div class="navbar__nav-wrap mobile" data-nav-mobile>
+              <ul class="navbar__nav" data-nav-links>
+                <!-- Первый уровень -->
+                <li class="nav__item" data-nav-link>
+                  <div class="nav__control" data-nav-control>
+                    <a class="nav__link" href="about.html">О компании</a>
+                    <button class="nav__toggle" aria-hidden="true"></button>
+                  </div>
+
+                  <!-- Второй уровень -->
+                  <ul class="navbar__nav hidden" data-nav-links>
+                    <li class="nav__item" data-nav-back>
+                      <button class="nav__link go-back" aria-hidden="true">
+                        <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                        <span>Назад</span>
+                      </button>
                     </li>
 
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="vacancy.html">Вакансии</a>
+                      </div>
+                    </li>
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="news.html">Новости</a>
+                      </div>
+                    </li>
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="brands.html">Производители</a>
+                      </div>
+                    </li>
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="rewards.html">Награды</a>
+                      </div>
+                    </li>
                   </ul>
-                </div>
-              </li>
-              <li class="nav__item dropdown big">
-                <a class="nav__link" href="catalog.html">Каталог медооборудования</a>
-                <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
-                </button>
-                <div class="dropdown__menu">
-                  <ul class="dropdown__menu-list">
+                  <!-- Второй уровень -->
+                </li>
+                <!-- Первый уровень -->
 
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item-simple">
-                      <a class="dropdown__link" href="brands.html">Все производители</a>
+                <!-- Первый уровень -->
+                <li class="nav__item" data-nav-link>
+                  <div class="nav__control" data-nav-control>
+                    <a class="nav__link" href="catalog.html">Каталог медооборудования</a>
+                    <button class="nav__toggle" aria-hidden="true"></button>
+                  </div>
+
+                  <!-- Второй уровень -->
+                  <ul class="navbar__nav hidden" data-nav-links>
+                    <li class="nav__item" data-nav-back>
+                      <button class="nav__link go-back" aria-hidden="true">
+                        <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                        <span>Назад</span>
+                      </button>
                     </li>
-                    <!-- Элемент списка -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover show">
-                      <a class="dropdown__link" href="catalog-detail.html">Пульмонология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
-                              тазовых мышц <span class="gray">(123)</span></a>
-                          </li>
-                        </ul>
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Пульмонология</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
                       </div>
-                    </li>
-                    <!-- Элемент списка -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Робот-ассистированная хирургия</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Акушерство и гинекология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
-                              тазовых мышц <span class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Аспираторы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Датчики УЗИ <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Кальпоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Мебель для гинекологического кабинета
-                              <span class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Осветители <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Приборы для вакуумэкстракции и кюратежа
-                              <span class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Рассасывающиеся противоспаечные барьеры
-                              <span class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Рассасывающиеся противоспаечные гели
-                              <span class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Синтетические петли для лечения
-                              стрессового недержания мочи у женщин <span class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Ультразвуковые системы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Анестезиология и реанимация</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Бальнеоерапия</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
                     </li>
-                    <!-- Элемент списка -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Дерматология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Робот-ассистированная хирургия</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
                       </div>
-                    </li>
-                    <!-- Элемент списка -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Диагностика</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Кардиология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Колопроктология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Лабораторное оборудование</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
                     </li>
-                    <!-- Элемент списка -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Малоивазивная хирургия</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Акушерство и гинекология</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
                       </div>
-                    </li>
-                    <!-- Элемент списка -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Медицинская мебель</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Медицинская одежда</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Нейрохирургия</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Неонатология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Онкология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аспираторы</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Оснащение операционных</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Датчики УЗИ </a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Отоларингология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Кальпоскопы</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Офтальмология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Мебель для гинекологического кабинета</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Проктология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Осветители</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Расходные материалы</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Приборы для вакуумэкстракции и
+                              кюратежа</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Стерилизация и дезинфекция</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Рассасывающиеся противоспаечные
+                              барьеры</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Стоматология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Рассасывающиеся противоспаечные гели</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Стерилизация и дезинфекция</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Синтетические петли для лечения
+                              стрессового недержания мочи у женщин </a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Травмотология и ортопедия</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Ультразвуковые системы</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
                     </li>
-                    <!-- Элемент списка -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Тренажеры-симуляторы</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Анестезиология и реанимация</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
                       </div>
-                    </li>
-                    <!-- Элемент списка -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Ультразвуковая диагностика</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Урология</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Физиотерапия и реабилитация</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Хирургия</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
-                      </div>
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
                     </li>
-                    <!-- Элемент списка -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="catalog-detail.html">Эндовенус</a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
-                                class="gray">(123)</span></a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
-                                class="gray">(123)</span></a>
-                          </li>
-                        </ul>
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Бальнеоерапия</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
                       </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
                     </li>
-                    <!-- Элемент списка -->
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Дерматология</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Диагностика</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Кардиология</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Колопроктология</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Лабораторное оборудование</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Малоивазивная хирургия</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Медицинская мебель</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
                   </ul>
-                </div>
-              </li>
-              <li class="nav__item dropdown">
-                <a class="nav__link" href="services.html">
-                  Услуги
-                </a>
-                <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
-                </button>
-                <div class="dropdown__menu">
-                  <ul class="dropdown__menu-list">
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item">
-                      <a class="dropdown__link" href="complex.html">Комплексное оснащение</a>
-                    </li>
-                    <!-- Элемент списка -->
+                  <!-- Второй уровень -->
+                </li>
+                <!-- Первый уровень -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="service.html">Сервис <span class="dropdown__toggle"></span></a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="service-technical.html">Техническое обслуживание</a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="service-rigid-endoscope.html">Ремонт жёстких эндоскопов</a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="service-flexible-endoscope.html">Ремонт гибких
-                              эндоскопов</a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="service-ultrasound.html">Ремонт ультразвуковых датчиков</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item dropdown-hover">
-                      <a class="dropdown__link" href="engineering.html">Инжиниринг <span
-                          class="dropdown__toggle"></span></a>
-                      <div class="dropdown__menu-hover">
-                        <ul class="dropdown__menu-list">
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="engineering-modules.html">Разработка “чистых помещений”</a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="engineering-reconstruction.html">Реконструкция и
-                              капремонт</a>
-                          </li>
-                          <li class="dropdown__item">
-                            <a class="dropdown__link" href="engineering-design.html">Радиация и ионизация</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <!-- Элемент списка -->
 
-                    <!-- Элемент списка -->
-                    <li class="dropdown__item">
-                      <a class="dropdown__link" href="leasing.html">Лизинг</a>
-                    </li>
-                    <!-- Элемент списка -->
-                  </ul>
-                </div>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="projects.html">Наши проекты</a>
-              </li>
-            </ul>
+                <li class="nav__item">
+                  <div class="nav__control">
+                    <a class="nav__link" href="projects.html">Наши проекты</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- Мобильная версия меню: до 1199px -->
+
+
             <form class="navbar__form" method="POST" action="/">
-              <input class="" type="search" aria-label="Поиск по сайту" placeholder="Поиск по сайту">
+              <div class="search">
+                <input class="search__input" type="text" aria-label="Поиск по сайту" placeholder="Поиск по сайту">
+                <button class="search__btn" aria-label="Начать поиск по сайту"></button>
+              </div>
             </form>
+
+            <div class="navbar__bottom">
+              <a href="mailto:info@mpamed.ru">info@mpamed.ru</a>
+              <a href="tel:+74959213088">+7 (495) 921-30-88</a>
+            </div>
           </nav>
-        </nav>
+
+        </div>
       </div>
     </div>
   </header>

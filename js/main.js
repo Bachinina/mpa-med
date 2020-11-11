@@ -128,6 +128,7 @@ $(document).ready(function () {
     });
   });
 
+
   // TABS
   $('[data-tabs]').each(function () {
     const tabToggles = $(this).find('[data-tabs-toggle]');
@@ -180,6 +181,53 @@ $(document).ready(function () {
 
   $('.acc__title.active').next().slideDown(0);
 
+
+  // SCROLL MOBILE
+  const scrolledBlocks = $('[data-scroll-wrap]');
+  const addScrollingProps = function () {
+    scrolledBlocks.each(function () {
+      const container = $(this).find('[data-scroll]');
+      const parent = $(this).closest('[data-scroll-container]');
+      const width = parent.width();
+
+      container.addClass('scroll-mobile');
+      $(this).addClass('scroll-mobile-wrap');
+
+      container.css({
+        'padding-left': `${(($(window).width() - width) / 2 - 15)}px`,
+      });
+
+      parent.height('auto');
+      parent.height(parent.height() + container.height());
+    });
+  };
+
+  if (scrolledBlocks.length > 0) {
+    if ($(window).width() <= 767) {
+      addScrollingProps();
+    }
+
+    $(window).on('resize', function () {
+      scrolledBlocks.each(function () {
+        if ($(window).width() <= 767) {
+          addScrollingProps();
+        } else {
+          const container = $(this).find('[data-scroll]');
+          const parent = $(this).closest('[data-scroll-container]');
+
+          if (container.hasClass('scroll-mobile')) {
+            container.removeClass('scroll-mobile');
+            $(this).removeClass('scroll-mobile-wrap');
+            container.css({
+              'padding-left': '0',
+            });
+
+            parent.height('auto');
+          }
+        }
+      });
+    });
+  }
 
 
   // SCROLL ANCHOR
@@ -478,4 +526,170 @@ $(document).ready(function () {
     });
   }
 
+
+
+  // MOBILE NAV
+  const navMobile = $('[data-nav-mobile]');
+  const list = navMobile.find('> [data-nav-links]');
+  const categories = list.find('[data-nav-link]');
+
+  let activelistHeight = 0;
+
+
+  // SET HEIGHT
+  let isHeightSet = false;
+  const setHeight = function () {
+    // MAX HEIGHT FOR LINKS
+    const pxToTop = list.offset().top - $(window).scrollTop();
+    const pxToBottom = $('.navbar__bottom').outerHeight();
+    const windowHeight = $(window).height();
+    const maxHeight = windowHeight - pxToTop - pxToBottom - 15;
+    activelistHeight = maxHeight;
+
+    $('.navbar__nav').css({
+      'max-height': maxHeight
+    });
+    list.height(maxHeight);
+    isHeightSet = true;
+  };
+
+  const resetHeight = function () {
+    isHeightSet = false;
+  };
+
+
+  const calcHeightOnResize = function () {
+    resetHeight();
+    setHeight();
+    $('[data-nav-links]').height(activelistHeight);
+  };
+
+
+
+  // SCROLLING 
+  const header = $('.header');
+  const headerMapHeight = header.find('.header__map').height();
+  const headerNav = header.find('.header__nav');
+  const onWindowChange = function () {
+    if ($(window).width() <= 1199) {
+      if ($(this).scrollTop() >= headerMapHeight) {
+        $('main').css({
+          'padding-top': headerNav.height()
+        });
+        headerNav.addClass('fixed');
+
+      } else {
+        headerNav.removeClass('fixed');
+        $('main').css({
+          'padding-top': 0
+        });
+      }
+    }
+  }
+  $(window).on('scroll', onWindowChange);
+
+  // LIST DROP
+  $('[data-list-drop]').each(function () {
+    const list = $(this);
+    const toggle = list.find('[data-list-item].active');
+    const items = list.find('[data-list-item]:not(.active)');
+
+    const onDocumentClick = function (evt) {
+      if (evt.target !== list &&
+        list.children(evt.target).length > 0) {
+        list.removeClass('show');
+        $(document).off('click', onDocumentClick);
+        $(document).off('scroll', onDocumentScroll);
+      }
+    };
+
+    const onDocumentScroll = function (evt) {
+      list.removeClass('show');
+      $(document).off('click', onDocumentClick);
+      $(document).off('scroll', onDocumentScroll);
+    };
+
+
+    toggle.on('click', function (evt) {
+      evt.stopPropagation();
+      list.toggleClass('show');
+
+      if (list.hasClass('show')) {
+        $(document).on('click', onDocumentClick);
+        $(document).on('scroll', onDocumentScroll);
+      } else {
+        $(document).off('click', onDocumentClick);
+        $(document).off('scroll', onDocumentScroll);
+      }
+    });
+
+    items.each(function (i) {
+      $(this).css({
+        top: `calc(100% - 5px + 35px * ${i})`
+      })
+    });
+  });
+
+
+  // OPEN & CLOSE
+  const toggleBtn = $('[data-toggle-nav]');
+  toggleBtn.on('click', function () {
+    $('[data-nav-links].active').scrollTop(0);
+    $('.header__nav').toggleClass('active');
+    if (!isHeightSet) {
+      setHeight();
+    }
+
+    if (!$('.header__nav').hasClass('active')) {
+      resetMobileLinks();
+      $('body').css({
+        'overflow': 'auto'
+      });
+      $(window).off('resize', calcHeightOnResize)
+    } else {
+      if ($(window).scrollTop() < headerMapHeight) {
+        $(window).scrollTop(0);
+      }
+      $('body').css({
+        'overflow': 'hidden'
+      });
+      $(window).on('resize', calcHeightOnResize);
+    }
+  });
+
+
+  // MOBILE LINKs 
+  categories.each(function () {
+    const openBtn = $(this).find(' > [data-nav-control] > button');
+    const links = $(this).find(' > [data-nav-links]');
+    const goBackBtn = links.find('> [data-nav-back] > button');
+
+    openBtn.on('click', function () {
+      links.removeClass('hidden');
+      links.addClass('active');
+      links.parent().closest('[data-nav-links]').scrollTop(0).addClass('moved-out');
+      links.height(activelistHeight);
+    });
+
+    goBackBtn.on('click', function () {
+      links.addClass('hidden');
+      links.removeClass('active');
+      links.scrollTop(0);
+      links.parent().closest('[data-nav-links]').scrollTop(0).removeClass('moved-out');
+      links.height('auto');
+    });
+  })
+
+
+  function resetMobileLinks() {
+    categories.each(function () {
+      const links = $(this).find(' > [data-nav-links]');
+      links.parent().closest('[data-nav-links]').removeClass('moved-out');
+
+      links.addClass('hidden');
+      links.removeClass('active');
+      links.height('auto');
+      resetHeight();
+    })
+  };
 });
