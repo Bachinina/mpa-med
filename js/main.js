@@ -658,11 +658,13 @@ $(document).ready(function () {
         'overflow': 'auto'
       });
       $(window).off('resize', calcHeightOnResize);
+      $('.header__nav').off('resize', calcHeightOnResize);
     } else {
       $('body').css({
         'overflow': 'hidden'
       });
       $(window).on('resize', calcHeightOnResize);
+      $('.header__nav').on('resize', calcHeightOnResize);
     }
   });
 
