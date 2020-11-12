@@ -1,4 +1,44 @@
 $(document).ready(function () {
+  //RESIZER
+  jQuery.ResizeTriggering = function (e) {
+    function t(e, i) {
+      return t.start(e, i), this
+    }
+    return t._interval = 16, Object.defineProperty(t, "interval", {
+      get: function () {
+        return t._interval
+      },
+      set: function (e) {
+        clearInterval(t.intervalID), t._interval = e, t.intervalID = window.setInterval(t._check, t._interval)
+      }
+    }), t._elements = e(), t._directions = [], t._sizes = [], t._check = function () {
+      t._elements.each(function (i, n) {
+        var r = e(n),
+          s = {
+            w: r.width(),
+            h: r.height()
+          },
+          a = t._directions[i],
+          u = t._sizes[i];
+        ("both" == a && (u.w != s.w || u.h != s.h) || "width" == a && u.w != s.w || "height" == a && u.h != s.h) && r.trigger("resize")
+      })
+    }, t.intervalID = window.setInterval(t._check, t._interval), t.start = function (i, n) {
+      var r = e(i);
+      t._elements = t._elements.add(r), t._directions.push(n || "both"), t._sizes.push({
+        w: r.width(),
+        h: r.height()
+      })
+    }, t.stop = function (i) {
+      var n = -1,
+        r = e(i);
+      t._elements.each(function (t, i) {
+        e(i) == r && (n = t)
+      })
+    }, t.version = "2.0.0", e.fn.resizeTriggering = function (e) {
+      return t.start(this, e), this
+    }, t
+  }(jQuery);
+
   // HEADER
   (function () {
     const NavClasses = {
@@ -659,15 +699,17 @@ $(document).ready(function () {
         'overflow': 'auto'
       });
       $(window).on('scroll', onWindowChange);
-      $(window).off('resize', calcHeightOnResize);
-      $('.header__nav').off('resize', calcHeightOnResize);
+      // $(window).off('resize', calcHeightOnResize);
+      // $('.header__nav').resize(calcHeightOnResize);
+      $('.header__nav').resizeTriggering().off('resize', calcHeightOnResize);
     } else {
       $('body').css({
         'overflow': 'hidden'
       });
       $(window).off('scroll', onWindowChange);
-      $(window).on('resize', calcHeightOnResize);
-      $('.header__nav').on('resize', calcHeightOnResize);
+      // $(window).on('resize', calcHeightOnResize);
+      // $('.header__nav').resize(calcHeightOnResize);
+      $('.header__nav').resizeTriggering().on('resize', calcHeightOnResize);
     }
   });
 
