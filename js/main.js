@@ -617,10 +617,11 @@ $(document).ready(function () {
     const maxHeight = windowHeight - pxToTop - pxToBottom - 15;
     activelistHeight = maxHeight;
 
-    $('.navbar__nav').css({
-      'max-height': maxHeight
+    list.css({
+      'max-height': maxHeight,
+      'height': maxHeight
     });
-    list.height(maxHeight);
+    // list.height(maxHeight);
     isHeightSet = true;
   };
 
@@ -657,12 +658,14 @@ $(document).ready(function () {
       $('body').css({
         'overflow': 'auto'
       });
+      $(window).on('scroll', onWindowChange);
       $(window).off('resize', calcHeightOnResize);
       $('.header__nav').off('resize', calcHeightOnResize);
     } else {
       $('body').css({
         'overflow': 'hidden'
       });
+      $(window).off('scroll', onWindowChange);
       $(window).on('resize', calcHeightOnResize);
       $('.header__nav').on('resize', calcHeightOnResize);
     }
