@@ -49,81 +49,83 @@ $(document).ready(function () {
     }
 
     const nav = document.querySelector(NavClasses.nav);
-    const dropdowns = nav.querySelectorAll(NavClasses.dropdown);
+
+    if (nav) {
+      const dropdowns = nav.querySelectorAll(NavClasses.dropdown);
+
+      if (dropdowns.length > 0) {
+        let isDropdownMenuOpen = false;
+
+        dropdowns.forEach((dropdown) => {
+          const toggle = dropdown.querySelector(NavClasses.toggle);
+          const dropdownMenu = dropdown.querySelector(NavClasses.dropdownMenu);
+
+          const openDropdownMenu = (evt) => {
+            evt.stopPropagation();
+
+            // Check if dropdown is opened --------
+            if (isDropdownMenuOpen) {
+              dropdowns.forEach((el) => {
+                if (el !== dropdown) {
+                  el.classList.remove('show');
+                }
+              })
+              isDropdownMenuOpen = false;
+            }
+            // -------------------------------------
 
 
-    if (dropdowns.length > 0) {
-      let isDropdownMenuOpen = false;
+            // Open current ------------------------
+            dropdown.classList.toggle('show');
 
-      dropdowns.forEach((dropdown) => {
-        const toggle = dropdown.querySelector(NavClasses.toggle);
-        const dropdownMenu = dropdown.querySelector(NavClasses.dropdownMenu);
+            if (dropdown.classList.contains('show')) {
+              isDropdownMenuOpen = true;
+              document.addEventListener('click', onDocumentClick);
+              document.addEventListener('keydown', onEscKeydown);
+            } else {
+              closeDropdownMenu();
+            }
+          }
 
-        const openDropdownMenu = (evt) => {
-          evt.stopPropagation();
-
-          // Check if dropdown is opened --------
-          if (isDropdownMenuOpen) {
-            dropdowns.forEach((el) => {
-              if (el !== dropdown) {
-                el.classList.remove('show');
-              }
-            })
+          const closeDropdownMenu = () => {
+            dropdown.classList.remove('show');
+            document.removeEventListener('click', onDocumentClick);
+            document.removeEventListener('keydown', onEscKeydown);
             isDropdownMenuOpen = false;
+            toggle.blur();
+
+
+            if (dropdown.classList.contains('big')) {
+              const items = dropdown.querySelectorAll('.dropdown__item');
+              items.forEach(function (el, index) {
+                if (index === 0) {
+                  el.classList.add('show');
+                } else {
+                  el.classList.remove('show');
+                }
+              })
+            }
           }
-          // -------------------------------------
 
-
-          // Open current ------------------------
-          dropdown.classList.toggle('show');
-
-          if (dropdown.classList.contains('show')) {
-            isDropdownMenuOpen = true;
-            document.addEventListener('click', onDocumentClick);
-            document.addEventListener('keydown', onEscKeydown);
-          } else {
-            closeDropdownMenu();
+          const onDocumentClick = (evt) => {
+            if (evt.target !== toggle &&
+              evt.target !== dropdownMenu &&
+              !dropdownMenu.contains(evt.target)
+            ) {
+              closeDropdownMenu();
+            }
           }
-        }
 
-        const closeDropdownMenu = () => {
-          dropdown.classList.remove('show');
-          document.removeEventListener('click', onDocumentClick);
-          document.removeEventListener('keydown', onEscKeydown);
-          isDropdownMenuOpen = false;
-          toggle.blur();
-
-
-          if (dropdown.classList.contains('big')) {
-            const items = dropdown.querySelectorAll('.dropdown__item');
-            items.forEach(function (el, index) {
-              if (index === 0) {
-                el.classList.add('show');
-              } else {
-                el.classList.remove('show');
-              }
-            })
+          const onEscKeydown = (evt) => {
+            if (evt.keyCode === 27) {
+              closeDropdownMenu();
+            }
           }
-        }
-
-        const onDocumentClick = (evt) => {
-          if (evt.target !== toggle &&
-            evt.target !== dropdownMenu &&
-            !dropdownMenu.contains(evt.target)
-          ) {
-            closeDropdownMenu();
-          }
-        }
-
-        const onEscKeydown = (evt) => {
-          if (evt.keyCode === 27) {
-            closeDropdownMenu();
-          }
-        }
 
 
-        toggle.addEventListener('click', openDropdownMenu);
-      })
+          toggle.addEventListener('click', openDropdownMenu);
+        })
+      }
     }
   })();
 
@@ -234,7 +236,7 @@ $(document).ready(function () {
       $(this).addClass('scroll-mobile-wrap');
 
       container.css({
-        'padding-left': `${(($(window).width() - width) / 2 - 15)}px`,
+        'padding-left': `${(($(window).width() - width) / 2 )}px`,
       });
 
       parent.height('auto');
@@ -383,6 +385,9 @@ $(document).ready(function () {
   // MODAL OPENING
   $('[data-modal]').on('click', function () {
     $($(this).attr('data-modal')).addClass('active');
+    $('body').css({
+      'overflow': 'hidden'
+    });
   });
   // MODAL CLOSING
 
@@ -403,6 +408,9 @@ $(document).ready(function () {
 
     const closeModal = () => {
       $(this).removeClass('active');
+      $('body').css({
+        'overflow': 'auto'
+      });
 
 
       const form = $(this).find('form');
@@ -592,7 +600,7 @@ $(document).ready(function () {
         });
       }
     }
-  }
+  };
   $(window).on('scroll', onWindowChange);
 
   // LIST DROP
@@ -661,7 +669,6 @@ $(document).ready(function () {
       'max-height': maxHeight,
       'height': maxHeight
     });
-    // list.height(maxHeight);
     isHeightSet = true;
   };
 
@@ -707,6 +714,7 @@ $(document).ready(function () {
         'overflow': 'hidden'
       });
       $(window).off('scroll', onWindowChange);
+      // $(window).on('resize', calcHeightOnResize);
       // $(window).on('resize', calcHeightOnResize);
       // $('.header__nav').resize(calcHeightOnResize);
       $('.header__nav').resizeTriggering().on('resize', calcHeightOnResize);
