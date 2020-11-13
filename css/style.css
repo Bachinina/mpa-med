@@ -6518,6 +6518,16 @@ button.range__item.disabled {
     width: 50px;
   }
 }
+@media (max-width: 991px) {
+  .projects__slider .project__title {
+    font-size: 16px;
+  }
+}
+@media (max-width: 767px) {
+  .projects__slider .project__title {
+    font-size: 18px;
+  }
+}
 .projects__slider--gray .project {
   background: #f2f2f5;
 }
@@ -6558,6 +6568,7 @@ button.range__item.disabled {
 .project__title {
   margin: 0;
   margin-bottom: 16px;
+  font-size: 24px;
 }
 @media (max-width: 1359px) {
   .project__title {
@@ -6565,16 +6576,6 @@ button.range__item.disabled {
   }
 }
 @media (max-width: 1199px) {
-  .project__title {
-    font-size: 18px;
-  }
-}
-@media (max-width: 991px) {
-  .project__title {
-    font-size: 16px;
-  }
-}
-@media (max-width: 767px) {
   .project__title {
     font-size: 18px;
   }
