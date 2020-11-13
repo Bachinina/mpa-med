@@ -275,6 +275,9 @@ $(document).ready(function () {
   // SCROLL ANCHOR
   $("a[href^='#']").on("click", function (e) {
     var fixed_offset = 35;
+    if ($(window).width() <= 1199) {
+      fixed_offset = 35 + 65;
+    }
     $('html,body').stop().animate({
       scrollTop: $(this.hash).offset().top - fixed_offset
     }, 1000);
