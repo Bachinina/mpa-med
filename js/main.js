@@ -201,6 +201,9 @@ $(document).ready(function () {
   });
 
 
+  if ($(window).width() <= 1199) {
+    $('.filter__title').removeClass('active');
+  }
   // ACCORDION
   $(`.acc__title`).on('click', function () {
     const acc = $(this).closest('.acc');

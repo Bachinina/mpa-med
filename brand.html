@@ -67,7 +67,7 @@
               <span>Более 20 лет опыта
                 на медицинском рынке</span>
             </div>
-            <button class="navbar__toggler" aria-controls="mobile-menu" aria-label="Открыть/закрыть меню"
+            <button class="navbar__toggler"   aria-label="Открыть/закрыть меню"
               data-toggle-nav>
               <span class="btn-burger" aria-hidden="true">
                 <span></span>
@@ -1613,10 +1613,24 @@
           <h2 class="title__header">Каталог продукции</h2>
         </div>
 
-        <!-- Предусмотрено размещение до 4х пунктов -->
-
         <div class="news__wrap" data-scroll-wrap>
-          <ul class="news__list row" data-scroll>
+          <ul class="news__list row adapt-before-scroll" data-scroll>
+            <li class="news__item col-3">
+              <article class="card-block">
+                <h3 class="visually-hidden">Робот-ассистированная хирургия</h3>
+                <a href="catalog-detail.html" class="card-block__link" aria-label="Перейти на страницу категории">
+                  <div class="card-block__img">
+                    <img src="img/catalog-1.jpg" alt="">
+                  </div>
+
+                  <div class="card-block__title def">
+                    <span>Стерилизация и дезинфекция</span>
+                    <span class="count">(9)</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
             <li class="news__item col-3">
               <article class="card-block">
                 <h3 class="visually-hidden">Робот-ассистированная хирургия</h3>

@@ -51,28 +51,62 @@ $(document).ready(function () {
   });
 
 
-  const simpleSlider = $('[data-simple-slider]');
-  simpleSlider.countOfSlides = 0;
-  if (screenWidth > 1199) {
-    simpleSlider.countOfSlides = 4;
-  } else if (screenWidth <= 1199 && screenWidth > 991) {
-    simpleSlider.countOfSlides = 3;
-  } else if (screenWidth <= 991 && screenWidth > 575) {
-    simpleSlider.countOfSlides = 2;
-  } else {
-    simpleSlider.countOfSlides = 1
-  }
+  $('[data-simple-slider]').each(function () {
+    const simpleSlider = $(this);
+    simpleSlider.countOfSlides = 0;
+    if (screenWidth > 1199) {
+      simpleSlider.countOfSlides = 4;
+    } else if (screenWidth <= 1199 && screenWidth > 991) {
+      simpleSlider.countOfSlides = 3;
+    } else if (screenWidth <= 991 && screenWidth > 767) {
+      simpleSlider.countOfSlides = 2;
+    } else {
+      simpleSlider.countOfSlides = 1
+    }
 
-  simpleSlider.slick({
-    arrows: true,
-    infinite: false,
-    slidesToShow: simpleSlider.countOfSlides,
-    speed: 800,
-    waitForAnimate: true,
-    customPaging: 50,
-    accessibility: false,
-    draggable: false,
-    margin: 30,
+    simpleSlider.slick({
+      arrows: true,
+      infinite: false,
+      slidesToShow: simpleSlider.countOfSlides,
+      speed: 800,
+      waitForAnimate: true,
+      customPaging: 50,
+      accessibility: false,
+      draggable: false,
+      margin: 30,
+    });
+  });
+
+  $('[data-price]').each(function () {
+    const priceSlider = $(this).find('[data-price-slider]');
+    const containerForBtns = $(this).find('[data-slider-btns]');
+    priceSlider.countOfSlides = 0;
+    const realCountOfSlides = priceSlider.children().length;
+    if (screenWidth > 1199) {
+      priceSlider.countOfSlides = 4;
+    } else if (screenWidth <= 1199 && screenWidth > 991) {
+      priceSlider.countOfSlides = 3;
+    } else if (screenWidth <= 991 && screenWidth > 767) {
+      priceSlider.countOfSlides = 2;
+    } else {
+      priceSlider.countOfSlides = 1
+    }
+
+    if (realCountOfSlides > priceSlider.countOfSlides) {
+      priceSlider.slick({
+        arrows: true,
+        infinite: false,
+        slidesToShow: priceSlider.countOfSlides,
+        speed: 800,
+        waitForAnimate: true,
+        customPaging: 50,
+        accessibility: false,
+        draggable: false,
+        appendArrows: containerForBtns
+      });
+    } else {
+      priceSlider.children().width(`calc(100% / ${realCountOfSlides})`)
+    }
   });
 
 
@@ -116,55 +150,72 @@ $(document).ready(function () {
   });
 
 
-  const chronology = $('[data-chronology]');
-  const chronologyProgress = chronology.find('[data-chronology-progress]');
-  const chronologySlider = chronology.find('[data-chronology-slider]');
-  chronologySlider.countOfSlides = 0;
+  const chronologies = $('[data-chronology]');
 
-  if (screenWidth > 1199) {
-    chronologySlider.countOfSlides = 4;
-  } else if (screenWidth <= 1199 && screenWidth > 991) {
-    chronologySlider.countOfSlides = 3;
-  } else if (screenWidth <= 991 && screenWidth > 575) {
-    chronologySlider.countOfSlides = 2;
-  } else {
-    chronologySlider.countOfSlides = 1
-  }
+  chronologies.each(function () {
+    const chronology = $(this);
+    const chronologyProgress = chronology.find('[data-chronology-progress]');
+    const chronologySlider = chronology.find('[data-chronology-slider]');
+    const slides = chronologySlider.find('.chronology__item');
+    const realCountOfSlides = slides.length;
 
-  const isEnding = chronologySlider.attr('data-chronology-end') === 'true' ?
-    true : false
-  chronologySlider.isEnding = isEnding;
+    const containerForBtns = chronology.find('[data-slider-btns]');
+    chronologySlider.countOfSlides = 0;
 
-
-
-  chronologySlider.slick({
-    arrows: true,
-    infinite: false,
-    slidesToShow: chronologySlider.countOfSlides,
-    speed: 600,
-    waitForAnimate: true,
-    customPaging: 50,
-    accessibility: false,
-    draggable: false,
-  });
-
-  chronologySlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-
-    if (nextSlide === 0) {
-      chronologyProgress.addClass('start')
-      chronologyProgress.removeClass('middle')
-      chronologyProgress.removeClass('end')
-    } else if (nextSlide === $(this).find('.slick-slide').length - chronologySlider.countOfSlides) {
-      if (chronologySlider.isEnding) {
-        chronologyProgress.addClass('end'); // end
-        chronologyProgress.removeClass('middle');
-        chronologyProgress.removeClass('start');
-      }
+    if (screenWidth > 1199) {
+      chronologySlider.countOfSlides = 4;
+    } else if (screenWidth <= 1199 && screenWidth > 991) {
+      chronologySlider.countOfSlides = 3;
+    } else if (screenWidth <= 991 && screenWidth > 575) {
+      chronologySlider.countOfSlides = 2;
     } else {
-      chronologyProgress.addClass('middle');
-      chronologyProgress.removeClass('start');
-      chronologyProgress.removeClass('end');
+      chronologySlider.countOfSlides = 1
     }
+
+    const isEnding = chronologySlider.attr('data-chronology-end') === 'true' ?
+      true : false
+    chronologySlider.isEnding = isEnding;
+
+
+    if (realCountOfSlides <= chronologySlider.countOfSlides && realCountOfSlides !== 1) {
+      const widthOfProgressBar = 100 / chronologySlider.countOfSlides * (realCountOfSlides - 1);
+      chronologyProgress.width(`calc(${widthOfProgressBar}% + 40px)`);
+    }
+
+
+    chronologySlider.slick({
+      arrows: true,
+      infinite: false,
+      slidesToShow: chronologySlider.countOfSlides,
+      speed: 600,
+      waitForAnimate: true,
+      customPaging: 50,
+      accessibility: false,
+      draggable: false,
+      appendArrows: containerForBtns,
+      focusOnSelect: false,
+      touchMove: false,
+    });
+
+
+    chronologySlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+
+      if (nextSlide === 0) {
+        chronologyProgress.addClass('start')
+        chronologyProgress.removeClass('middle')
+        chronologyProgress.removeClass('end')
+      } else if (nextSlide === $(this).find('.slick-slide').length - chronologySlider.countOfSlides) {
+        if (chronologySlider.isEnding) {
+          chronologyProgress.addClass('end'); // end
+          chronologyProgress.removeClass('middle');
+          chronologyProgress.removeClass('start');
+        }
+      } else {
+        chronologyProgress.addClass('middle');
+        chronologyProgress.removeClass('start');
+        chronologyProgress.removeClass('end');
+      }
+    });
   });
 
 
