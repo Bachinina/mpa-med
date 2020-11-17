@@ -658,6 +658,16 @@ img {
 .fluid-block > * {
   max-width: 720px;
 }
+@media (max-width: 1199px) {
+  .fluid-block {
+    padding: 32px;
+  }
+}
+@media (max-width: 767px) {
+  .fluid-block {
+    padding: 24px;
+  }
+}
 .br-block {
   border-radius: 12px;
 }
@@ -1974,14 +1984,10 @@ button.btn-text:focus {
     padding-top: 130px;
   }
 }
-.content-page__header.small .content-page__header-container {
-  padding-bottom: 110px;
-  padding-top: 110px;
-}
-@media (max-width: 767px) {
+@media (min-width: 1200px) {
   .content-page__header.small .content-page__header-container {
-    padding-bottom: 90px;
-    padding-top: 90px;
+    padding-bottom: 110px;
+    padding-top: 110px;
   }
 }
 @media (min-width: 1200px) {
@@ -3716,6 +3722,12 @@ input[type="radio"]:checked + label::before {
     background: linear-gradient(90deg, #f2f2f5 0%, rgba(255, 255, 255, 0) 27.6%);
   }
 }
+@media (min-width: 992px) {
+  .bg--white .block-img__img::after {
+    background: -webkit-gradient(linear, left top, right top, from(#FFF), color-stop(27.6%, rgba(255, 255, 255, 0)));
+    background: linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0) 27.6%);
+  }
+}
 .block-img__img {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4722,6 +4734,7 @@ input[type="radio"]:checked + label::before {
   transition: 0.3s;
   opacity: 0;
   visibility: hidden;
+  z-index: 10;
 }
 .tooltip:hover,
 .tooltip:focus {
@@ -4733,6 +4746,7 @@ input[type="radio"]:checked + label::before {
 .tooltip:focus::after {
   opacity: 1;
   visibility: visible;
+  z-index: 10;
 }
 .tooltip--top::before {
   top: auto;
@@ -6633,6 +6647,21 @@ button.range__item.disabled {
     height: 8px;
   }
 }
+.span-info {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+@media (max-width: 1199px) {
+  .span-info {
+    font-size: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .span-info {
+    font-size: 18px;
+  }
+}
 @media (min-width: 992px) {
   .brands__title {
     margin-bottom: 45px;
@@ -7955,10 +7984,17 @@ button.range__item.disabled {
 }
 .feat__title {
   margin-bottom: 0;
+  font-size: 18px;
+  line-height: 1.5;
 }
 .feat__title + * {
   margin-top: 8px;
   margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .feat__title {
+    margin-top: 16px;
+  }
 }
 .feat__ps-img {
   font-style: normal;
