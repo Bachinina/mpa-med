@@ -762,4 +762,24 @@ $(document).ready(function () {
       resetHeight();
     })
   };
+
+
+  // FLUID BLOCK
+
+  $('[data-fluid-bg]').each(function () {
+    const bg = $(this);
+    const block = $($('[data-fluid-bg]').attr('data-fluid-bg'));
+    const setPosition = function () {
+      bg.height(block.height() / 2);
+      block.css({
+        'margin-top': -block.height() / 2
+      });
+    };
+
+    setPosition();
+
+
+    $(window).on('resize', setPosition);
+  });
+
 });
