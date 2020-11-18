@@ -57,11 +57,11 @@ $(document).ready(function () {
     if (screenWidth > 1199) {
       simpleSlider.countOfSlides = 4;
     } else if (screenWidth <= 1199 && screenWidth > 991) {
-      simpleSlider.countOfSlides = 3;
+      simpleSlider.countOfSlides = 4;
     } else if (screenWidth <= 991 && screenWidth > 767) {
-      simpleSlider.countOfSlides = 2;
+      simpleSlider.countOfSlides = 3;
     } else {
-      simpleSlider.countOfSlides = 1
+      simpleSlider.countOfSlides = 2
     }
 
     simpleSlider.slick({

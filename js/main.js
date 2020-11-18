@@ -231,48 +231,56 @@ $(document).ready(function () {
   const scrolledBlocks = $('[data-scroll-wrap]');
   const addScrollingProps = function () {
     scrolledBlocks.each(function () {
-      const container = $(this).find('[data-scroll]');
-      const parent = $(this).closest('[data-scroll-container]');
+      const wrap = $(this);
+      const parent = wrap.closest('[data-scroll-container]');
+      const isAdapt = parent.attr('data-adapt') === 'true';
+
+      const container = wrap.find('[data-scroll]');
       const width = parent.width();
 
-      container.addClass('scroll-mobile');
-      $(this).addClass('scroll-mobile-wrap');
+      if (isAdapt || $(window).width() <= 767) {
+        const makeScrolling = function () {
+          container.addClass('scroll-mobile');
+          wrap.addClass('scroll-mobile-wrap');
 
-      container.css({
-        'padding-left': `${(($(window).width() - width) / 2 )}px`,
-      });
+          container.css({
+            'padding-left': `${(($(window).width() - width) / 2 )}px`,
+          });
 
-      parent.height('auto');
-      parent.height(parent.height() + container.height());
+          parent.height('auto');
+          parent.height(parent.height() + container.height());
+        };
+
+        if (isAdapt) {
+          if (parent.width() >= wrap.width()) {
+            makeScrolling();
+          } else {
+            container.css({
+              'padding-left': `${(($(window).width() - width) / 2 )}px`,
+            });
+          }
+        } else {
+          makeScrolling();
+        }
+      } else {
+        if (container.hasClass('scroll-mobile')) {
+          container.removeClass('scroll-mobile');
+          wrap.removeClass('scroll-mobile-wrap');
+          container.css({
+            'padding-left': '0',
+          });
+
+          parent.height('auto');
+        }
+      }
     });
   };
 
   if (scrolledBlocks.length > 0) {
-    if ($(window).width() <= 767) {
-      addScrollingProps();
-    }
-
-    $(window).on('resize', function () {
-      scrolledBlocks.each(function () {
-        if ($(window).width() <= 767) {
-          addScrollingProps();
-        } else {
-          const container = $(this).find('[data-scroll]');
-          const parent = $(this).closest('[data-scroll-container]');
-
-          if (container.hasClass('scroll-mobile')) {
-            container.removeClass('scroll-mobile');
-            $(this).removeClass('scroll-mobile-wrap');
-            container.css({
-              'padding-left': '0',
-            });
-
-            parent.height('auto');
-          }
-        }
-      });
-    });
+    addScrollingProps();
+    $(window).on('resize', addScrollingProps);
   }
+
 
 
   // SCROLL ANCHOR
