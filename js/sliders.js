@@ -230,6 +230,23 @@ $(document).ready(function () {
     variableWidth: true,
     waitForAnimate: true,
     initialSlide: 1,
+    responsive: [{
+        breakpoint: 1199,
+        settings: {
+          speed: 1200,
+          focusOnSelect: false,
+          touchMove: false,
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          speed: 800,
+          focusOnSelect: false,
+          touchMove: false,
+        }
+      }
+    ]
   });
 
   centredSlider.find('.slick-slide').on('click', function () {
@@ -241,31 +258,50 @@ $(document).ready(function () {
     }
   });
 
-  const doubleSlider = $('[data-double-slider]');
-  const slideCount = doubleSlider.attr('data-slide-count');
-  const parentSlider = doubleSlider.find('[data-parent-slider]');
-  const childSlider = doubleSlider.find('[data-child-slider]');
+  const doubleSliders = $('[data-double-slider]');
+  doubleSliders.each(function () {
+    const doubleSlider = $(this);
+    let slideCount = doubleSlider.attr('data-slide-count');
+    const parentSlider = doubleSlider.find('[data-parent-slider]');
+    const childSlider = doubleSlider.find('[data-child-slider]');
+    const isChildStatic = slideCount <= 4;
 
-  parentSlider.slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: childSlider,
-    draggable: false,
-  });
+    if (slideCount <= 4) {
+      childSlider.addClass('non-transform');
+    } else {
+      slideCount = 4;
+    }
+
+    console.log()
 
 
-  parentSlider.on('click', function () {
-    parentSlider.slick('slickNext');
-  });
+    parentSlider.slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      asNavFor: childSlider,
+      draggable: false,
+      infinite: !isChildStatic,
+    });
 
-  childSlider.slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: true,
-    asNavFor: parentSlider,
-    focusOnSelect: true,
-    draggable: false,
-  });
+
+    parentSlider.on('click', function () {
+      parentSlider.slick('slickNext');
+    });
+
+    childSlider.slick({
+      slidesToShow: slideCount,
+      slidesToScroll: 1,
+      arrows: true,
+      asNavFor: parentSlider,
+      focusOnSelect: true,
+      draggable: false,
+      touchMove: false,
+      infinite: !isChildStatic,
+      variableWidth: isChildStatic,
+      focusOnSelect: true,
+    });
+  })
+
 });

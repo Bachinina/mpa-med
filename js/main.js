@@ -229,6 +229,7 @@ $(document).ready(function () {
 
   // SCROLL MOBILE
   const scrolledBlocks = $('[data-scroll-wrap]');
+  let screenWidth = $(window).width();
   const addScrollingProps = function () {
     scrolledBlocks.each(function () {
       const wrap = $(this);
@@ -278,7 +279,12 @@ $(document).ready(function () {
 
   if (scrolledBlocks.length > 0) {
     addScrollingProps();
-    $(window).on('resize', addScrollingProps);
+    $(window).on('resize', function () {
+      if (screenWidth !== $(window).width()) {
+        screenWidth = $(window).width();
+        addScrollingProps();
+      }
+    });
   }
 
 
@@ -589,8 +595,6 @@ $(document).ready(function () {
   };
 
 
-
-
   // SCROLLING 
   const header = $('.header');
   const headerMapHeight = header.find('.header__map').height();
@@ -675,7 +679,7 @@ $(document).ready(function () {
     // MAX HEIGHT FOR LINKS
     const pxToTop = list.offset().top - $(window).scrollTop();
     const pxToBottom = $('.navbar__bottom').outerHeight();
-    const windowHeight = $(window).height();
+    const windowHeight = $(window).outerHeight();
     const maxHeight = windowHeight - pxToTop - pxToBottom - 15;
     activelistHeight = maxHeight;
 
