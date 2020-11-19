@@ -66,8 +66,7 @@
               <span>Более 20 лет опыта
                 на медицинском рынке</span>
             </div>
-            <button class="navbar__toggler"   aria-label="Открыть/закрыть меню"
-              data-toggle-nav>
+            <button class="navbar__toggler" aria-label="Открыть/закрыть меню" data-toggle-nav>
               <span class="btn-burger" aria-hidden="true">
                 <span></span>
                 <span></span>
@@ -1574,12 +1573,23 @@
         </div>
 
         <img class="contacts__img" src="img/contacts-msk.jpg" alt="">
+      </div>
 
+      <div class="container--content pb-0">
+        <div class="contacts__map">
+          <img src="img/contacts-map.jpg" alt="">
+        </div>
+      </div>
 
-        <section class="contacts__feedback feedback">
-          <div class="feedback__title title">
-            <h2 class="title__header">Свяжитесь с нами для обратной связи</h2>
-          </div>
+    </section>
+
+    <!-- Обратная связь -->
+    <section class="feedback">
+      <div class="container container--content">
+
+        <!-- Форма -->
+        <div class="feedback__block-wrapper">
+          <h2 class="feedback__title">Свяжитесь с нами для обратной связи</h2>
           <form class="feedback__form form" method="POST" action="/">
             <div class="form__row">
               <div class="form__item">
@@ -1594,7 +1604,7 @@
 
             <div class="form__row">
               <div class="form__item">
-                <input type="email" name="email" placeholder="Email" id="email" autocomplete="off" required="">
+                <input type="email" name="email" placeholder="Email" id="email" autocomplete="off" required>
                 <label for="email">Email</label>
               </div>
               <div class="form__item">
@@ -1612,7 +1622,7 @@
                 <div class="select">
                   <label class="visually-hidden" for="service">Выбор услуги</label>
                   <select name="service" id="service">
-                    <option disabled="" selected="" hidden="" value="">Выберите интересующую вас услугу</option>
+                    <option disabled selected hidden value="">Выберите интересующую вас услугу</option>
                     <option value="1">Услуга 1</option>
                     <option value="2">Услуга 2</option>
                     <option value="3">Услуга 3</option>
@@ -1630,11 +1640,11 @@
             <div class="form__footer">
               <div class="form__checkboxes">
                 <div class="form__checkbox">
-                  <input type="checkbox" id="mailing" name="mailing" checked="">
+                  <input type="checkbox" id="mailing" name="mailing" checked>
                   <label for="mailing">Подписаться на рассылку</label>
                 </div>
                 <div class="form__checkbox">
-                  <input type="checkbox" id="conf" name="conf" checked="">
+                  <input type="checkbox" id="conf" name="conf" checked>
                   <label for="conf"><span>Я согласен с &nbsp;<a href="/"
                         aria-label="Перейти на страницу политики конфиденциальности" target="_blank">Политикой обработки
                         персональных
@@ -1646,14 +1656,14 @@
               <button class="form__btn btn btn-bg" type="submit">Отправить</button>
             </div>
           </form>
-        </section>
-      </div>
+        </div>
+        <!-- Форма -->
 
-
-      <div class="contacts__map">
-        <img src="img/contacts-map.jpg" alt="">
       </div>
     </section>
+    <!-- Обратная связь -->
+
+
   </main>
 
 
