@@ -674,6 +674,16 @@ img {
 .br-block__cont {
   padding: 79px 56px;
 }
+@media (max-width: 1199px) {
+  .br-block__cont {
+    padding: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .br-block__cont {
+    padding: 24px;
+  }
+}
 .br-block__img {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -681,10 +691,13 @@ img {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   line-height: 0;
 }
 .br-block__img img {
-  margin-top: auto;
+  height: auto;
 }
 .show-more-btn {
   outline: none;
@@ -3955,6 +3968,7 @@ input[type="radio"]:checked + label::before {
   transition: 0.3s;
   display: block;
   width: 100%;
+  height: auto;
 }
 @media (min-width: 992px) {
   .card-block__img {
@@ -7141,7 +7155,7 @@ button.range__item.disabled {
   }
 }
 .bg--gray .services__list.simple .block-bg__desc,
-.bg--gray .services__list.simple-def .block-bg__desc {
+.bg--gray .services__list.simple-def:not(.simple-def-img) .block-bg__desc {
   color: #1d1d1f;
   background: #ffffff;
 }
@@ -7661,35 +7675,27 @@ button.range__item.disabled {
     background-size: cover;
   }
 }
-.bg-map-branches {
-  height: 690px;
-  background: url(../img/map-gray.svg) no-repeat center;
-  background: url(../img/map-branches.svg) no-repeat center;
-}
-@media (min-width: 768px) {
-  .bg-map-branches {
-    background-size: contain;
-  }
-}
-@media (max-width: 767px) {
-  .bg-map-branches {
-    height: auto;
-    background-image: url(../img/map-gray-mini.svg);
-    background-position: center;
-    background-size: contain;
-  }
-}
-@media (max-width: 575px) {
-  .bg-map-branches {
-    background-size: cover;
-  }
-}
 .bg--gray .bg-map {
   background-image: url(../img/map.svg);
 }
 @media (max-width: 767px) {
   .bg--gray .bg-map {
     background-image: url(../img/map-mini.svg);
+  }
+}
+.branches .bg-map {
+  height: 690px;
+  background-image: url(../img/map-branches.svg);
+}
+@media (max-width: 991px) {
+  .branches .bg-map {
+    height: 560px;
+  }
+}
+@media (max-width: 767px) {
+  .branches .bg-map {
+    background-image: url(../img/map-mini.svg);
+    height: auto;
   }
 }
 @media (min-width: 768px) {

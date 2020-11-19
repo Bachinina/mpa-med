@@ -628,14 +628,14 @@ $(document).ready(function () {
         list.children(evt.target).length > 0) {
         list.removeClass('show');
         $(document).off('click', onDocumentClick);
-        $(document).off('scroll', onDocumentScroll);
+        $(window).off('scroll', onDocumentScroll);
       }
     };
 
     const onDocumentScroll = function (evt) {
       list.removeClass('show');
       $(document).off('click', onDocumentClick);
-      $(document).off('scroll', onDocumentScroll);
+      $(window).off('scroll', onDocumentScroll);
     };
 
 
