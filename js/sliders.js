@@ -111,8 +111,8 @@ $(document).ready(function () {
 
 
   $('[data-auto-slider]').slick({
-    arrows: false,
-    speed: 1500,
+    arrows: true,
+    speed: 1200,
     slidesToShow: 4,
     slidesToScroll: 1,
     touchTreshold: 30,
@@ -120,15 +120,24 @@ $(document).ready(function () {
     autoplaySpeed: 3000,
     accessibility: false,
     responsive: [{
-        breakpoint: 767,
+        breakpoint: 992,
         settings: {
           slidesToShow: 3,
         }
       },
       {
-        breakpoint: 575,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
+          speed: 800,
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 2,
+          speed: 500,
+
           autoplay: true,
           autoplaySpeed: 4000,
 
