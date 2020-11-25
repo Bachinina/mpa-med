@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(window).on('load', (function () {
   //RESIZER
   jQuery.ResizeTriggering = function (e) {
     function t(e, i) {
@@ -226,68 +226,66 @@ $(document).ready(function () {
 
   $('.acc__title.active').next().slideDown(0);
 
+  $(document).ready(function () {
+    // SCROLL MOBILE
+    const scrolledBlocks = $('[data-scroll-wrap]');
+    let screenWidth = $(window).width();
+    const addScrollingProps = function () {
+      scrolledBlocks.each(function () {
+        const wrap = $(this);
+        const container = wrap.closest('[data-scroll-container]');
+        const isAdapt = container.attr('data-adapt') === 'true';
 
-  // SCROLL MOBILE
-  const scrolledBlocks = $('[data-scroll-wrap]');
-  let screenWidth = $(window).width();
-  const addScrollingProps = function () {
-    scrolledBlocks.each(function () {
-      const wrap = $(this);
-      const parent = wrap.closest('[data-scroll-container]');
-      const isAdapt = parent.attr('data-adapt') === 'true';
+        const block = wrap.find('[data-scroll]');
+        const width = container.width();
 
-      const container = wrap.find('[data-scroll]');
-      const width = parent.width();
-
-      if (isAdapt || $(window).width() <= 767) {
-        const makeScrolling = function () {
-          container.addClass('scroll-mobile');
-          wrap.addClass('scroll-mobile-wrap');
-
-          container.css({
-            'padding-left': `${(($(window).width() - width) / 2 )}px`,
-          });
-
-          parent.height('auto');
-          parent.height(parent.height() + container.height());
-        };
-
-        if (isAdapt) {
-          if (parent.width() >= wrap.width()) {
-            makeScrolling();
-          } else {
-            container.css({
+        if (isAdapt || screenWidth <= 767) {
+          const makeScrolling = function () {
+            wrap.addClass('scroll-mobile-wrap');
+            block.addClass('scroll-mobile');
+            block.css({
               'padding-left': `${(($(window).width() - width) / 2 )}px`,
             });
+
+            container.height('auto');
+            container.outerHeight(container.outerHeight() + block.outerHeight());
+          };
+
+          if (isAdapt) {
+            if (container.width() >= wrap.width()) {
+              makeScrolling();
+            } else {
+              block.css({
+                'padding-left': `${(($(window).width() - width) / 2 )}px`,
+              });
+            }
+          } else {
+            makeScrolling();
           }
         } else {
-          makeScrolling();
+          if (block.hasClass('scroll-mobile')) {
+            container.removeClass('scroll-mobile');
+            wrap.removeClass('scroll-mobile-wrap');
+            block.css({
+              'padding-left': '0',
+            });
+
+            container.height('auto');
+          }
         }
-      } else {
-        if (container.hasClass('scroll-mobile')) {
-          container.removeClass('scroll-mobile');
-          wrap.removeClass('scroll-mobile-wrap');
-          container.css({
-            'padding-left': '0',
-          });
+      });
+    };
 
-          parent.height('auto');
+    if (scrolledBlocks.length > 0) {
+      addScrollingProps();
+      $(window).on('resize', function () {
+        if (screenWidth !== $(window).width()) {
+          screenWidth = $(window).width();
+          addScrollingProps();
         }
-      }
-    });
-  };
-
-  if (scrolledBlocks.length > 0) {
-    addScrollingProps();
-    $(window).on('resize', function () {
-      if (screenWidth !== $(window).width()) {
-        screenWidth = $(window).width();
-        addScrollingProps();
-      }
-    });
-  }
-
-
+      });
+    }
+  });
 
   // SCROLL ANCHOR
   $("a[href^='#']").on("click", function (e) {
@@ -863,4 +861,4 @@ $(document).ready(function () {
       }
     });
   })
-});
+}));
