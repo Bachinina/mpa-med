@@ -866,6 +866,12 @@
                       </button>
                     </li>
 
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="brands.html"><b>Все производители</b></a>
+                      </div>
+                    </li>
+
                     <li class="nav__item" data-nav-link>
                       <div class="nav__control" data-nav-control>
                         <a class="nav__link" href="catalog-detail.html">Пульмонология</a>
@@ -1548,7 +1554,14 @@
               </div>
             </div>
 
-            <img src="img/slider-1.jpg" alt="">
+            <!-- Адаптивные картинки -->
+            <picture>
+              <source media="(min-width: 768px)" srcset="img/slider-1.jpg">
+              <!-- Для моб разрешений -->
+              <img src="img/slider-1.jpg" alt="">
+            </picture>
+            <!-- Адаптивные картинки -->
+
           </div>
           <div class="info__item">
             <div class="info__container container">

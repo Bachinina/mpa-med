@@ -123,13 +123,16 @@ $(document).ready(function () {
         breakpoint: 992,
         settings: {
           slidesToShow: 3,
+          arrows: true,
+
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           speed: 800,
+          arrows: false,
         }
       },
       {
@@ -137,7 +140,7 @@ $(document).ready(function () {
         settings: {
           slidesToShow: 2,
           speed: 500,
-
+          arrows: false,
           autoplay: true,
           autoplaySpeed: 4000,
 

@@ -1050,6 +1050,10 @@ ul,
 .list-mini p {
   margin-bottom: 3px;
 }
+.list-mini li .list-mini {
+  margin-top: 12px;
+  padding-left: 12px;
+}
 .list-marked.list-mini li:not(:last-of-type) {
   margin-bottom: 2px;
 }
@@ -2029,7 +2033,7 @@ button.btn-text:focus {
   bottom: 0;
   left: 0;
   display: block;
-  width: 98%;
+  width: 100%;
   height: 3px;
   opacity: 0;
   background-color: #0090d4;
@@ -2551,8 +2555,23 @@ button.btn-text:focus {
     margin-top: 40px;
   }
 }
-.content-page__tabs-container .tabs__title {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+@media (max-width: 1199px) {
+  .content-page__timer-wrap {
+    max-width: none;
+    padding: 0;
+  }
+}
+.content-page__tabs-timer {
+  position: relative;
+}
+.content-page__tabs-timer::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.12);
 }
 .cabinets .content-page__btns-wrap {
   padding-bottom: 72px;
@@ -3745,7 +3764,7 @@ input[type="radio"]:checked + label::before {
 }
 @media (max-width: 767px) {
   .block-bg {
-    min-height: 200px;
+    min-height: 300px;
   }
 }
 .block-bg.simple .block-bg__desc {
@@ -4168,9 +4187,13 @@ input[type="radio"]:checked + label::before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -5487,7 +5510,7 @@ button.range__item.disabled {
   color: #1d1d1f;
 }
 .product__desc * + h2,
-.product__desc * + h3 {
+.product__desc *:not(.visually-hidden) + h3 {
   margin-top: 24px;
 }
 .product__desc .list-marked li::before {
@@ -7086,6 +7109,11 @@ button.range__item.disabled {
     min-height: 520px;
   }
 }
+.info__item picture {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 .info__text {
   max-width: 800px;
   color: #ffffff;
@@ -7157,7 +7185,7 @@ button.range__item.disabled {
 }
 @media (max-width: 767px) {
   .brands__slider {
-    padding: 24px 30px;
+    padding: 24px 0;
   }
 }
 .brand {
@@ -7269,7 +7297,9 @@ button.range__item.disabled {
     margin-top: 8px;
   }
   .brand-info img {
-    margin-right: 40px;
+    margin-right: 24px;
+    max-height: 70px;
+    max-width: 160px;
   }
 }
 @media (max-width: 991px) {
