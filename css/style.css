@@ -672,16 +672,16 @@ img {
   border-radius: 12px;
 }
 .br-block__cont {
-  padding: 79px 56px;
+  padding: 79px 71px;
 }
 @media (max-width: 1199px) {
   .br-block__cont {
-    padding: 40px;
+    padding: 40px 55px;
   }
 }
 @media (max-width: 767px) {
   .br-block__cont {
-    padding: 24px;
+    padding: 24px 39px;
   }
 }
 .br-block__img {
@@ -3620,8 +3620,8 @@ input[type="radio"]:checked + label::before {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 0 0;
-     object-position: 0 0;
+  -o-object-position: center;
+     object-position: center;
   -webkit-transform-origin: center;
           transform-origin: center;
   min-height: 155px;
@@ -3800,8 +3800,8 @@ input[type="radio"]:checked + label::before {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 0 0;
-     object-position: 0 0;
+  -o-object-position: center;
+     object-position: center;
   -webkit-transform-origin: center;
           transform-origin: center;
 }
@@ -4104,6 +4104,7 @@ input[type="radio"]:checked + label::before {
 }
 .card-block__title .main-def {
   font-weight: 400;
+  display: block;
 }
 .card-block__title .count {
   color: #a0a0a0;
@@ -5274,6 +5275,11 @@ button.range__item.disabled {
   height: 24px;
   background: #0090d4;
 }
+@media (max-width: 1199px) {
+  .picture__tooltip {
+    display: none;
+  }
+}
 .price-block-wrap {
   height: auto;
   padding: 0 15px;
@@ -5477,6 +5483,17 @@ button.range__item.disabled {
   display: inline-block;
   font-size: 10px;
   line-height: 14px;
+}
+.product__logo-info a {
+  text-decoration: none;
+  color: #1d1d1f;
+}
+.product__logo-info a:hover {
+  text-decoration: none;
+}
+.product__logo-info a:hover,
+.product__logo-info a:focus {
+  color: #a0a0a0;
 }
 .product__tabs {
   margin-top: 40px;
@@ -7255,6 +7272,9 @@ button.range__item.disabled {
     max-height: 90px;
     max-width: 90%;
   }
+}
+.brands-list .mark-blue {
+  margin-top: 6px;
 }
 @media (max-width: 1199px) {
   .brands-list .content-page__list {
