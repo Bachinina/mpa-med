@@ -13,4 +13,8 @@ if ($(window).width() <= 575) {
       "close"
     ],
   });
+} else {
+  $('[data-fancybox-photo]').on('click', function (evt) {
+    evt.preventDefault();
+  })
 }
