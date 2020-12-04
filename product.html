@@ -1866,7 +1866,15 @@
             <h2 class="visually-hidden">Отзывы</h2>
 
             <div class="row">
-              <div class="col-12 col-xl-8 mb-m">
+              <div class="product__reviews-wrap col-12 col-xl-8">
+                <!-- Если отзывов нет -->
+                <!-- <div class="product__reviews-alt">
+                  <p>Отзывов на "Анализаторы анестезиологических газов Vamos и Scio" пока нет, станьте первым!</p>
+                </div> -->
+                <!-- Если отзывов нет -->
+
+
+                <!-- Если отзывы есть -->
                 <div class="sort-btns">
                   <p class="sort-btns__title">Сортировать:</p>
                   <button class="sort-btn arrow arrow-down">
@@ -1877,8 +1885,7 @@
                   </button>
                 </div>
 
-                <div class="product__reviews reviews mt-m text-def">
-                  <!-- Отзыв -->
+                <div class="product__reviews reviews text-def">
                   <div class="review">
                     <img src="img/user.png" alt="">
 
@@ -1935,9 +1942,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Отзыв -->
 
-                  <!-- Отзыв -->
                   <div class="review">
                     <img src="img/news-1.jpg" alt="">
 
@@ -1986,13 +1991,15 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Отзыв -->
                 </div>
+                <!-- Если отзывы есть -->
+
               </div>
 
               <div class="col-12 col-xl-3 ml-auto">
                 <button class="btn btn-bg btn-big text-small w-100" data-modal="#modal-review">Оставить отзыв</button>
 
+                <!-- Если отзывы есть -->
                 <form class="prod__form-range mt-s" action="/">
                   <h3 class="mb-xs">Отзывы с оценкой</h3>
                   <div class="form__checkbox">
@@ -2063,6 +2070,8 @@
                     </label>
                   </div>
                 </form>
+                <!-- Если отзывы есть -->
+
               </div>
             </div>
           </div>

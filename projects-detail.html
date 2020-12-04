@@ -68,8 +68,7 @@
               <span>Более 20 лет опыта
                 на медицинском рынке</span>
             </div>
-            <button class="navbar__toggler"   aria-label="Открыть/закрыть меню"
-              data-toggle-nav>
+            <button class="navbar__toggler" aria-label="Открыть/закрыть меню" data-toggle-nav>
               <span class="btn-burger" aria-hidden="true">
                 <span></span>
                 <span></span>
@@ -1576,32 +1575,52 @@
         </div>
       </div>
 
+      <!-- В слайдах необходимо поменять разметку
+      Слайды с фото и видео отличаются по атрибутам и разметке - очень книмательно!
+      -->
+
 
       <div class="post__slider" data-center-slider>
+
+        <!-- Фото  -->
         <div class="post__slide" data-slide="slide-1">
           <div class="post__wrapper">
-            <img src="img/proj-det-1.jpg"
-              alt="КДЦ «Измайловский», подразделение ФГБУ «НМХЦ им.Пирогова» Минздрава России">
+            <div class="post__item">
+              <a href="img/proj-det-1.jpg" data-fancybox-photo>
+                <img src="img/proj-det-1.jpg"
+                  alt="КДЦ «Измайловский», подразделение ФГБУ «НМХЦ им.Пирогова» Минздрава России">
+              </a>
+            </div>
           </div>
         </div>
+        <!-- Фото  -->
 
         <div class="post__slide" data-slide="slide-2">
           <div class="post__wrapper">
-            <img src="img/proj-det-2.jpg"
-              alt="КДЦ «Измайловский», подразделение ФГБУ «НМХЦ им.Пирогова» Минздрава России">
+            <div class="post__item">
+              <a href="img/proj-det-2.jpg" data-fancybox-photo>
+                <img src="img/proj-det-2.jpg"
+                  alt="КДЦ «Измайловский», подразделение ФГБУ «НМХЦ им.Пирогова» Минздрава России">
+              </a>
+            </div>
           </div>
         </div>
 
         <div class="post__slide" data-slide="slide-3">
           <div class="post__wrapper">
-            <img src="img/proj-det-3.jpg"
-              alt="КДЦ «Измайловский», подразделение ФГБУ «НМХЦ им.Пирогова» Минздрава России">
+            <div class="post__item">
+              <a href="img/proj-det-3.jpg" data-fancybox-photo>
+                <img src="img/proj-det-3.jpg"
+                  alt="КДЦ «Измайловский», подразделение ФГБУ «НМХЦ им.Пирогова» Минздрава России">
+              </a>
+            </div>
           </div>
         </div>
 
+        <!-- Видео  -->
         <div class="post__slide" data-slide="slide-6">
           <div class="post__wrapper">
-            <div class="post__video video">
+            <div class="post__item video">
               <a href="https://www.youtube.com/watch?v=Uc-cRu9aDqA" data-fancybox>
                 <img src="img/proj-det-4.jpg"
                   alt="КДЦ «Измайловский», подразделение ФГБУ «НМХЦ им.Пирогова» Минздрава России">
@@ -1609,12 +1628,16 @@
             </div>
           </div>
         </div>
-
+        <!-- Видео  -->
 
         <div class="post__slide" data-slide="slide-7">
           <div class="post__wrapper">
-            <img src="img/project-6.jpg"
-              alt="КДЦ «Измайловский», подразделение ФГБУ «НМХЦ им.Пирогова» Минздрава России">
+            <div class="post__item">
+              <a href="img/project-6.jpg" data-fancybox-photo>
+                <img src="img/project-6.jpg"
+                  alt="КДЦ «Измайловский», подразделение ФГБУ «НМХЦ им.Пирогова» Минздрава России">
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -1926,6 +1949,7 @@
   <script src="js/slick.js"></script>
   <script src="js/sliders.js"></script>
   <script src="js/fancybox.js"></script>
+  <script src="js/fancyboxes.js"></script>
   <script src="js/main.js"></script>
 
 

@@ -1424,7 +1424,11 @@
 
     <section class="content-page__section">
       <div class="content-page__header bg--img">
-        <img src="img/leasing.jpg" alt="">
+        <picture>
+          <source media="(min-width: 576px)" srcset="img/leasing.jpg">
+          <!-- Для моб разрешений -->
+          <img src="img/leasing-mob.jpg" alt="">
+        </picture>
 
         <div class="content-page__header-container container">
           <div class="content-page__header-wrap">

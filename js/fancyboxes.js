@@ -4,3 +4,13 @@ $('[data-fancybox-reward]').fancybox({
     "close"
   ],
 });
+
+
+if ($(window).width() <= 575) {
+  $('[data-fancybox-photo]').fancybox({
+    clickContent: false,
+    buttons: [
+      "close"
+    ],
+  });
+}

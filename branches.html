@@ -142,14 +142,14 @@
           </div>
 
           <!-- Выбранный пункт регулируется классом 'active' -->
-          <div class="header__item active" data-list-item>
+          <div class="header__item" data-list-item>
             <a class="header__link" href="/" aria-label="Перейти на наш корпоративный сайт"><span>Корпоративный
                 сайт</span></a>
           </div>
           <!-- Выбранный пункт регулируется классом 'active' -->
 
 
-          <div class="header__item" data-list-item>
+          <div class="header__item active" data-list-item>
             <a class="header__link" href="branches.html" aria-label="Узнать больше о филиалах"><span>Филиалы</span></a>
           </div>
         </div>
@@ -182,8 +182,7 @@
               <span>Более 20 лет опыта
                 на медицинском рынке</span>
             </div>
-            <button class="navbar__toggler"   aria-label="Открыть/закрыть меню"
-              data-toggle-nav>
+            <button class="navbar__toggler" aria-label="Открыть/закрыть меню" data-toggle-nav>
               <span class="btn-burger" aria-hidden="true">
                 <span></span>
                 <span></span>
@@ -1707,7 +1706,11 @@
           <!-- Контакт -->
           <li class="content-page__item branch" id="ast">
             <div class="text-block row">
+
               <div class="col-12 col-xl-4">
+                <!-- Вывод картинки дублируется -->
+                <img class="branch__img d-xl-none" src="img/astrahan.jpg" alt="Астрахань">
+
                 <div class="text-block__title title">
                   <h2 class="title__header">Астрахань</h2>
                 </div>
@@ -1761,7 +1764,8 @@
 
               <div class="col-12 col-xl-8">
                 <div class="text-block__desc">
-                  <img class="branch__img" src="img/astrahan.jpg" alt="Астрахань">
+                  <!-- Вывод картинки дублируется -->
+                  <img class="branch__img d-none d-xl-block" src="img/astrahan.jpg" alt="Астрахань">
 
                   <p> Астраханский филиал работает на территории города Астрахань и Астраханская
                     области, города Волгограда с 2008 года.</p>

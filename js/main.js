@@ -230,7 +230,7 @@ $(window).on('load', (function () {
     // SCROLL MOBILE
     const scrolledBlocks = $('[data-scroll-wrap]');
     let screenWidth = $(window).width();
-    const addScrollingProps = function () {
+    const addScrollingProps = function (isResize) {
       scrolledBlocks.each(function () {
         const wrap = $(this);
         const container = wrap.closest('[data-scroll-container]');
@@ -241,14 +241,18 @@ $(window).on('load', (function () {
 
         if (isAdapt || screenWidth <= 767) {
           const makeScrolling = function () {
+            container.height('auto');
+            if (isResize) {
+              container.outerHeight(container.outerHeight() + block.outerHeight());
+            } else {
+              container.outerHeight(container.outerHeight());
+            }
+
             wrap.addClass('scroll-mobile-wrap');
             block.addClass('scroll-mobile');
             block.css({
               'padding-left': `${(($(window).width() - width) / 2 )}px`,
             });
-
-            container.height('auto');
-            container.outerHeight(container.outerHeight() + block.outerHeight());
           };
 
           if (isAdapt) {
@@ -264,7 +268,7 @@ $(window).on('load', (function () {
           }
         } else {
           if (block.hasClass('scroll-mobile')) {
-            container.removeClass('scroll-mobile');
+            block.removeClass('scroll-mobile');
             wrap.removeClass('scroll-mobile-wrap');
             block.css({
               'padding-left': '0',
@@ -281,7 +285,7 @@ $(window).on('load', (function () {
       $(window).on('resize', function () {
         if (screenWidth !== $(window).width()) {
           screenWidth = $(window).width();
-          addScrollingProps();
+          addScrollingProps(true);
         }
       });
     }

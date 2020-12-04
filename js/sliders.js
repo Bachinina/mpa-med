@@ -261,7 +261,14 @@ $(document).ready(function () {
     ]
   });
 
-  centredSlider.find('.slick-slide').on('click', function () {
+  centredSlider.find('.slick-slide').on('click', function (evt) {
+    // evt.stopPropagation();
+
+    // console.log($(this).hasClass('slick-active'))
+    // if (!$(this).hasClass('slick-active')) {
+    //   evt.preventDefault();
+
+    // }
     if ($(this)[0] === centredSlider.find('.slick-active').next()[0]) {
       centredSlider.slick('slickNext');
     }
@@ -283,9 +290,6 @@ $(document).ready(function () {
     } else {
       slideCount = 4;
     }
-
-    console.log()
-
 
     parentSlider.slick({
       slidesToShow: 1,
