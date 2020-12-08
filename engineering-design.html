@@ -1555,7 +1555,11 @@
 
     <section class="content-page__section eng">
       <div class="content-page__header bg--img border-none">
-        <img src="img/eng-des.jpg" alt="М.П.А. Медицинские партнеры – Инжиниринг">
+        <picture>
+          <source media="(min-width: 576px)" srcset="img/eng-des.jpg">
+          <!-- Для моб разрешений -->
+          <img src="img/eng-des-mob.jpg" alt="М.П.А. Медицинские партнеры – Инжиниринг">
+        </picture>
 
         <div class="content-page__header-container container">
 
@@ -1591,7 +1595,7 @@
               <div class="layer layer-2"></div>
             </div>
 
-            <img class="d-xl-none" src="img/parall-img-alt.png" alt="">
+            <img class="d-xl-none" src="img/parall-img-alt.svg" alt="">
           </div>
         </div>
       </div>
