@@ -109,6 +109,31 @@ $(document).ready(function () {
     }
   });
 
+  $('[data-reviews]').each(function () {
+    const reviewSlider = $(this).find('[data-reviews-slider]');
+    const containerForBtns = $(this).find('[data-slider-btns]');
+    reviewSlider.countOfSlides = 0;
+    if (screenWidth > 1199) {
+      reviewSlider.countOfSlides = 2;
+    } else {
+      reviewSlider.countOfSlides = 1
+    }
+
+
+    reviewSlider.slick({
+      arrows: true,
+      infinite: false,
+      slidesToShow: reviewSlider.countOfSlides,
+      speed: 800,
+      waitForAnimate: true,
+      customPaging: 50,
+      customPaging: 24,
+      accessibility: false,
+      draggable: false,
+      appendArrows: containerForBtns,
+    });
+  });
+
 
   $('[data-auto-slider]').slick({
     arrows: true,
