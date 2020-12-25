@@ -144,6 +144,7 @@ $(document).ready(function () {
     autoplay: true,
     autoplaySpeed: 3000,
     accessibility: false,
+    swipeToSlide: true,
     responsive: [{
         breakpoint: 992,
         settings: {
