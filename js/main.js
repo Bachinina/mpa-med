@@ -864,5 +864,8 @@ $(window).on('load', (function () {
         closeDrop();
       }
     });
-  })
+  });
+
+
+  $('table').wrap("<div class='table-wrap'></div>");
 }));
