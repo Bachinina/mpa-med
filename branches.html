@@ -1,0 +1,2859 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Официальный сайт компании М.П.А. медицинские партнеры">
+  <title>MPA</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+
+  <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
+  <style>
+    .map__hint {
+      padding: 20px;
+      min-height: 55px;
+      min-width: 195px;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .map__balloon {
+      position: relative;
+      overflow: hidden;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 767px) {
+      .map__balloon {
+        max-width: 300px;
+      }
+
+      .map__balloon img {
+        margin-top: 20px;
+      }
+    }
+
+    .map__balloon span {
+      font-size: 16px;
+    }
+
+  </style>
+  <script>
+    ymaps.ready(init);
+
+    var placemarks = [{
+        latitude: 55.800878,
+        longitude: 37.554664,
+        hintContent: '<div class="map__hint">«М.П.А. медицинские партнеры»</div>',
+        balloonContent: [
+          '<div class="row map__balloon">' +
+          '  <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12"><span>127083,г. Москва, ул. 8-го Марта, д.1, стр.12. БЦ "Трио", 4 этаж</span>' +
+          '   <span>(495) 921-30-88 — многоканальный</span></div>' +
+          '  <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12"><img src="img/icon-map-marker.svg"/></div>\n' +
+          '</div>'
+        ]
+      },
+      {
+        latitude: 59.893408,
+        longitude: 30.327125,
+        hintContent: '<div class="map__hint">"М.П.А. медицинские партнёры" Санкт-Петербургский филиал</div>',
+        balloonContent: [
+          '<div class="row map__balloon">' +
+          '  <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12"><span>196084, г. Санкт-Петербург, Лиговский пр., д. 266, лит. В, оф. 4.3</span>' +
+          '   <span>+7 (812) 324-81-41</span></div>' +
+          '  <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12"><img src="img/icon-map-marker.svg"/></div>\n' +
+          '</div>'
+        ]
+      },
+    ];
+
+    function init() {
+      var map = new ymaps.Map('map-block', {
+        center: [61.529942, 67.136937],
+        zoom: 4,
+        controls: ['zoomControl'],
+        behaviors: ['drag']
+      });
+
+      placemarks.forEach(function (obj) {
+        var placemark = new ymaps.Placemark([obj.latitude, obj.longitude], {
+          hintContent: obj.hintContent,
+          balloonContent: obj.balloonContent.join('')
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/icon-map-marker.svg',
+          iconImageSize: [46, 57],
+          iconImageOffset: [-23, -57]
+        });
+
+        map.geoObjects.add(placemark);
+      });
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <div class="visually-hidden">
+    <!-- inject:svg --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="tel" viewBox="0 0 24 24">
+        <path
+          d="M22.0004 16.9201V19.9201C22.0016 20.1986 21.9445 20.4743 21.8329 20.7294C21.7214 20.9846 21.5577 21.2137 21.3525 21.402C21.1473 21.5902 20.905 21.7336 20.6412 21.8228C20.3773 21.912 20.0978 21.9452 19.8204 21.9201C16.7433 21.5857 13.7874 20.5342 11.1904 18.8501C8.77425 17.3148 6.72576 15.2663 5.19042 12.8501C3.5004 10.2413 2.44866 7.27109 2.12042 4.1801C2.09543 3.90356 2.1283 3.62486 2.21692 3.36172C2.30555 3.09859 2.44799 2.85679 2.63519 2.65172C2.82238 2.44665 3.05023 2.28281 3.30421 2.17062C3.5582 2.05843 3.83276 2.00036 4.11042 2.0001H7.11042C7.59573 1.99532 8.06621 2.16718 8.43418 2.48363C8.80215 2.80008 9.0425 3.23954 9.11042 3.7201C9.23704 4.68016 9.47187 5.62282 9.81042 6.5301C9.94497 6.88802 9.97408 7.27701 9.89433 7.65098C9.81457 8.02494 9.62928 8.36821 9.36042 8.6401L8.09042 9.9101C9.51398 12.4136 11.5869 14.4865 14.0904 15.9101L15.3604 14.6401C15.6323 14.3712 15.9756 14.1859 16.3495 14.1062C16.7235 14.0264 17.1125 14.0556 17.4704 14.1901C18.3777 14.5286 19.3204 14.7635 20.2804 14.8901C20.7662 14.9586 21.2098 15.2033 21.527 15.5776C21.8441 15.9519 22.0126 16.4297 22.0004 16.9201Z"
+          stroke="#0090D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="mail" viewBox="0 0 24 24">
+        <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+          stroke="#0090D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M22 6L12 13L2 6" stroke="#0090D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="location" viewBox="0 0 24 24">
+        <path
+          d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
+          stroke="#0090D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+          d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+          stroke="#0090D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-close">
+        <path fill-rule="evenodd" d="M14 .7l-.7-.7L7 6.3.7 0 0 .7 6.3 7 0 13.3l.7.7L7 7.7l6.3 6.3.7-.7L7.7 7z"
+          clip-rule="evenodd" />
+      </symbol>
+    </svg>
+    <!-- endinject -->
+  </div>
+
+  <header class="header">
+    <div class="header__map">
+      <div class="header__container container">
+
+        <div class="header__list" data-list-drop>
+          <div class="header__item" data-list-item>
+            <a class="header__link" href="/"
+              aria-label="Перейти на сайт нашего интернет-магазина"><span>Интернет-магазин</span></a>
+          </div>
+
+          <!-- Выбранный пункт регулируется классом 'active' -->
+          <div class="header__item" data-list-item>
+            <a class="header__link" href="/" aria-label="Перейти на наш корпоративный сайт"><span>Корпоративный
+                сайт</span></a>
+          </div>
+          <!-- Выбранный пункт регулируется классом 'active' -->
+
+
+          <div class="header__item active" data-list-item>
+            <a class="header__link" href="branches.html" aria-label="Узнать больше о филиалах"><span>Филиалы</span></a>
+          </div>
+        </div>
+
+        <ul class="header__lang">
+          <li class="header__item active">
+            <a class="header__link" href="">Ru</a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="">En</a>
+          </li>
+        </ul>
+
+        <div class="header__phone">
+          <a href="tel:+74959213088" aria-label="Позвонить">
+            <img src="img/icon-phone.svg" alt="">
+            <span> +7 (495) 921-30-88</span></a>
+        </div>
+
+        <button class="header__fb" data-modal="#comm-modal">
+          <img src="img/icon-chat.svg" alt="">
+          <span>Напишите нам</span>
+        </button>
+      </div>
+    </div>
+    <div class="header__nav">
+      <div class="header__container container">
+        <div class="navbar">
+          <div class="navbar__top">
+            <div class="navbar__brand">
+              <a href="index.html" aria-label="Перейти на главную страницу">
+                <img src="img/logo.svg" alt="">
+              </a>
+
+              <span>Более 20 лет опыта
+                на медицинском рынке</span>
+            </div>
+            <button class="navbar__toggler" aria-label="Открыть/закрыть меню" data-toggle-nav>
+              <span class="btn-burger" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+          </div>
+
+          <nav class="navbar__collapse">
+            <div class="navbar__nav-wrap">
+              <ul class="navbar__nav" id="navbar-menu">
+                <li class="nav__item dropdown">
+                  <a class="nav__link" href="about.html">О компании</a>
+                  <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
+                  </button>
+                  <div class="dropdown__menu">
+                    <ul class="dropdown__menu-list">
+
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="vacancy.html">Вакансии</a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="news.html">Новости</a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="brands.html">Производители</a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="rewards.html">Награды</a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav__item dropdown big">
+                  <a class="nav__link" href="catalog.html">Каталог медооборудования</a>
+                  <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
+                  </button>
+                  <div class="dropdown__menu">
+                    <ul class="dropdown__menu-list">
+
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item-simple">
+                        <a class="dropdown__link" href="brands.html">Все производители</a>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover show">
+                        <a class="dropdown__link" href="catalog-detail.html">Пульмонология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                                тазовых мышц <span class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Робот-ассистированная хирургия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Акушерство и гинекология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                                тазовых мышц <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Аспираторы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Датчики УЗИ <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Кальпоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Мебель для гинекологического кабинета
+                                <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Осветители <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Приборы для вакуумэкстракции и
+                                кюратежа
+                                <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Рассасывающиеся противоспаечные
+                                барьеры
+                                <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Рассасывающиеся противоспаечные гели
+                                <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Синтетические петли для лечения
+                                стрессового недержания мочи у женщин <span class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Ультразвуковые системы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Анестезиология и реанимация</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Бальнеоерапия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Дерматология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Диагностика</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Кардиология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Колопроктология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Лабораторное оборудование</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Малоивазивная хирургия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Медицинская мебель</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Медицинская одежда</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Нейрохирургия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Неонатология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Онкология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Оснащение операционных</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Отоларингология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Офтальмология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Проктология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Расходные материалы</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Стерилизация и дезинфекция</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Стоматология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Стерилизация и дезинфекция</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Травмотология и ортопедия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Тренажеры-симуляторы</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Ультразвуковая диагностика</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Урология</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Физиотерапия и реабилитация</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Хирургия</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="catalog-detail.html">Эндовенус</a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Все типы оборудования <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="catalog-detail.html">Акушерские стетоскопы <span
+                                  class="gray">(123)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav__item dropdown">
+                  <a class="nav__link" href="services.html">
+                    Услуги
+                  </a>
+                  <button class="dropdown__toggle" aria-label="Открыть меню" aria-haspopup="true">
+                  </button>
+                  <div class="dropdown__menu">
+                    <ul class="dropdown__menu-list">
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="complex.html">Комплексное оснащение</a>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="service.html">Сервис <span class="dropdown__toggle"></span></a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="service-technical.html">Техническое обслуживание</a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="service-rigid-endoscope.html">Ремонт жёстких
+                                эндоскопов</a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="service-flexible-endoscope.html">Ремонт гибких
+                                эндоскопов</a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="service-ultrasound.html">Ремонт ультразвуковых
+                                датчиков</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item dropdown-hover">
+                        <a class="dropdown__link" href="engineering.html">Инжиниринг <span
+                            class="dropdown__toggle"></span></a>
+                        <div class="dropdown__menu-hover">
+                          <ul class="dropdown__menu-list">
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="engineering-modules.html">Разработка “чистых
+                                помещений”</a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="engineering-reconstruction.html">Реконструкция и
+                                капремонт</a>
+                            </li>
+                            <li class="dropdown__item">
+                              <a class="dropdown__link" href="engineering-design.html">Радиация и ионизация</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <!-- Элемент списка -->
+
+                      <!-- Элемент списка -->
+                      <li class="dropdown__item">
+                        <a class="dropdown__link" href="leasing.html">Лизинг</a>
+                      </li>
+                      <!-- Элемент списка -->
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="projects.html">Наши проекты</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Мобильная версия меню: до 1199px -->
+            <div class="navbar__nav-wrap mobile" data-nav-mobile>
+              <ul class="navbar__nav" data-nav-links>
+                <!-- Первый уровень -->
+                <li class="nav__item" data-nav-link>
+                  <div class="nav__control" data-nav-control>
+                    <a class="nav__link" href="about.html">О компании</a>
+                    <button class="nav__toggle" aria-hidden="true"></button>
+                  </div>
+
+                  <!-- Второй уровень -->
+                  <ul class="navbar__nav hidden" data-nav-links>
+                    <li class="nav__item" data-nav-back>
+                      <button class="nav__link go-back" aria-hidden="true">
+                        <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                        <span>Назад</span>
+                      </button>
+                    </li>
+
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="vacancy.html">Вакансии</a>
+                      </div>
+                    </li>
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="news.html">Новости</a>
+                      </div>
+                    </li>
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="brands.html">Производители</a>
+                      </div>
+                    </li>
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="rewards.html">Награды</a>
+                      </div>
+                    </li>
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="branchs.html">Контакты</a>
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- Второй уровень -->
+                </li>
+                <!-- Первый уровень -->
+
+
+                <!-- Первый уровень -->
+                <li class="nav__item" data-nav-link>
+                  <div class="nav__control" data-nav-control>
+                    <a class="nav__link" href="catalog.html">Каталог медооборудования</a>
+                    <button class="nav__toggle" aria-hidden="true"></button>
+                  </div>
+
+                  <!-- Второй уровень -->
+                  <ul class="navbar__nav hidden" data-nav-links>
+                    <li class="nav__item" data-nav-back>
+                      <button class="nav__link go-back" aria-hidden="true">
+                        <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                        <span>Назад</span>
+                      </button>
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Пульмонология</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Робот-ассистированная хирургия</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Акушерство и гинекология</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аспираторы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Датчики УЗИ </a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Кальпоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Мебель для гинекологического кабинета</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Осветители</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Приборы для вакуумэкстракции и
+                              кюратежа</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Рассасывающиеся противоспаечные
+                              барьеры</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Рассасывающиеся противоспаечные гели</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Синтетические петли для лечения
+                              стрессового недержания мочи у женщин </a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Ультразвуковые системы</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Анестезиология и реанимация</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Бальнеоерапия</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Дерматология</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Диагностика</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Кардиология</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Колопроктология</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Лабораторное оборудование</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Малоивазивная хирургия</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="catalog-detail.html">Медицинская мебель</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Все типы оборудования</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Акушерские стетоскопы</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="catalog-detail.html">Аппараты для БОС терапии и стимуляции
+                              тазовых мышц</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+                  </ul>
+                  <!-- Второй уровень -->
+                </li>
+                <!-- Первый уровень -->
+
+
+                <!-- Первый уровень -->
+                <li class="nav__item" data-nav-link>
+                  <div class="nav__control" data-nav-control>
+                    <a class="nav__link" href="services.html">Услуги</a>
+                    <button class="nav__toggle" aria-hidden="true"></button>
+                  </div>
+
+                  <!-- Второй уровень -->
+                  <ul class="navbar__nav hidden" data-nav-links>
+                    <li class="nav__item" data-nav-back>
+                      <button class="nav__link go-back" aria-hidden="true">
+                        <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                        <span>Назад</span>
+                      </button>
+                    </li>
+
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="complex.html">Комплексное оснащение</a>
+                      </div>
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="service.html">Сервис</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="service-technical.html">Техническое обслуживание</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="service-rigid-endoscope.html">Ремонт жёстких
+                              эндоскопов</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="service-flexible-endoscope.html">Ремонт гибких
+                              эндоскопов</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="service-ultrasound.html">Ремонт ультразвуковых
+                              датчиков</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item" data-nav-link>
+                      <div class="nav__control" data-nav-control>
+                        <a class="nav__link" href="engineering.html">Инжиниринг</a>
+                        <button class="nav__toggle" aria-hidden="true"></button>
+                      </div>
+
+                      <!-- Третий уровень -->
+                      <ul class="navbar__nav hidden" data-nav-links>
+                        <li class="nav__item" data-nav-back>
+                          <button class="nav__link go-back" aria-hidden="true">
+                            <img src="img/icon-arrow-back.svg" alt="" width="12" height="12">
+                            <span>Назад</span>
+                          </button>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="engineering-modules.html">Разработка “чистых
+                              помещений”</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="service-rigid-endoscope.html">Ремонт жёстких
+                              эндоскопов</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="engineering-reconstruction.html">Реконструкция и
+                              капремонт</a>
+                          </div>
+                        </li>
+
+                        <li class="nav__item">
+                          <div class="nav__control">
+                            <a class="nav__link" href="engineering-design.html">Радиация и ионизация</a>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- Третий уровень -->
+                    </li>
+
+                    <li class="nav__item">
+                      <div class="nav__control">
+                        <a class="nav__link" href="leasing.html">Лизинг</a>
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- Второй уровень -->
+                </li>
+                <!-- Первый уровень -->
+
+
+
+                <li class="nav__item">
+                  <div class="nav__control">
+                    <a class="nav__link" href="projects.html">Наши проекты</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- Мобильная версия меню: до 1199px -->
+
+
+            <form class="navbar__form" method="POST" action="/">
+              <div class="search">
+                <input class="search__input" type="text" aria-label="Поиск по сайту" placeholder="Поиск по сайту">
+                <button class="search__btn" aria-label="Начать поиск по сайту"></button>
+              </div>
+            </form>
+
+            <div class="navbar__bottom">
+              <a href="mailto:info@mpamed.ru">info@mpamed.ru</a>
+              <a href="tel:+74959213088">+7 (495) 921-30-88</a>
+            </div>
+          </nav>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="content-page">
+    <!-- Хлебные крошки -->
+    <div class="content-page__bc bc">
+      <div class="bc__container container">
+        <ul class="bc__list">
+          <li class="bc__item">
+            <a href="index.html">Главная</a>
+          </li>
+          <li class="bc__item active">
+            <a href="">Филиалы</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Хлебные крошки -->
+
+    <section class="content-page__section branches">
+      <div class="container container--content">
+        <h1 class="content-page__title">От Москвы до Владивостока</h1>
+        <div class="content-page__desc">
+          <p>География деятельности включает в себя города на территории Российской Федерации.<br>
+            Представительства «М.П.А. медицинские партнеры» расположены городах: <a href="contacts.html">Москва
+              (центральный
+              офис)</a>, <a href="#spb">Санкт-Петербург</a>, <a href="#ast">Астрахань</a>, <a href="#brn">Брянск</a>, <a
+              href="#vrn">Воронеж</a>, <a href="#vldv">Владивосток</a>, <a href="#krsn">Краснодар</a>, <a
+              href="#stvr">Ставрополь</a>, <a href="#smr">Самара</a>, <a href="#ekb">Екатеринбург</a>, <a
+              href="#nvs">Новосибирск</a>, <a href="#irk">Иркутск</a>.
+          </p>
+        </div>
+
+        <div class="map-block" id="map-block" style="position: relative;">
+          <!-- <div class="ballon-wrap"> -->
+          <!-- Копировать это -->
+          <!-- <div class="balloon">
+              <div class="balloon__content">
+                <div class="balloon__top">
+                  <img src="img/sankt-peterburg.jpg" alt="">
+                  <p class="balloon__title">Санкт-Петербург</p>
+                </div>
+                <div class="balloon__desc">
+                  <p>Телефон: <a href="tel:+78123248141"> +7 (812) 324-81-41</a></p>
+                  <p>Email: <a href="mailto:spb@mpamed.ru">spb@mpamed.ru</a></p>
+                  <p>196084, Санкт-Петербург, Лиговский пр., д. 256, лит. В, оф. 43</p>
+                </div>
+              </div>
+              <button class="balloon__close-btn" aria-label="Закрыть информацию про филиал">
+                <svg width="14" height="14">
+                  <use xlink:href="#icon-close"></use>
+                </svg>
+              </button>
+            </div> -->
+          <!-- Копировать это -->
+          <!-- </div> -->
+        </div>
+
+
+        <ul class="content-page__list">
+          <!-- Контакт -->
+          <li class="content-page__item branch" id="ast">
+            <div class="text-block row">
+
+              <div class="col-12 col-xl-4">
+                <!-- Вывод картинки дублируется -->
+                <img class="branch__img d-xl-none" src="img/astrahan.jpg" alt="Астрахань">
+
+                <div class="text-block__title title">
+                  <h2 class="title__header">Астрахань</h2>
+                </div>
+
+                <ul class="branch__img-list img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+78512229010">+7 (8512) 22-90-10, доб. 3</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:af@mpamed.ru">af@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>414057 г. Астрахань, ул. Николая Островского, д. 124, офис №
+                        304</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc">
+                  <!-- Вывод картинки дублируется -->
+                  <img class="branch__img d-none d-xl-block" src="img/astrahan.jpg" alt="Астрахань">
+
+                  <p> Астраханский филиал работает на территории города Астрахань и Астраханская
+                    области, города Волгограда с 2008 года.</p>
+                  <p>Филиал выполнил ряд значимых для регионов проектов. Например, в 2012 году на базе
+                    ГУЗ «Клиническая больница скорой медицинской помощи № 7» (Волгоград) была
+                    произведена реконструкция операционных блоков и отделения реанимации с
+                    внедрением OR1 (Karl Storz), которая стала первой интегрированной операционной в
+                    ЮФО. Среди крупных заказчиков филиала также ГБУЗ АО ГКБ № 3 им. Кирова, ЧУЗ «КБ
+                    «РЖД-Медицина» г. Астрахань», Волгоградский медицинский клинический центр ФМБА,
+                    Клиническая Больница № 12 и пр.</p>
+                  <p>Филиал регулярно проводит мастер-классы с привлечением иногородних специалистов.
+                    Так на обучающем семинаре по установке чрезпищеводных гастростомических трубок,
+                    организованных компанией, выступил специалист из НМИЦ онкологии им. Блохина.
+                    Также «М.П.А.медицинские партнеры» активно участвует в социальных программах. В
+                    2019 году подразделение получило благодарность от ГБУЗ АО ОДКБ им. Силищевой
+                    Н.Н. за участие в благотворительной помощи больнице.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item branch" id="brn">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Брянск</h2>
+                </div>
+
+                <ul class="branch__img-list img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+74832587343">+7 (4832) 58-73-43</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:bryansk@mpamed.ru">bryansk@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>241013, г. Брянск, Литейная ул., д. 36А, оф. 710</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc">
+                  <img class="branch__img" src="img/bryansk.jpg" alt="Брянск">
+
+                  <p>В 2012 году открылся Брянский филиал «МПА медицинские партнеры», который
+                    охватывает Центральный регион России - Брянскую, Орловскую, Смоленскую,
+                    Калужскую и Тульскую область. За это время компания получила хороший опыт работы
+                    как с частными клиентами, так и с крупными лечебно-профилактическими
+                    учреждениями ГАУЗ «Брянский областной онкологический диспансер», ГАУЗ Смоленская
+                    клиническая городская больница», БУЗ Орловской области "Детская областная
+                    клиническая больница им. З.И. Круглой" и пр. </p>
+                  <p>Филиал зарекомендовал себя как надежный поставщик, выполняя крупные муниципальные
+                    проекты: оснащение Перинатального центра города Брянск, поставки продукции
+                    Promedon в Смоленскую городскую больницу и продукции Atos в Калужский
+                    онкодиспансер.</p>
+                  <p>В числе прочих партнеров компании бренды: BK Medical, Rudolf Riester, Laborie,
+                    Kimberly-Clark, Karl Storz, Johnson&Johnson, GE, Coloplast, B.Braun, Aesculap,
+                    Draeger, KLS Martin, Physiomed, Merivaara, Theraband и другие. Заказать любое
+                    оборудование от этих и других партнеров по приятным ценам, оно будет доставлено
+                    и установлено точно в срок. Бонусом станет 3-х летнее сервисное обслуживание и
+                    консультации специалистов.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item branch" id="vrn">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Воронеж</h2>
+                </div>
+
+                <ul class="branch__img-list img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+74732611943">+7 (473) 261-19-43</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:voronezh@mpamed.ru">voronezh@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>394030, г. Воронеж, ул. Кольцовская, д. 60В, оф. 202</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc">
+                  <img class="branch__img" src="img/voronezh.jpg" alt="Воронеж">
+                  <p>Воронежский филиал компании «М.П.А. - медицинские партнеры» был основан в 2011
+                    году. Сегодня он охватывает Воронежскую область, Курскую область, Липецкую
+                    область, Белгородскую область, Тамбовскую область. К крупным заказчикам филиала
+                    можно отнести медучреждения: Воронежская областная клиническая больница № 1,
+                    Воронежский областной клинический онкологический диспансер, Курская областная
+                    клиническая больница, Липецкая областная клиническая больница и пр. </p>
+                  <p>Компания занимается как небольшими заказами - поставкой оборудования и изделий
+                    медицинского назначения в частные клиники и розничные аптеки, так и крупными
+                    проектами. К последним можно отнести поставку по госзаказам Департамента
+                    здравоохранения и социальной защиты населения Белгородской области продукции
+                    Riester. Филиал поставляет продукцию и других крупных российских и зарубежных
+                    брендов: BK Medical, Promedon, Laborie, Kimberly-Clark, Karl Storz,
+                    Johnson&Johnson, GE, Coloplast, B.Braun, Aesculap, Draeger, KLS Martin,
+                    Physiomed, Merivaara, Theraband и пр. Со многими производителями «М.П.А. -
+                    медицинские партнеры» имеет эксклюзивные контракты, что позволяет предложить
+                    заказчикам индивидуальные условия поставки продукции. Все товары сопровождаются
+                    необходимыми сертификатами и документацией. </p>
+                  <p>Помимо этого, филиал выполняет комплексное оснащение кабинетов под ключ в
+                    соответствии с самыми современными мировыми стандартами. В эту услугу входит
+                    выполнение ремонта, получение всех необходимых разрешений на эксплуатацию,
+                    снабжение кабинета оборудованием и расходными материалами и гарантийное
+                    обслуживание всей медицинской техники.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item branch" id="vldv">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Владивосток</h2>
+                </div>
+
+                <ul class="branch__img-list img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+74232795682">+7 (423) 279-56-82</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:dv@mpamed.ru">dv@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>690012, г. Владивосток, ул. Запорожская д. 77, офис 941</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc">
+                  <img class="branch__img" src="img/vladivostok.jpg" alt="Владивосток">
+                  <p>Владивостокский филиал «М.П.А. медицинские партнеры» успешно работает на
+                    медицинском рынке России с 2018 года. Данный филиал реализует медицинское
+                    оборудование в Приморском крае (Владивосток, Уссурийск, Находка, Партизанск,
+                    Артем), Камчатском крае (Петропавловск-Камчатский, Елизово).</p>
+                  <p>Компания поставляет оборудование и расходные материалы во все основные
+                    медучреждения Приморского и камчатского края: КГБУЗ «Владивостокская клиническая
+                    больница №1», ГБУЗ "Приморский краевой онкологический диспансер», НУЗ «Узловая
+                    больница на станции Владивосток ОАО «РЖД», Дальневосточный федеральный
+                    университет (ДВФУ) и пр. К крупным реализованным проектам филиала можно отнести
+                    поставку в МЦ ДВФУ - роботической системы da Vinci, поставку фотокабины DAAVLIN
+                    в КККВД г. Владивосток и другие.</p>
+                  <p>Филиал работает по профилям: комплексное оснащение операционных, оборудование для
+                    эндохирургии, неонотологии и перинатологии, диагностики, продажа медицинского
+                    оборудования и пр. Также ООО «М.П.А. медицинские партнеры» осуществляет
+                    комплексное оснащение медучреждений, поставку оборудования для медицинских
+                    кабинетов и их оснащение под ключ. В числе партнеров компании такие известные
+                    мировые производители как BK Medical, Promedon, Rudolf Riester, Laborie,
+                    Kimberly-Clark, Karl Storz, Johnson&Johnson, GE, Coloplast, B.Braun, Aesculap,
+                    Draeger, KLS Martin, Physiomed, Merivaara, Theraband и другие. Вся поставляемая
+                    продукция имеет необходимые сертификаты и документацию.</p>
+                  <p>Компания «М.П.А. медицинские партнеры» производит поставку медицинской техники и
+                    товаров медицинского назначения напрямую от производителя. Это позволяет
+                    предложить заказчикам индивидуальные условия поставки продукции и гибкую ценовую
+                    политику.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item branch" id="ekb">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Екатеринбург</h2>
+                </div>
+
+                <ul class="branch__img-list img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+73432871021">+7 (343) 287-10-21</a><br>
+                      <a href="tel:+73432871022">+7 (343) 287-10-22</a><br>
+                      <a href="tel:+73432871023">+7 (343) 287-10-23</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:ural@mpamed.ru">ural@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>620149, г. Екатеринбург, ул. С. Дерябиной, д. 24, оф. 505</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc">
+                  <img class="branch__img" src="img/ekaterinburg.jpg" alt="Екатеринбург">
+                  <p>Уральский филиал ООО «М.П.А. медицинские партнеры» начал свою работу в апреле
+                    2008 года. Уже более 10 лет филиал успешно работает на территориях Пермского
+                    края, Свердловской, Челябинской, Курганской, Тюменской областях, в том числе
+                    Ханты-Мансийского и Ямало-Ненецкого АО.</p>
+                  <p>Основная стратегическая цель работы филиала - продажа медицинского оборудования,
+                    мебели, хирургических инструментов, расходных материалов ведущих мировых
+                    производителей, а также оснащение кабинетов под ключ в соответствии с самыми
+                    современными мировыми стандартами. Компания работает как с частными лицами и
+                    сетями аптек, так и с крупными медучреждениями: МАУЗ «Городская клиническая
+                    больница №40», ГБУЗ ПК «Пермская краевая клиническая больница», ГБУЗ
+                    «Салехардская окружная клиническая больница» и пр. </p>
+                  <p>Партнерами компании являются крупнейшие мировые бренды: BK Medical, Promedon,
+                    Rudolf Riester, Laborie, Kimberly-Clark, Karl Storz, Johnson&Johnson, GE,
+                    Coloplast, B.Braun, Aesculap, Draeger, Covidien, Physiomed, Merivaara, Theraband
+                    и другие. Все товары, приобретаемые в «М.П.А. медицинские партнеры»,
+                    сопровождаются необходимыми документами и сертификатами. </p>
+                  <p>Специалисты филиала регулярно совершенствуют свои знания на тренингах от ведущих
+                    фирмами-производителей медицинского оборудования и расходных материалов. Поэтому
+                    «М.П.А. медицинские партнеры» может гарантировать профессиональную консультацию,
+                    компетентные знания и высокий уровень гарантийного и постгарантийного сервиса.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item branch" id="irk">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Иркутск</h2>
+                </div>
+
+                <ul class="branch__img-list img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+79149003751">+7 (914) 900-37-51</a><br>
+                      <a href="tel:+73952438807">+7 (3952) 43-88-07</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:irkutsk@mpamed.ru">irkutsk@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>664075, г. Иркутск, ул. Байкальская, 180А, Деловой центр «БАZА», оф.
+                        213</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc">
+                  <img class="branch__img" src="img/irkutsk.jpg" alt="Иркутск">
+
+                  <p>Восточно-сибирский филиал компании «М.П.А. - медицинские партнеры» реализует
+                    медицинское оборудование и товары медицинского назначения на территории Иркутска
+                    и Иркутской области, Забайкальского края, республик Бурятия, Тыва и Саха
+                    (Якутия).</p>
+                  <p>Несмотря на то, что филиал был основан только в 2020 году, на его счету уже
+                    несколько крупных проектов, например, поставка коагулятора Медтроник в клинику
+                    Святителя Луки (несмотря на отсутствие деталей в комплектации коагулятор был
+                    поставлен в срок, недостающие детали по договоренности с представителями
+                    Медтроник временно заменены демо-версиями) или поставка эндоскопического
+                    оборудования Пентакс в Харлампиевскую клинику (клиника много работала с другим
+                    поставщиком, но в итоге клиент решил сделать закупку именно в «М.П.А. -
+                    медицинские партнеры»).</p>
+                  <p>Также среди ключевых заказчиков филиала можно выделить ГБУЗ «Иркутская Областная
+                    Клиническая Больница», ГАУЗ«Республиканская Клиническая больница
+                    им.Н.А.Семашко», Центр молекулярной диагностики, НИИТО и пр.</p>
+                  <p>Крупные и небольшие медучреждения, частные лица и сети аптек отдают предпочтение
+                    «М.П.А. - медицинские партнеры». Компания поставляет продукцию проверенных
+                    российских и зарубежных производителей по оптимальным ценам и с необходимой
+                    сопровождающей документацией и сертификатами. Среди брендов, работающих с
+                    компанией, можно выбелить BK Medical, Promedon, Rudolf Riester, Laborie,
+                    Kimberly-Clark, Karl Storz, Johnson&Johnson, GE, Coloplast, B.Braun, Aesculap,
+                    Draeger, KLS Martin, Physiomed, Merivaara, Theraband и пр. С частью брендов
+                    филиал имеет эксклюзивные права на поставку.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item branch" id="krsn">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Краснодар</h2>
+                </div>
+                <ul class="branch__img-list img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+78612980210">+7 (861) 298-02-10 </a><br>
+                      <a href="tel:+78612980211">+7 (861) 298-02-11 </a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:kuban@mpamed.ru">kuban@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>350020, г. Краснодар, ул. Северная, д. 490</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc">
+                  <img class="branch__img" src="img/krasnodar.jpg" alt="Краснодар">
+                  <p>ООО "М.П.А. медицинские партнеры" Кубанский филиал работает на рынке с 2009 года
+                    и охватывает город Краснодар, Краснодарский край (города Новороссийск, Адлер,
+                    Сочи, Туапсе, Геленджик, Анапа, Ейск, Армавир) и Республику Адыгея.</p>
+                  <p>Филиал специализируется на поставках медицинской техники и изделий медицинского
+                    назначения в федеральные и региональные лечебно-профилактические учреждения,
+                    частные клиники, диагностические центры и розничные аптечные сети. Крупные
+                    заказчики Кубанского подразделения: БСМП г. Краснодар, Детская краевая
+                    клиническая больница, онкологический диспансер Департамента здравоохранения
+                    Краснодарского края, Краевая клиническая больница №1 им. Очаповского и пр.
+                    Филиал участвует в региональной программе «Борьба с онкологическими
+                    заболеваниями» на 2019-2024 гг., занимается оснащением ЛПУ медицинским
+                    оборудованием.</p>
+                  <p>Компания поставляет медицинское оборудование, мебель, хирургические инструменты,
+                    расходные материалы известных зарубежных брендов: BK Medical, Promedon, Rudolf
+                    Riester, Laborie, Kimberly-Clark, Karl Storz, Johnson&Johnson, GE, Coloplast,
+                    B.Braun, Aesculap, Draeger, KLS Martin, Physiomed, Merivaara, Theraband и пр.
+                    Все товары имеют необходимые сертификаты и документы.</p>
+                  <p>Благодаря гибкой ценовой политике и эффективной работе высококвалифицированных
+                    специалистов филиал обеспечивает своим заказчикам индивидуальный подход и полное
+                    удовлетворение потребностей.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item branch" id="nvs">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Новосибирск</h2>
+                </div>
+
+                <ul class="branch__img-list img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+73832092390">+7 (383) 209-23-90</a><br>
+                      <a href="tel:+73832092391">+7 (383) 209-23-91</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:sibir@mpamed.ru">sibir@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>630132, г. Новосибирск, ул. 1905 года, д. 59</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc">
+                  <img class="branch__img" src="img/novosibirsk.jpg" alt="Новосибирск">
+
+                  <p>Сибирский филиал компании «М. П. А. медицинские партнеры» был основан
+                    в 2003 году. Он работает на территории 12 субъектов Российской Федерации, в том
+                    числе: 4 республики (Алтай, Бурятия, Тыва, Хакасия); 3 края (Алтайский,
+                    Забайкальский, Красноярский); 5 областей (Иркутская, Кемеровская, Новосибирская,
+                    Омская, Томская).</p>
+                  <p>Клиентами филиала являются ФГБУ "ННИИПК им.акад. Е.Н.Мешалкина" Минздрава России,
+                    Томская областная клиническая больница, Министерство здравоохранения
+                    Новосибирской области и другие. Компания регулярно выполняет крупные проекты,
+                    такие как поставка симуляционного оборудования для Новосибирского
+                    Государственного Медицинского Университета или поставка оборудования и расходных
+                    материалов в Новосибирскую государственную областную клиническую больницу.
+                    Отметим, что филиал работает не только с муниципальными клиниками и сетями
+                    аптек, но и с небольшими компаниями и частными лицами.</p>
+                  <p>Компания предлагает полный цикл услуг - от первичных консультаций до внедрения
+                    медицинских технологий, в том числе сопровождение, обслуживание и обучение
+                    персонала. Многолетнее сотрудничество с ведущими производителями и поставщиками
+                    медицинского оборудования позволяют компании предлагать привлекательные условия,
+                    цены от производителей и гарантийное обслуживание до 3-х лет включительно.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item branch" id="smr">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Самара</h2>
+                </div>
+
+                <ul class="branch__img-list img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+78463312135">+7 (846) 331-21-35</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:samara@mpamed.ru">samara@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>443001, г. Самара, ул. Ульяновская/Ярмарочная, д. 52/55</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc">
+                  <img class="branch__img" src="img/samara.jpg" alt="Самара">
+                  <p>Филиал «М.П.А. медицинские партнеры» Самары был основан весной 2010 года. Он
+                    охватывает Нижегородскую, Оренбургскую, Саратовскую, Самарскую, Пензенскую,
+                    Кировскую и Ульяновскую области, а также шесть республик - Башкортостан,
+                    Татарстан, Чувашию, Мордовию, Марий Эл, Удмуртскую республику.</p>
+                  <p>За 10 лет существования компания выполнила ряд значимых региональных проектов. В
+                    рамках реализации федеральной онкопрограммы оборудованием BK Medical были
+                    оснащены ведущие лечебные учреждения ПФО - Клиника БГМУ, Нижегородский областной
+                    клинический онкологический диспансер, Республиканский клинический онкологический
+                    диспансер (Уфа), Самарский областной клинический онкологический диспансер. В
+                    рамках реализации программы «Развитие материально-технической базы детских
+                    поликлиник и детских поликлинических отделений медицинских организаций» компания
+                    оснастила лечебные учреждения Ульяновской области, Республики Татарстан,
+                    Республики Марий Эл были непрямыми офтальмоскопами Rudolf Riester (Германия). В
+                    2019-2020 годах филиал занимался оснащением Клинической больницы имени С. Р.
+                    Миротворцева СГМУ и Клиники БГМУ диагностическим медицинским оборудованием для
+                    урологии производства Laborie Medical Technologies (Канада).</p>
+                  <p>Среди партнеров компании насчитывается более 40 брендов для различных отраслей
+                    медицины. Индивидуальный подход и комплексное обслуживание включают в себя
+                    монтаж, гарантийный и постгарантийный сервис медицинской техники в Самаре и
+                    Поволжье. В числе брендов, сотрудничающих с компанией: BK Medical, Promedon,
+                    Rudolf Riester, Laborie, Kimberly-Clark, Karl Storz, Johnson&Johnson, GE,
+                    Coloplast, B.Braun, Aesculap, Draeger, KLS Martin, Physiomed, Merivaara,
+                    Theraband и другие.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item branch" id="spb">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Санкт-Петербург</h2>
+                </div>
+
+                <ul class="branch__img-list img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+78123248141">+7 (812) 324-81-41</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:spb@mpamed.ru">spb@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>196084, г. Санкт-Петербург, Лиговский пр., д. 266, лит. В, оф.
+                        4.3</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc">
+                  <img class="branch__img" src="img/sankt-peterburg.jpg" alt="Санкт-Петербург">
+                  <p>Санкт-Петербургский филиал ООО «М.П.А. медицинские партнёры» работает на рынке с
+                    августа 2012 года. За это время компания реализовала ряд крупных проектов таких
+                    как поставка роботизированного хирургического комплекса da Vinci в ГБ №40 или
+                    оснащение кабинета дистанционной литотрипсии в Вологодской областной клинической
+                    больнице. Также среди крупных заказчиков филиала можно отметить клинику Медси,
+                    НМИЦ им. В.А. Алмазова, СПб ГБУЗ "Городская больница № 26" и пр. Помимо этого,
+                    филиал сотрудничает с небольшими компаниями и частными лицами, создает
+                    комфортные условия каждому из своих клиентов, гарантирует качество,
+                    индивидуальный подход и профессионализм.</p>
+                  <p>В числе партнеров компании более 50 крупнейших мировых брендов: BK Medical,
+                    Promedon, Rudolf Riester, Laborie, Kimberly-Clark, Karl Storz, Johnson&Johnson,
+                    GE, Coloplast, B.Braun, Aesculap, Draeger, KLS Martin, Physiomed, Merivaara,
+                    Theraband и другие. Компания имеет действующие сертификаты и регистрационные
+                    удостоверения на всю продукцию, а также предоставляет гарантийное и
+                    постгарантийное обслуживание медицинской техники.</p>
+                  <p>Специалисты компании постоянно проходят обучение на тренингах ведущих мировых
+                    производителей медицинского оборудования, совершенствуют знания в
+                    профессиональной области и всегда готовы дать грамотную консультацию, а также
+                    активно участвуют в ежегодных международных и региональных конгрессах и
+                    выставках.</p>
+                  <p>Филиал регулярно оказывает помощь в организации и участии крупных медицинских
+                    конференций и конгрессов, а также оказывает благотворительную поддержку
+                    медучреждениям, например, Детской областной клинической больнице.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+
+          <!-- Контакт -->
+          <li class="content-page__item branch" id="stvr">
+            <div class="text-block row">
+              <div class="col-12 col-xl-4">
+                <div class="text-block__title title">
+                  <h2 class="title__header">Ставрополь</h2>
+                </div>
+
+                <ul class="branch__img-list img-list">
+                  <!-- Телефон -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#tel"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Телефон</div>
+                      <a href="tel:+78652333088">+7 (8652) 33-30-88</a>
+                    </div>
+                  </li>
+                  <!-- Телефон -->
+
+                  <!-- Емейл -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#mail"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Email</div>
+                      <a href="mailto:stavropol@mpamed.ru">stavropol@mpamed.ru</a>
+                    </div>
+                  </li>
+                  <!-- Емейл -->
+
+                  <!-- Адрес -->
+                  <li class="img-list__item">
+                    <div class="img-list__img">
+                      <svg viewBox="0 0 19 20" width="30" height="30">
+                        <use xlink:href="#location"></use>
+                      </svg>
+                    </div>
+                    <div class="img-list__text">
+                      <div class="mark-mini">Адрес офиса</div>
+                      <span>355011, г. Ставрополь, ул. Пирогова, д. 102, 1 этаж.</span>
+                    </div>
+                  </li>
+                  <!-- Адрес -->
+                </ul>
+              </div>
+
+
+              <div class="col-12 col-xl-8">
+                <div class="text-block__desc">
+                  <img class="branch__img" src="img/stavropol.jpg" alt="Ставрополь">
+
+                  <p>Ставропольский филиал компании «М.П.А. - медицинские партнеры» успешно работает
+                    на территории Ставропольского края с 2009 года. В данном регионе филиал
+                    занимается оснащением крупных муниципальных клиник, сетей аптек, а также
+                    оздоровительных и реабилитационных центров. Среди постоянных заказчиков компании
+                    Ставропольский государственный медицинский университет, Ставропольский Краевой
+                    Клинический онкологический диспансер, больница скорой медицинской помощи г.
+                    Ставрополь, Центральная городская больница №1 Пятигорск и другие.</p>
+                  <p>Филиал является неоднократным победителем тендеров на поставку медицинского
+                    оборудования в крупные медицинские госучреждения. Например, в 2019 году компания
+                    выполнила поставку, монтаж и ввод в эксплуатацию 11 рентгеновских аппаратов по
+                    всему краю, а также поставку, монтаж и ввод в эксплуатацию первого в
+                    Ставропольском крае аппарата МРТ в модульном здании.</p>
+                  <p>В ассортимент товаров входит медицинское диагностическое оборудование,
+                    хирургические инструменты, медицинская мебель, товары медицинского назначения
+                    брендов: BK Medical, Promedon, Rudolf Riester, Laborie, Kimberly-Clark, Karl
+                    Storz, Johnson&Johnson, GE, Coloplast, B.Braun, Aesculap, Draeger, KLS Martin,
+                    Physiomed, Merivaara, Theraband и пр. Вся поставляемая продукция сопровождается
+                    необходимыми сертификатами и документацией. </p>
+                  <p>За относительно короткий срок работы филиал завоевал доверие в регионе как
+                    надежный партнер, который, согласно устоявшейся идеологии компании, подбирает
+                    индивидуальный подход к заказчику, использует прямые связи с поставщиками и, как
+                    результат, предоставляет весь необходимый спектр оборудования для медицинских
+                    учреждений комплексно и по оптимальным ценам. </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Контакт -->
+        </ul>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__container container">
+      <div class="footer__top">
+        <ul class="footer__list footer__list--social social social--light">
+          <li>
+            <a href="/" title="Вконтакте" target="_blank" aria-label="Перейти на сайт Вконтакте">
+              <svg width="20" height="20" viewBox="0 0 20 20">
+                <g>
+                  <path
+                    d="M17.9825 5.7125C18.0991 5.325 17.9825 5.04083 17.4308 5.04083H15.6033C15.1383 5.04083 14.9258 5.28667 14.8091 5.55667C14.8091 5.55667 13.88 7.8225 12.5633 9.29167C12.1383 9.71917 11.9441 9.85417 11.7125 9.85417C11.5966 9.85417 11.4283 9.71917 11.4283 9.33167V5.7125C11.4283 5.2475 11.2941 5.04083 10.9066 5.04083H8.03496C7.74496 5.04083 7.56996 5.25583 7.56996 5.46083C7.56996 5.90083 8.22829 6.0025 8.29579 7.2425V9.9325C8.29579 10.5217 8.18996 10.6292 7.95663 10.6292C7.33746 10.6292 5.83079 8.355 4.93663 5.75167C4.76246 5.24583 4.58663 5.04167 4.11996 5.04167H2.29329C1.77079 5.04167 1.66663 5.2875 1.66663 5.5575C1.66663 6.0425 2.28579 8.4425 4.55079 11.6167C6.06079 13.7842 8.18663 14.9592 10.1233 14.9592C11.2841 14.9592 11.4275 14.6983 11.4275 14.2483V12.61C11.4275 12.0883 11.5383 11.9833 11.9058 11.9833C12.1758 11.9833 12.6408 12.12 13.725 13.1642C14.9633 14.4025 15.1683 14.9583 15.8641 14.9583H17.6908C18.2125 14.9583 18.4733 14.6975 18.3233 14.1825C18.1591 13.67 17.5675 12.9242 16.7825 12.0417C16.3558 11.5383 15.7183 10.9967 15.5241 10.7258C15.2533 10.3767 15.3316 10.2225 15.5241 9.9125C15.525 9.91333 17.7508 6.77833 17.9825 5.7125Z" />
+                </g>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="/" title="Facebook" target="_blank" aria-label="Перейти на сайт Facebook">
+              <svg width="20" height="20" viewBox="0 0 20 20">
+                <g>
+                  <path
+                    d="M11.1642 17.4975V10.6675H13.4683L13.8108 7.99329H11.1642V6.28996C11.1642 5.51829 11.3792 4.98996 12.4867 4.98996H13.89V2.60579C13.2072 2.53262 12.5209 2.49729 11.8342 2.49996C9.79749 2.49996 8.39915 3.74329 8.39915 6.02579V7.98829H6.10999V10.6625H8.40415V17.4975H11.1642Z" />
+                </g>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="/" title="Одноклассники" target="_blank" aria-label="Перейти на сайт Одноклассники">
+              <svg width="20" height="20" viewBox="0 0 20 20">
+                <g>
+                  <path
+                    d="M9.50033 2C7.28894 2 5.49 3.85234 5.49 6.1295C5.49 8.4065 7.28894 10.258 9.50033 10.258C11.7116 10.258 13.5097 8.4065 13.5097 6.1295C13.5097 3.85234 11.7117 2 9.50033 2ZM9.50033 4.4195C10.4156 4.4195 11.1598 5.18698 11.1598 6.1295C11.1598 7.07163 10.4156 7.83851 9.50033 7.83851C8.58491 7.83851 7.83988 7.07165 7.83988 6.1295C7.83988 5.18698 8.58491 4.4195 9.50033 4.4195ZM6.194 10.3985C5.79723 10.3921 5.40706 10.5936 5.18073 10.965C4.83484 11.5309 5.00054 12.2776 5.54876 12.6335C6.2739 13.102 7.06077 13.4344 7.87679 13.626L5.63567 15.935C5.17688 16.4077 5.17726 17.1733 5.63615 17.646C5.86615 17.8819 6.16613 18 6.46686 18C6.76729 18 7.06828 17.8817 7.29758 17.6455L9.49938 15.377L11.7031 17.6455C12.1615 18.1181 12.9049 18.1181 13.3641 17.6455C13.8231 17.1731 13.8231 16.4067 13.3641 15.935L11.122 13.6265C11.9382 13.4349 12.7253 13.1023 13.45 12.6335C13.9993 12.2776 14.1652 11.5301 13.8195 10.965C13.4733 10.399 12.7485 10.2285 12.1988 10.585C10.5571 11.6485 8.44165 11.6478 6.8004 10.585C6.61148 10.4625 6.40183 10.4018 6.194 10.3985V10.3985Z" />
+                </g>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="/" title="YouTube" target="_blank" aria-label="Перейти на сайт YouTube">
+              <svg width="20" height="20" viewBox="0 0 20 20">
+                <g>
+                  <path
+                    d="M18.3848 5.7832C18.2851 5.41218 18.0898 5.07384 17.8184 4.80202C17.5469 4.53021 17.2088 4.33446 16.8379 4.23438C15.4727 3.86719 10 3.86719 10 3.86719C10 3.86719 4.52734 3.86719 3.16211 4.23242C2.79106 4.33219 2.45278 4.52782 2.18126 4.79969C1.90974 5.07155 1.71453 5.41007 1.61523 5.78125C1.25 7.14844 1.25 10 1.25 10C1.25 10 1.25 12.8516 1.61523 14.2168C1.81641 14.9707 2.41016 15.5645 3.16211 15.7656C4.52734 16.1328 10 16.1328 10 16.1328C10 16.1328 15.4727 16.1328 16.8379 15.7656C17.5918 15.5645 18.1836 14.9707 18.3848 14.2168C18.75 12.8516 18.75 10 18.75 10C18.75 10 18.75 7.14844 18.3848 5.7832ZM8.26172 12.6172V7.38281L12.793 9.98047L8.26172 12.6172Z" />
+                </g>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__nav row">
+        <div class="footer__column col-6 col-md-3">
+          <h3 class="footer__title">Мпа</h3>
+          <ul class="footer__list">
+            <li>
+              <a href="about.html">О компании</a>
+            </li>
+            <li>
+              <a href="projects.html">Наши проекты</a>
+            </li>
+            <li>
+              <a href="branches.html">Филиалы</a>
+            </li>
+            <li>
+              <a href="rewards.html">Награды и благодарности</a>
+            </li>
+            <li>
+              <a href="vacancy.html">Вакансии</a>
+            </li>
+            <li>
+              <a href="/">Отзывы</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__column col-6 col-md-3">
+          <h3 class="footer__title">Публикации</h3>
+          <ul class="footer__list">
+            <li>
+              <a href="news.html">Новости</a>
+            </li>
+            <li>
+              <a href="/">Материалы</a>
+            </li>
+          </ul>
+          <h3 class="footer__title mt-s">оборудование</h3>
+          <ul class="footer__list">
+            <li>
+              <a href="catalog.html">Каталог медоборудования</a>
+            </li>
+            <li>
+              <a href="cabinet.html">Оснащение кабинетов</a>
+            </li>
+            <li>
+              <a href="brands.html">Производители</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__column col-6 col-md-3">
+          <h3 class="footer__title">Услуги</h3>
+          <ul class="footer__list">
+            <li>
+              <a href="engineering.html">Комплексное проектирование</a>
+            </li>
+            <li>
+              <a href="complex.html">Комплексное оснащение ЛПУ</a>
+            </li>
+            <li>
+              <a href="service.html">Сервис и ремонт</a>
+            </li>
+            <li>
+              <a href="leasing.html">Лизинг</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__column col-6 col-md-3">
+          <h3 class="footer__title">Контакты</h3>
+          <ul class="footer__list footer__list--branchs">
+            <li>
+              <address>127083, г. Москва, ул. 8 Марта,<br> д. 1, стр. 12.</address>
+              <a href="/" target="_blank">Посмотреть на карте</a>
+            </li>
+            <li>
+              <a href="tel:+74959213088" aria-label="Позвонить">+7 (495) 921-30-88</a>
+            </li>
+            <li>
+              <a href="mailto:info@mpamed.ru" aria-label="Написать на почту">info@mpamed.ru</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="row">
+          <div class="col-12 col-md-6 order-1 order-md-0">
+            <span class="footer__copy">© 2020 М.П.А. Медицинские партнеры</span>
+          </div>
+
+
+          <div class="col-12 col-md-auto col-lg-3">
+            <ul class="footer__list footer__list--conf">
+              <li>
+                <a href="/">Политика конфиденциальности</a>
+              </li>
+              <li>
+                <a href="/">Политика обработки cookie</a>
+              </li>
+              <li>
+                <a href="site-map.html">Карта сайта</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-auto col-lg-3 d-none d-md-block">
+            <ul class="footer__list footer__list--social social social--light">
+              <li>
+                <a href="/" title="Вконтакте" target="_blank" aria-label="Перейти на сайт Вконтакте">
+                  <svg width="20" height="20" viewBox="0 0 20 20">
+                    <g opacity="0.5">
+                      <path
+                        d="M17.9825 5.7125C18.0991 5.325 17.9825 5.04083 17.4308 5.04083H15.6033C15.1383 5.04083 14.9258 5.28667 14.8091 5.55667C14.8091 5.55667 13.88 7.8225 12.5633 9.29167C12.1383 9.71917 11.9441 9.85417 11.7125 9.85417C11.5966 9.85417 11.4283 9.71917 11.4283 9.33167V5.7125C11.4283 5.2475 11.2941 5.04083 10.9066 5.04083H8.03496C7.74496 5.04083 7.56996 5.25583 7.56996 5.46083C7.56996 5.90083 8.22829 6.0025 8.29579 7.2425V9.9325C8.29579 10.5217 8.18996 10.6292 7.95663 10.6292C7.33746 10.6292 5.83079 8.355 4.93663 5.75167C4.76246 5.24583 4.58663 5.04167 4.11996 5.04167H2.29329C1.77079 5.04167 1.66663 5.2875 1.66663 5.5575C1.66663 6.0425 2.28579 8.4425 4.55079 11.6167C6.06079 13.7842 8.18663 14.9592 10.1233 14.9592C11.2841 14.9592 11.4275 14.6983 11.4275 14.2483V12.61C11.4275 12.0883 11.5383 11.9833 11.9058 11.9833C12.1758 11.9833 12.6408 12.12 13.725 13.1642C14.9633 14.4025 15.1683 14.9583 15.8641 14.9583H17.6908C18.2125 14.9583 18.4733 14.6975 18.3233 14.1825C18.1591 13.67 17.5675 12.9242 16.7825 12.0417C16.3558 11.5383 15.7183 10.9967 15.5241 10.7258C15.2533 10.3767 15.3316 10.2225 15.5241 9.9125C15.525 9.91333 17.7508 6.77833 17.9825 5.7125Z" />
+                    </g>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="/" title="Facebook" target="_blank" aria-label="Перейти на сайт Facebook">
+                  <svg width="20" height="20" viewBox="0 0 20 20">
+                    <g opacity="0.5">
+                      <path
+                        d="M11.1642 17.4975V10.6675H13.4683L13.8108 7.99329H11.1642V6.28996C11.1642 5.51829 11.3792 4.98996 12.4867 4.98996H13.89V2.60579C13.2072 2.53262 12.5209 2.49729 11.8342 2.49996C9.79749 2.49996 8.39915 3.74329 8.39915 6.02579V7.98829H6.10999V10.6625H8.40415V17.4975H11.1642Z" />
+                    </g>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="/" title="Одноклассники" target="_blank" aria-label="Перейти на сайт Одноклассники">
+                  <svg width="20" height="20" viewBox="0 0 20 20">
+                    <g opacity="0.5">
+                      <path
+                        d="M9.50033 2C7.28894 2 5.49 3.85234 5.49 6.1295C5.49 8.4065 7.28894 10.258 9.50033 10.258C11.7116 10.258 13.5097 8.4065 13.5097 6.1295C13.5097 3.85234 11.7117 2 9.50033 2ZM9.50033 4.4195C10.4156 4.4195 11.1598 5.18698 11.1598 6.1295C11.1598 7.07163 10.4156 7.83851 9.50033 7.83851C8.58491 7.83851 7.83988 7.07165 7.83988 6.1295C7.83988 5.18698 8.58491 4.4195 9.50033 4.4195ZM6.194 10.3985C5.79723 10.3921 5.40706 10.5936 5.18073 10.965C4.83484 11.5309 5.00054 12.2776 5.54876 12.6335C6.2739 13.102 7.06077 13.4344 7.87679 13.626L5.63567 15.935C5.17688 16.4077 5.17726 17.1733 5.63615 17.646C5.86615 17.8819 6.16613 18 6.46686 18C6.76729 18 7.06828 17.8817 7.29758 17.6455L9.49938 15.377L11.7031 17.6455C12.1615 18.1181 12.9049 18.1181 13.3641 17.6455C13.8231 17.1731 13.8231 16.4067 13.3641 15.935L11.122 13.6265C11.9382 13.4349 12.7253 13.1023 13.45 12.6335C13.9993 12.2776 14.1652 11.5301 13.8195 10.965C13.4733 10.399 12.7485 10.2285 12.1988 10.585C10.5571 11.6485 8.44165 11.6478 6.8004 10.585C6.61148 10.4625 6.40183 10.4018 6.194 10.3985V10.3985Z" />
+                    </g>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="/" title="YouTube" target="_blank" aria-label="Перейти на сайт YouTube">
+                  <svg width="20" height="20" viewBox="0 0 20 20">
+                    <g opacity="0.5">
+                      <path
+                        d="M18.3848 5.7832C18.2851 5.41218 18.0898 5.07384 17.8184 4.80202C17.5469 4.53021 17.2088 4.33446 16.8379 4.23438C15.4727 3.86719 10 3.86719 10 3.86719C10 3.86719 4.52734 3.86719 3.16211 4.23242C2.79106 4.33219 2.45278 4.52782 2.18126 4.79969C1.90974 5.07155 1.71453 5.41007 1.61523 5.78125C1.25 7.14844 1.25 10 1.25 10C1.25 10 1.25 12.8516 1.61523 14.2168C1.81641 14.9707 2.41016 15.5645 3.16211 15.7656C4.52734 16.1328 10 16.1328 10 16.1328C10 16.1328 15.4727 16.1328 16.8379 15.7656C17.5918 15.5645 18.1836 14.9707 18.3848 14.2168C18.75 12.8516 18.75 10 18.75 10C18.75 10 18.75 7.14844 18.3848 5.7832ZM8.26172 12.6172V7.38281L12.793 9.98047L8.26172 12.6172Z" />
+                    </g>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
