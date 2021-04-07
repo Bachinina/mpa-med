@@ -6249,6 +6249,7 @@ section.category-page {
   font-size: 12px;
   line-height: 1;
   font-weight: 600;
+  cursor: pointer;
 }
 .header__fb img {
   width: 14px;
