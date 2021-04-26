@@ -196,6 +196,39 @@ $(document).ready(function () {
     customPaging: counter,
   });
 
+  $('[data-rev-slider]').each(function () {
+    const slidesCount = $(this).find('.review-slide').length;
+    $(this).slick({
+      appendArrows: $('[data-rev-slider]').closest('.slider-counter').find('.slider-counter__btns'),
+      appendDots: $('[data-rev-slider]').closest('.slider-counter').find('.slider-counter__counter'),
+      speed: 800,
+      waitForAnimate: true,
+      dots: slidesCount > 2 ? true : false,
+      prevArrow: prevArrow,
+      nextArrow: nextArrow,
+      customPaging: counter,
+      slidesToShow: 2,
+      responsive: [{
+          breakpoint: 1199,
+          settings: {
+            speed: 400,
+            focusOnSelect: false,
+            touchMove: false,
+          }
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            speed: 500,
+            slidesToShow: 1,
+            focusOnSelect: false,
+            touchMove: false,
+          }
+        }
+      ]
+    });
+  });
+
 
   const chronologies = $('[data-chronology]');
 
