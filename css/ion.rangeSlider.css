@@ -43,6 +43,7 @@ Build date: 2019-12-19 16:51:02
   box-sizing: border-box;
   cursor: default;
   z-index: 1;
+  cursor: pointer;
 }
 
 .irs-handle.type_last {
