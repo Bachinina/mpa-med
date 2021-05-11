@@ -6628,16 +6628,16 @@ section.category-page {
     margin-top: 24px;
   }
 }
-.leas-calc {
+.leas-calc-wrap {
   margin-top: 56px;
 }
 @media (max-width: 1199px) {
-  .leas-calc {
+  .leas-calc-wrap {
     margin-top: 40px;
   }
 }
 @media (max-width: 767px) {
-  .leas-calc {
+  .leas-calc-wrap {
     margin-top: 32px;
   }
 }
@@ -6732,6 +6732,15 @@ section.category-page {
   .leasing-calc-modal__title {
     font-size: 18px;
   }
+}
+.leas-calc .irs-handle.from {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+  visibility: hidden;
+}
+.leas-calc .irs-bar {
+  left: 0 !important;
 }
 .header {
   -webkit-box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12);
