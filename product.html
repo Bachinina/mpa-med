@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="css/bootstrap-grid.css">
   <link rel="stylesheet" href="css/slick.css">
   <link rel="stylesheet" href="css/fancybox.css">
+  <!-- Стили для калькулятора -->
+  <link rel="stylesheet" href="css/ion.rangeSlider.css">
+  <!-- Стили для калькулятора -->
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
@@ -1665,7 +1668,7 @@
             <div class="product__btns">
               <button class="btn btn-bg" data-modal="#modal-thnk">Запросить цену</button>
               <!-- <a href="/" class="btn btn-bg" data-modal="#modal-thnk">Купить в нашем интернет-магазине</a> -->
-              <button class="btn">Купить в лизинг</button>
+              <button class="btn" data-modal="#leasing-calc">Купить в лизинг</button>
               <button class="btn">Заказать сервис</button>
             </div>
 
@@ -2406,6 +2409,153 @@
     <!-- Новости -->
   </main>
 
+  <!-- Калькулятор - Лизинг -->
+  <section class="modal leasing-calc-modal" id="leasing-calc">
+    <h2 class="visually-hidden">Рассчитайте стоимость лизинга</h2>
+    <div class="modal__wrapper">
+      <div class="modal__container">
+
+        <div class="modal__top">
+          <div class="modal__desc">
+            <p class="leasing-calc-modal__title modal__title" aria-hidden="true">Рассчитайте стоимость лизинга</p>
+          </div>
+          <button class="modal__close" data-modal-close type="button"></button>
+        </div>
+
+
+        <form class="modal__block modal__form form" method="POST" action="/">
+
+          <div class="row">
+            <div class="col-12">
+              <div class="range-line-wrap">
+                <div class="range-line-title">
+                  Стоимость имущества
+                </div>
+
+
+                <div class="range-line__input simple">
+                  <input data-input-price
+                    data-inputmask="'alias': 'numeric', 'groupSeparator': ' ', 'digits': 2, 'digitsOptional': false, 'placeholder': '0,00', 'radixPoint': ','"
+                    inputmode="decimal" autocomplete="off" readonly>
+                  <span class="range-line__input-icon">₽</span>
+                </div>
+
+                <!-- Скрытое поле, в него пишется результат -->
+                <input data-range-line-hidden type="hidden" name="calc-price" id="calc-price" value="5000000">
+              </div>
+
+              <div class="range-line-wrap">
+                <div class="range-line-title">
+                  Первоначальный взнос
+                </div>
+
+                <div class="range-line" data-range-line>
+                  <div class="range-line__input">
+                    <input data-range-line-input data-input-percent type="number" max="50" autocomplete="off">
+                    <span class="range-line__input-icon">%</span>
+                  </div>
+
+                  <input class="range-line__slider js-range-slider" data-range-line-slider type="text" name="my_range"
+                    value="" data-type="double" data-skin="round" data-min="0" data-max="50" data-from="0" data-to="20"
+                    data-step="1" data-from-fixed="true" data-hide-min-max="true" data-hide-from-to="true"
+                    data-force-edges="true" />
+
+                  <!-- Скрытое поле, в него пишется результат -->
+                  <input data-range-line-hidden type="hidden" name="calc-per" id="calc-per" value="20">
+                </div>
+
+                <div class="range-line-values">
+                  <span>0 %</span>
+                  <span>50 %</span>
+                </div>
+              </div>
+
+              <div class="range-line-wrap">
+                <div class="range-line-title">
+                  Срок договора
+                </div>
+
+                <div class="range-line" data-range-line>
+                  <div class="range-line__input">
+                    <input data-range-line-input data-input-diap type="number" min="12" max="36" autocomplete="off"
+                      onblur="if((this).value < 12){(this).value='12'}">
+                    <span class="range-line__input-icon">мес</span>
+                  </div>
+
+                  <input class="range-line__slider js-range-slider" data-range-line-slider type="text" name="my_range"
+                    value="" data-type="double" data-skin="round" data-min="12" data-max="36" data-from="12"
+                    data-to="24" data-step="1" data-from-fixed="true" data-hide-min-max="true" data-hide-from-to="true"
+                    data-force-edges="true" />
+
+                  <!-- Скрытое поле, в него пишется результат -->
+                  <input data-range-line-hidden type="hidden" name="calc-month" id="calc-month" value="24">
+                </div>
+
+                <div class="range-line-values">
+                  <span>12 месяцев</span>
+                  <span>36 месяцев</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 ">
+              <div class="leas-calc__result mt-s">
+                <div class="leas-calc__container">
+                  <h3 class="leas-calc__title">Результаты расчета</h3>
+                  <ul class="leas-calc__table list-t">
+                    <li class="leas-calc__res">
+                      <div class="t-head"><span>Ежемесячный платеж</span> </div>
+                      <div class="leas-calc__res-price  t-value">206 014,00 ₽</div>
+                    </li>
+                    <!-- Это поле я добавила, можно убрать -->
+                    <li>
+                      <div class="t-head"><span>Первоначальный взнос</span> </div>
+                      <div class="t-value">101 021,00 ₽</div>
+                    </li>
+                    <!-- Это поле я добавила, можно убрать -->
+                    <li>
+                      <div class="t-head"><span>Сумма договора лизинга</span> </div>
+                      <div class="t-value">5 944 336,00 ₽</div>
+                    </li>
+                    <li>
+                      <div class="t-head"><span>Выкупной платёж</span> </div>
+                      <div class="t-value">5 000,00 ₽</div>
+                    </li>
+                    <li>
+                      <div class="t-head"><span>Итого по договору лизинга</span> </div>
+                      <div class="t-value">5 945 336,00 ₽</div>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="leas-calc__bottom">
+                  <div class="leas-calc__container">
+                    <p>Данное лизинговое предложение не является офертой (ст.435 ГК РФ), не является публичной офертой
+                      (ст.437 ГК РФ) и не влечет за собой обязательств ООО «М.П.А. медицинские партнеры - ЛИЗИНГ» по
+                      заключению договора на условиях настоящего предложения. Окончательные условия сотрудничества
+                      закрепляются в договоре.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="form__footer">
+            <div class="form__checkboxes">
+              <div class="form__checkbox">
+                <input type="checkbox" id="modal-ok" name="modal-ok" checked="">
+                <label for="modal-ok">Перезвонить мне для подтверждения заказа</label>
+              </div>
+            </div>
+            <button class="form__btn btn btn-bg" type="submit">Запросить договор</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+  <!-- Калькулятор - Лизинг -->
+
   <section class="modal" id="modal-incongruity">
     <h2 class="visually-hidden">Сообщить о неточности в описании</h2>
     <div class="modal__wrapper">
@@ -2788,6 +2938,23 @@
   <script src="js/fancybox.js"></script>
   <script src="js/slick.js"></script>
   <script src="js/sliders.js"></script>
+
+  <!-- Скрипт для калькулятора -->
+  <script src="js/debounce.js"></script>
+  <script src="js/jquery.inputmask.min.js"></script>
+  <script src="js/ion.rangeSlider.min.js"></script>
+  <script src="js/leasing-calc-settings.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      // Цена - это обязательный скрипт
+      $('[data-input-price]').inputmask();
+      $('[data-input-price]').inputmask("setvalue", 5000000);
+    });
+
+  </script>
+  <!-- Скрипт для калькулятора -->
+
   <script src="js/main.js"></script>
 
 </body>
